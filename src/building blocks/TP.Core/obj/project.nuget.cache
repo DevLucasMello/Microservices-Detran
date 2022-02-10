@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "b02gyMD65As5ol3G8bJi2vgMEQNJMtS7UByBWaTl1iR2QallHBltHNryjsZxi6EuJN2C5VVSdlFSkWVq9+zcNA==",
+  "success": true,
+  "projectFilePath": "C:\\dev\\TestePadrao\\src\\building blocks\\TP.Core\\TP.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
