@@ -13,24 +13,28 @@ using System.Linq;
 using System.Collections.Generic;
 using TP.WebAPI.Core.Identidade;
 using TP.WebAPI.Core.Controllers;
+using TP.MessageBus;
 
 namespace TP.Identidade.API.Configuration
-{    
+{
     [Route("api/identidade")]
     public class AuthController : MainController
     {
-        public readonly SignInManager<IdentityUser> _signInManager;
-        public readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
 
-        public AuthController(
-            SignInManager<IdentityUser> signInManager, 
-            UserManager<IdentityUser> userManager, 
-            IOptions<AppSettings> appSettings)
+        private readonly IMessageBus _bus;
+
+        public AuthController(SignInManager<IdentityUser> signInManager,
+                              UserManager<IdentityUser> userManager,
+                              IOptions<AppSettings> appSettings,
+                              IMessageBus bus)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
+            _bus = bus;
         }
 
         [HttpPost("nova-conta")]
@@ -48,14 +52,10 @@ namespace TP.Identidade.API.Configuration
             var result = await _userManager.CreateAsync(user, usuarioRegistro.Senha);
 
             if (result.Succeeded)
-            {                
-                return CustomResponse(await GerarJwt(usuarioRegistro.Email));
-            }
+                return CustomResponse(await GerarJwt(usuarioRegistro.Email));            
 
             foreach (var error in result.Errors)
-            {
-                AdicionarErroProcessamento(error.Description);
-            }
+                AdicionarErroProcessamento(error.Description);            
 
             return CustomResponse();
         }
@@ -65,12 +65,12 @@ namespace TP.Identidade.API.Configuration
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            var result = await _signInManager.PasswordSignInAsync(usuarioLogin.Email, usuarioLogin.Senha, false, true);
+            var result = await _signInManager.PasswordSignInAsync(usuarioLogin.Email, usuarioLogin.Senha,
+                false, true);
 
             if (result.Succeeded)
-            {                
                 return CustomResponse(await GerarJwt(usuarioLogin.Email));
-            }
+            
 
             if (result.IsLockedOut)
             {
@@ -80,7 +80,7 @@ namespace TP.Identidade.API.Configuration
 
             AdicionarErroProcessamento("Usuário ou Senha incorretos");
             return CustomResponse();
-        }        
+        }
 
         private async Task<UsuarioRespostaLogin> GerarJwt(string email)
         {
@@ -101,8 +101,7 @@ namespace TP.Identidade.API.Configuration
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Nbf, ToUnixEpochDate(DateTime.UtcNow).ToString()));
-            claims.Add(new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(DateTime.UtcNow).ToString(),
-                ClaimValueTypes.Integer64));
+            claims.Add(new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(DateTime.UtcNow).ToString(), ClaimValueTypes.Integer64));
             foreach (var userRole in userRoles)
             {
                 claims.Add(new Claim("role", userRole));
@@ -130,13 +129,12 @@ namespace TP.Identidade.API.Configuration
             return tokenHandler.WriteToken(token);
         }
 
-        private UsuarioRespostaLogin ObterRespostaToken(string encodedToken, IdentityUser user,
-            IEnumerable<Claim> claims)
+        private UsuarioRespostaLogin ObterRespostaToken(string encodedToken, IdentityUser user, IEnumerable<Claim> claims)
         {
             return new UsuarioRespostaLogin
             {
                 AccessToken = encodedToken,
-                ExpiresIn = TimeSpan.FromHours(1).TotalSeconds,
+                ExpiresIn = TimeSpan.FromHours(_appSettings.ExpiracaoHoras).TotalSeconds,
                 UsuarioToken = new UsuarioToken
                 {
                     Id = user.Id,
@@ -147,7 +145,6 @@ namespace TP.Identidade.API.Configuration
         }
 
         private static long ToUnixEpochDate(DateTime date)
-           => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero))
-               .TotalSeconds);
+            => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalSeconds);        
     }
 }

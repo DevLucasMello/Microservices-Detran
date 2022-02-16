@@ -71,3 +71,12 @@ C:\dev\TestePadrao\src\services\TP.Identidade.API\obj\Debug\net5.0\TP.Identidade
 C:\dev\TestePadrao\src\services\TP.Identidade.API\obj\Debug\net5.0\ref\TP.Identidade.API.dll
 C:\dev\TestePadrao\src\services\TP.Identidade.API\obj\Debug\net5.0\TP.Identidade.API.pdb
 C:\dev\TestePadrao\src\services\TP.Identidade.API\obj\Debug\net5.0\TP.Identidade.API.genruntimeconfig.cache
+C:\dev\TestePadrao\src\services\TP.Identidade.API\bin\Debug\net5.0\EasyNetQ.dll
+C:\dev\TestePadrao\src\services\TP.Identidade.API\bin\Debug\net5.0\MediatR.dll
+C:\dev\TestePadrao\src\services\TP.Identidade.API\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\dev\TestePadrao\src\services\TP.Identidade.API\bin\Debug\net5.0\Polly.dll
+C:\dev\TestePadrao\src\services\TP.Identidade.API\bin\Debug\net5.0\RabbitMQ.Client.dll
+C:\dev\TestePadrao\src\services\TP.Identidade.API\bin\Debug\net5.0\TP.Core.dll
+C:\dev\TestePadrao\src\services\TP.Identidade.API\bin\Debug\net5.0\TP.MessageBus.dll
+C:\dev\TestePadrao\src\services\TP.Identidade.API\bin\Debug\net5.0\TP.MessageBus.pdb
+C:\dev\TestePadrao\src\services\TP.Identidade.API\bin\Debug\net5.0\TP.Core.pdb

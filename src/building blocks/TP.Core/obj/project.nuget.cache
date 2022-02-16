@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "b02gyMD65As5ol3G8bJi2vgMEQNJMtS7UByBWaTl1iR2QallHBltHNryjsZxi6EuJN2C5VVSdlFSkWVq9+zcNA==",
+  "dgSpecHash": "4eEozlx49Hc2HaxIhdvU5O8K7terxriArPAUh+CZK66fM7cjzgNRPJ4fFPOeFlTIim8TlJvx05LfphhJG+ejRA==",
   "success": true,
   "projectFilePath": "C:\\dev\\TestePadrao\\src\\building blocks\\TP.Core\\TP.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
-    "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512"
+    "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

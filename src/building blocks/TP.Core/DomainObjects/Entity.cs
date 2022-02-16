@@ -33,6 +33,7 @@ namespace TP.Core.DomainObjects
         }
 
         #region Comparações
+
         public override bool Equals(object obj)
         {
             var compareTo = obj as Entity;
@@ -68,6 +69,7 @@ namespace TP.Core.DomainObjects
         {
             return $"{GetType().Name} [Id={Id}]";
         }
+
         #endregion
     }
 }

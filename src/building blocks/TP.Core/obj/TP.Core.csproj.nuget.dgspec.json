@@ -48,6 +48,14 @@
               "target": "Package",
               "version": "[10.3.6, )"
             },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "mediatr": {
               "target": "Package",
               "version": "[9.0.0, )"
