@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("e729b3fc-36fd-4cd0-a6f6-77fbbad8cd79")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("TP.Condutores.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

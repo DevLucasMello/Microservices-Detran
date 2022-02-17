@@ -29,9 +29,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP.Identidade.API", "src\se
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MessageBus", "MessageBus", "{9237A6B8-1976-4AD5-AF98-548FA94B0D71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP.MessageBus", "src\building blocks\TP.MessageBus\TP.MessageBus.csproj", "{04E7DCCF-8C12-4F25-A881-EC0495FFFC2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP.MessageBus", "src\building blocks\TP.MessageBus\TP.MessageBus.csproj", "{04E7DCCF-8C12-4F25-A881-EC0495FFFC2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP.Condutores.API", "src\services\TP.Condutores.API\TP.Condutores.API.csproj", "{3A996EC6-F690-49E5-96CC-E41C375563A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP.Condutores.API", "src\services\TP.Condutores.API\TP.Condutores.API.csproj", "{3A996EC6-F690-49E5-96CC-E41C375563A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP.Condutores.Domain", "src\services\TP.Condutores.Domain\TP.Condutores.Domain.csproj", "{BF286998-9B57-4668-ADCE-59CD8C248A0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP.Condutores.Application", "src\services\TP.Condutores.Application\TP.Condutores.Application.csproj", "{EA1CF94A-F93F-4D1E-AB9E-927C05FFFB16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP.Condutores.Infra", "src\services\TP.Condutores.Infra\TP.Condutores.Infra.csproj", "{BA7F0448-7FD0-4A67-9A28-5123C9242A49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +65,18 @@ Global
 		{3A996EC6-F690-49E5-96CC-E41C375563A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A996EC6-F690-49E5-96CC-E41C375563A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A996EC6-F690-49E5-96CC-E41C375563A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF286998-9B57-4668-ADCE-59CD8C248A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF286998-9B57-4668-ADCE-59CD8C248A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF286998-9B57-4668-ADCE-59CD8C248A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF286998-9B57-4668-ADCE-59CD8C248A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA1CF94A-F93F-4D1E-AB9E-927C05FFFB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA1CF94A-F93F-4D1E-AB9E-927C05FFFB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA1CF94A-F93F-4D1E-AB9E-927C05FFFB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA1CF94A-F93F-4D1E-AB9E-927C05FFFB16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA7F0448-7FD0-4A67-9A28-5123C9242A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA7F0448-7FD0-4A67-9A28-5123C9242A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA7F0448-7FD0-4A67-9A28-5123C9242A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA7F0448-7FD0-4A67-9A28-5123C9242A49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +96,9 @@ Global
 		{9237A6B8-1976-4AD5-AF98-548FA94B0D71} = {7560569E-C12B-45A6-9DE9-A2729212FAFC}
 		{04E7DCCF-8C12-4F25-A881-EC0495FFFC2D} = {9237A6B8-1976-4AD5-AF98-548FA94B0D71}
 		{3A996EC6-F690-49E5-96CC-E41C375563A0} = {F93D690E-607A-4030-A729-626AE03BCF7E}
+		{BF286998-9B57-4668-ADCE-59CD8C248A0C} = {F93D690E-607A-4030-A729-626AE03BCF7E}
+		{EA1CF94A-F93F-4D1E-AB9E-927C05FFFB16} = {F93D690E-607A-4030-A729-626AE03BCF7E}
+		{BA7F0448-7FD0-4A67-9A28-5123C9242A49} = {F93D690E-607A-4030-A729-626AE03BCF7E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E49F67EA-3833-4F5A-85C7-0FFAD5E9727A}

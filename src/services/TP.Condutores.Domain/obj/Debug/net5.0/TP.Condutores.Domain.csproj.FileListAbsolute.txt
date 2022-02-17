@@ -1,0 +1,15 @@
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\bin\Debug\net5.0\TP.Condutores.Domain.deps.json
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\bin\Debug\net5.0\TP.Condutores.Domain.dll
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\bin\Debug\net5.0\ref\TP.Condutores.Domain.dll
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\bin\Debug\net5.0\TP.Condutores.Domain.pdb
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\bin\Debug\net5.0\TP.Core.dll
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\bin\Debug\net5.0\TP.Core.pdb
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\obj\Debug\net5.0\TP.Condutores.Domain.csproj.AssemblyReference.cache
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\obj\Debug\net5.0\TP.Condutores.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\obj\Debug\net5.0\TP.Condutores.Domain.AssemblyInfoInputs.cache
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\obj\Debug\net5.0\TP.Condutores.Domain.AssemblyInfo.cs
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\obj\Debug\net5.0\TP.Condutores.Domain.csproj.CoreCompileInputs.cache
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\obj\Debug\net5.0\TP.Condutores.Domain.csproj.CopyComplete
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\obj\Debug\net5.0\TP.Condutores.Domain.dll
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\obj\Debug\net5.0\ref\TP.Condutores.Domain.dll
+C:\dev\TestePadrao\src\services\TP.Condutores.Domain\obj\Debug\net5.0\TP.Condutores.Domain.pdb
