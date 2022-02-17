@@ -9,4 +9,3 @@ C:\dev\TestePadrao\src\building blocks\TP.WebAPI.Core\obj\Debug\net5.0\TP.WebAPI
 C:\dev\TestePadrao\src\building blocks\TP.WebAPI.Core\obj\Debug\net5.0\TP.WebAPI.Core.dll
 C:\dev\TestePadrao\src\building blocks\TP.WebAPI.Core\obj\Debug\net5.0\ref\TP.WebAPI.Core.dll
 C:\dev\TestePadrao\src\building blocks\TP.WebAPI.Core\obj\Debug\net5.0\TP.WebAPI.Core.pdb
-C:\dev\TestePadrao\src\building blocks\TP.WebAPI.Core\obj\Debug\net5.0\TP.WebAPI.Core.csproj.AssemblyReference.cache

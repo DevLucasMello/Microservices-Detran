@@ -14,9 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
     <Folder Include="DTO\" />
-    <Folder Include="Events\" />
     <Folder Include="Queries\" />
   </ItemGroup>
 

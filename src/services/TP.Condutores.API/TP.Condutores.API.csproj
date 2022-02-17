@@ -21,8 +21,4 @@
     <ProjectReference Include="..\TP.Condutores.Application\TP.Condutores.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
