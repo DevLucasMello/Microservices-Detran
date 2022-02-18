@@ -37,5 +37,13 @@ namespace TP.Condutores.Domain
 
             _veiculo.Add(pl);
         }
+
+        public void AtualizarPlaca(Guid veiculoId, string placa)
+        {
+            _veiculo.ForEach(v => 
+            {
+                if (v.Id == veiculoId) v.AtualizarPlaca(placa);
+            });
+        }
     }
 }

@@ -42,12 +42,17 @@ namespace TP.Condutores.Infra.Data.Repository
 
         public async Task<Condutor> ObterPorId(Guid id)
         {
-            return await _context.Condutores.FirstOrDefaultAsync(c => c.Id == id);
+            return await _context.Condutores.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public async Task<Condutor> ObterPorCPF(string cpf)
         {
-            return await _context.Condutores.FirstOrDefaultAsync(c => c.CPF == cpf);
+            return await _context.Condutores.AsNoTracking().FirstOrDefaultAsync(c => c.CPF == cpf);
+        }
+
+        public async Task<VeiculoCondutor> ObterVeiculoId(Guid veiculoId)
+        {
+            return await _context.Veiculos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == veiculoId);
         }
 
         public void Adicionar(Condutor condutor)

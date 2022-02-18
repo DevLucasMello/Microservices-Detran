@@ -11,6 +11,7 @@ namespace TP.Condutores.Domain
         Task<IEnumerable<Condutor>> ObterCondutoresPorPlaca(string placa);
         Task<Condutor> ObterPorId(Guid id);
         Task<Condutor> ObterPorCPF(string cpf);
+        Task<VeiculoCondutor> ObterVeiculoId(Guid veiculoId);
         void Adicionar(Condutor condutor);
         void Atualizar(Condutor condutor);
         void Excluir(Condutor condutor);       

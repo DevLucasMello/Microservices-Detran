@@ -6,8 +6,9 @@ using TP.Core.Utils;
 
 namespace TP.Condutores.Application.Commands
 {
-    public class AdicionarCondutorCommand : Command
+    public class AtualizarCondutorCommand : Command
     {
+        public Guid Id { get; set; }
         public Nome Nome { get; set; }
         public string CPF { get; set; }
         public string Telefone { get; set; }
@@ -15,8 +16,10 @@ namespace TP.Condutores.Application.Commands
         public string CNH { get; set; }
         public DateTime DataNascimento { get; set; }
 
-        public AdicionarCondutorCommand(Nome nome, string cpf, string telefone, string email, string cnh, DateTime dataNascimento)
+        public AtualizarCondutorCommand(Guid id, Nome nome, string cpf, string telefone, string email, string cnh, DateTime dataNascimento)
         {
+            Id = id;
+            AggregateId = id;
             Nome = nome;
             CPF = cpf;
             Telefone = telefone;
@@ -27,14 +30,18 @@ namespace TP.Condutores.Application.Commands
 
         public override bool EhValido()
         {
-            ValidationResult = new AdicionarCondutorValidation().Validate(this);
+            ValidationResult = new AtualizarCondutorValidation().Validate(this);
             return ValidationResult.IsValid;
         }
 
-        public class AdicionarCondutorValidation : AbstractValidator<AdicionarCondutorCommand>
-        {            
-            public AdicionarCondutorValidation()
+        public class AtualizarCondutorValidation : AbstractValidator<AtualizarCondutorCommand>
+        {
+            public AtualizarCondutorValidation()
             {
+                RuleFor(c => c.Id)
+                    .NotEqual(Guid.Empty)
+                    .WithMessage("Id do condutor inválido");
+
                 RuleFor(n => n.Nome.PrimeiroNome)
                     .NotEmpty()
                     .WithMessage("O primeiro nome não foi informado")
@@ -74,7 +81,7 @@ namespace TP.Condutores.Application.Commands
                     .WithMessage("A Data de Nascimento deve ser informada")
                     .Must(MethodsUtils.CondutorMaiorDeIdade)
                     .WithMessage("O Condutor deve ter no mínimo 18 anos");
-            }            
+            }
         }
     }
 }

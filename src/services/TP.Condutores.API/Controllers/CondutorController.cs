@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using TP.Condutores.Application.Commands;
 using TP.Condutores.Application.ViewModels;
@@ -22,10 +23,23 @@ namespace TP.Condutores.API.Controllers
         }
 
         [HttpPost("condutor")]
-        public async Task<IActionResult> AdicionarPedido(AdicionarCondutorViewModel condutorViewModel)
+        public async Task<IActionResult> AdicionarCondutor(AdicionarCondutorViewModel condutorViewModel)
         {
             var condutor = _mapper.Map<AdicionarCondutorCommand>(condutorViewModel);
             return CustomResponse(await _mediator.EnviarComando(condutor));
+        }
+
+        [HttpPut("condutor/{id}")]
+        public async Task<IActionResult> AtualizarCondutor(Guid id, AtualizarCondutorViewModel condutorViewModel)
+        {
+            var condutor = _mapper.Map<AtualizarCondutorCommand>(condutorViewModel);
+            return CustomResponse(await _mediator.EnviarComando(condutor));
+        }
+
+        [HttpDelete("condutor/{id}")]
+        public async Task<IActionResult> ExcluirCondutor(Guid id)
+        {            
+            return CustomResponse(await _mediator.EnviarComando(new ExcluirCondutorCommand(id)));
         }
     }
 }

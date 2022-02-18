@@ -9,3 +9,4 @@ C:\dev\TestePadrao\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.csproj.C
 C:\dev\TestePadrao\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.dll
 C:\dev\TestePadrao\src\building blocks\TP.Core\obj\Debug\net5.0\ref\TP.Core.dll
 C:\dev\TestePadrao\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.pdb
+C:\dev\TestePadrao\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.csproj.AssemblyReference.cache

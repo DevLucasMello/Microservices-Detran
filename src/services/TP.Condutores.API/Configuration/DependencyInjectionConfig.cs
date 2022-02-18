@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using TP.Condutores.Application.AutoMapper;
 using TP.Condutores.Application.Commands;
 using TP.Condutores.Application.Events;
-using TP.Condutores.Application.ViewModels;
 using TP.Condutores.Domain;
 using TP.Condutores.Infra.Data;
 using TP.Condutores.Infra.Data.Repository;
@@ -29,9 +28,13 @@ namespace TP.Identidade.API.Configuration
 
             // Commands
             services.AddScoped<IRequestHandler<AdicionarCondutorCommand, ValidationResult>, CondutorCommandHandler>();
+            services.AddScoped<IRequestHandler<AtualizarCondutorCommand, ValidationResult>, CondutorCommandHandler>();
+            services.AddScoped<IRequestHandler<AtualizarCondutorVeiculoCommand, ValidationResult>, CondutorCommandHandler>();
+            services.AddScoped<IRequestHandler<ExcluirCondutorCommand, ValidationResult>, CondutorCommandHandler>();
 
             // Events
             services.AddScoped<INotificationHandler<CondutorRegistradoEvent>, CondutorEventHandler>();
+            services.AddScoped<INotificationHandler<CondutorAtualizadoEvent>, CondutorEventHandler>();
 
             // Application
             services.AddScoped<IMediatorHandler, MediatorHandler>();
@@ -41,7 +44,8 @@ namespace TP.Identidade.API.Configuration
             services.AddScoped<CondutoresContext>();
 
             // AutoMapper
-            services.AddAutoMapper(typeof(AdicionarCondutorCommandToViewModel), typeof(ViewModelToAdicionarCondutorCommand));            
+            services.AddAutoMapper(typeof(AdicionarCondutorCommandToViewModel), typeof(ViewModelToAdicionarCondutorCommand));
+            services.AddAutoMapper(typeof(AtualizarCondutorCommandToViewModel), typeof(ViewModelToAtualizarCondutorCommand));
         }
     }
 }
