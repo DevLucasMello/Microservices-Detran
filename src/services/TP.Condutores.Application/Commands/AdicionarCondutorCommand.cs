@@ -14,7 +14,16 @@ namespace TP.Condutores.Application.Commands
         public string Email { get; set; }
         public string CNH { get; set; }
         public DateTime DataNascimento { get; set; }
-        public Guid VeiculoId { get; set; }
+
+        public AdicionarCondutorCommand(Nome nome, string cpf, string telefone, string email, string cnh, DateTime dataNascimento)
+        {
+            Nome = nome;
+            CPF = cpf;
+            Telefone = telefone;
+            Email = email;
+            CNH = cnh;
+            DataNascimento = dataNascimento;
+        }
 
         public override bool EhValido()
         {

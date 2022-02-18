@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TP.Condutores.Application.AutoMapper;
 using TP.Condutores.Application.Commands;
 using TP.Condutores.Application.Events;
+using TP.Condutores.Application.ViewModels;
 using TP.Condutores.Domain;
 using TP.Condutores.Infra.Data;
 using TP.Condutores.Infra.Data.Repository;
@@ -37,6 +39,9 @@ namespace TP.Identidade.API.Configuration
             // Data
             services.AddScoped<ICondutorRepository, CondutorRepository>();
             services.AddScoped<CondutoresContext>();
+
+            // AutoMapper
+            services.AddAutoMapper(typeof(AdicionarCondutorCommandToViewModel), typeof(ViewModelToAdicionarCondutorCommand));            
         }
     }
 }

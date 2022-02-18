@@ -15,9 +15,10 @@ namespace TP.Condutores.Domain
         public VeiculoCondutor(string placa)
         {            
             Placa = placa;
+            _condutor ??= new List<Condutor>();
         }
 
         // EF Rel.
-        protected VeiculoCondutor() { }        
+        protected VeiculoCondutor() { }
     }
 }

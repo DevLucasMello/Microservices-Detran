@@ -78,3 +78,9 @@ C:\dev\TestePadrao\src\services\TP.Condutores.API\bin\Debug\net5.0\TP.Condutores
 C:\dev\TestePadrao\src\services\TP.Condutores.API\bin\Debug\net5.0\TP.Condutores.Infra.pdb
 C:\dev\TestePadrao\src\services\TP.Condutores.API\bin\Debug\net5.0\Humanizer.dll
 C:\dev\TestePadrao\src\services\TP.Condutores.API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\dev\TestePadrao\src\services\TP.Condutores.API\bin\Debug\net5.0\AutoMapper.dll
+C:\dev\TestePadrao\src\services\TP.Condutores.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\dev\TestePadrao\src\services\TP.Condutores.API\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\dev\TestePadrao\src\services\TP.Condutores.API\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\dev\TestePadrao\src\services\TP.Condutores.API\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\dev\TestePadrao\src\services\TP.Condutores.API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
