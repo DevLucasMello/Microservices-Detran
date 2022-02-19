@@ -11,8 +11,9 @@ namespace TP.Condutores.Application.Commands
     public class CondutorCommandHandler : CommandHandler,
         IRequestHandler<AdicionarCondutorCommand, ValidationResult>,
         IRequestHandler<AtualizarCondutorCommand, ValidationResult>,
-        IRequestHandler<AtualizarCondutorVeiculoCommand, ValidationResult>,
-        IRequestHandler<ExcluirCondutorCommand, ValidationResult>
+        IRequestHandler<AtualizarVeiculoCondutorCommand, ValidationResult>,
+        IRequestHandler<ExcluirCondutorCommand, ValidationResult>,
+        IRequestHandler<ExcluirVeiculoCondutorCommand, ValidationResult>
     {
         private readonly ICondutorRepository _condutorRepository;
 
@@ -54,19 +55,18 @@ namespace TP.Condutores.Application.Commands
                 return ValidationResult;
             }
 
-            var condutor = new Condutor(message.Nome, message.CPF, message.Telefone, message.Email, message.CNH, message.DataNascimento)
+            var condutor = new Condutor(message.Nome, condutorExistente.CPF, message.Telefone, message.Email, message.CNH, message.DataNascimento)
             {
                 Id = message.Id
             };
 
             _condutorRepository.Atualizar(condutor);
 
-            condutor.AdicionarEvento(new CondutorAtualizadoEvent(message.Id, message.CPF));
-
             return await PersistirDados(_condutorRepository.UnitOfWork);
         }
 
-        public async Task<ValidationResult> Handle(AtualizarCondutorVeiculoCommand message, CancellationToken cancellationToken)
+        // ** Esperar Mensagem na Fila [AtualizarVeiculoCondutorIntegrationEvent] **
+        public async Task<ValidationResult> Handle(AtualizarVeiculoCondutorCommand message, CancellationToken cancellationToken)
         {
             if (!message.EhValido()) return message.ValidationResult;
 
@@ -78,11 +78,15 @@ namespace TP.Condutores.Application.Commands
                 return ValidationResult;
             }
 
-            AtualizarCondutorVeiculo(message, condutor);
+            AdicionarCondutorVeiculo(message, condutor);
 
             _condutorRepository.Atualizar(condutor);
 
-            return await PersistirDados(_condutorRepository.UnitOfWork);
+            var result = await PersistirDados(_condutorRepository.UnitOfWork);
+
+            //if (result.Errors.Count > 0) _mediatorHandler.PublicarEvento(); ** Adicionar Mensagem na Fila [RemoverCondutorVeiculoIntegrationEvent] **
+
+            return result;
         }
 
         public async Task<ValidationResult> Handle(ExcluirCondutorCommand message, CancellationToken cancellationToken)
@@ -108,9 +112,39 @@ namespace TP.Condutores.Application.Commands
             return await PersistirDados(_condutorRepository.UnitOfWork);
         }
 
-        private void AtualizarCondutorVeiculo(AtualizarCondutorVeiculoCommand message, Condutor condutor)
+        // ** Esperar Mensagem na Fila [RemoverVeiculoCondutorIntegrationEvent] **
+        public async Task<ValidationResult> Handle(ExcluirVeiculoCondutorCommand message, CancellationToken cancellationToken)
         {
-            condutor.AtualizarPlaca(message.CondutorId, message.Placa);
+            if (!message.EhValido()) return message.ValidationResult;
+
+            var condutor = await _condutorRepository.ObterPorId(message.CondutorId);
+
+            if (condutor == null)
+            {
+                AdicionarErro("Condutor não encontrado.");
+                return ValidationResult;
+            }
+
+            if (condutor.Veiculo == null)
+            {
+                AdicionarErro("Condutor não possui veículo cadastrado.");
+                return ValidationResult;
+            }
+
+            var veiculo = await _condutorRepository.ObterVeiculoId(message.VeiculoId);
+
+            condutor.RemoverVeiculo(veiculo, condutor);
+
+            var result = await PersistirDados(_condutorRepository.UnitOfWork);
+
+            //if (result.Errors.Count > 0) _mediatorHandler.PublicarEvento(); ** Adicionar Mensagem na Fila [AdicionarCondutorVeiculoIntegrationEvent] **
+
+            return result;
+        }
+
+        private void AdicionarCondutorVeiculo(AtualizarVeiculoCondutorCommand message, Condutor condutor)
+        {
+            condutor.AdicionarVeiculo(message.CondutorId, message.VeiculoId, message.Placa);
         }
     }
 }

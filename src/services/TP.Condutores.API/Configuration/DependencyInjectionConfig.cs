@@ -29,12 +29,12 @@ namespace TP.Identidade.API.Configuration
             // Commands
             services.AddScoped<IRequestHandler<AdicionarCondutorCommand, ValidationResult>, CondutorCommandHandler>();
             services.AddScoped<IRequestHandler<AtualizarCondutorCommand, ValidationResult>, CondutorCommandHandler>();
-            services.AddScoped<IRequestHandler<AtualizarCondutorVeiculoCommand, ValidationResult>, CondutorCommandHandler>();
+            services.AddScoped<IRequestHandler<AtualizarVeiculoCondutorCommand, ValidationResult>, CondutorCommandHandler>();
             services.AddScoped<IRequestHandler<ExcluirCondutorCommand, ValidationResult>, CondutorCommandHandler>();
+            services.AddScoped<IRequestHandler<ExcluirVeiculoCondutorCommand, ValidationResult>, CondutorCommandHandler>();
 
             // Events
             services.AddScoped<INotificationHandler<CondutorRegistradoEvent>, CondutorEventHandler>();
-            services.AddScoped<INotificationHandler<CondutorAtualizadoEvent>, CondutorEventHandler>();
 
             // Application
             services.AddScoped<IMediatorHandler, MediatorHandler>();

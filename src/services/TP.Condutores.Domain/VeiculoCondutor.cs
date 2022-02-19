@@ -12,8 +12,9 @@ namespace TP.Condutores.Domain
         private readonly List<Condutor> _condutor;
         public IReadOnlyCollection<Condutor> Condutor => _condutor;
 
-        public VeiculoCondutor(string placa)
-        {            
+        public VeiculoCondutor(Guid condutorId, string placa)
+        {
+            CondutorId = condutorId;
             Placa = placa;
             _condutor ??= new List<Condutor>();
         }

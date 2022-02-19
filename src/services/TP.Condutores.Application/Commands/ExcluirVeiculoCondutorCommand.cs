@@ -5,29 +5,29 @@ using TP.Core.Utils;
 
 namespace TP.Condutores.Application.Commands
 {
-    public class AtualizarCondutorVeiculoCommand : Command
+    public class ExcluirVeiculoCondutorCommand : Command
     {
-        public Guid CondutorId { get; set; }        
+        public Guid CondutorId { get; set; }
         public Guid VeiculoId { get; private set; }
         public string Placa { get; private set; }
 
-        public AtualizarCondutorVeiculoCommand(Guid condutorId, Guid veiculoId, string placa)
+        public ExcluirVeiculoCondutorCommand(Guid condutorId, Guid veiculoId, string placa)
         {
             CondutorId = condutorId;
-            AggregateId = condutorId;            
+            AggregateId = condutorId;
             VeiculoId = veiculoId;
             Placa = placa;
         }
 
         public override bool EhValido()
         {
-            ValidationResult = new AtualizarCondutorVeiculoValidation().Validate(this);
+            ValidationResult = new ExcluirVeiculoCondutorValidation().Validate(this);
             return ValidationResult.IsValid;
         }
 
-        public class AtualizarCondutorVeiculoValidation : AbstractValidator<AtualizarCondutorVeiculoCommand>
+        public class ExcluirVeiculoCondutorValidation : AbstractValidator<ExcluirVeiculoCondutorCommand>
         {
-            public AtualizarCondutorVeiculoValidation()
+            public ExcluirVeiculoCondutorValidation()
             {
                 RuleFor(c => c.CondutorId)
                     .NotEqual(Guid.Empty)
