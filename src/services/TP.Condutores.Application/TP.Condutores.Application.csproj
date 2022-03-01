@@ -12,11 +12,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.12">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>    
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Queries\" />
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />    
   </ItemGroup>
 
   <ItemGroup>

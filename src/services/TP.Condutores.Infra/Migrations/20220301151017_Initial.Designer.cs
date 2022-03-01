@@ -10,7 +10,7 @@ using TP.Condutores.Infra.Data;
 namespace TP.Condutores.Infra.Migrations
 {
     [DbContext(typeof(CondutoresContext))]
-    [Migration("20220217190735_Initial")]
+    [Migration("20220301151017_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,9 +50,6 @@ namespace TP.Condutores.Infra.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(20)")
                         .HasColumnName("Telefone");
-
-                    b.Property<Guid>("VeiculoId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 

@@ -18,8 +18,7 @@ namespace TP.Condutores.Infra.Migrations
                     Telefone = table.Column<string>(type: "varchar(20)", nullable: false),
                     Email = table.Column<string>(type: "varchar(100)", nullable: false),
                     CNH = table.Column<string>(type: "varchar(20)", nullable: false),
-                    DataNascimento = table.Column<DateTime>(type: "datetime", nullable: false),
-                    VeiculoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    DataNascimento = table.Column<DateTime>(type: "datetime", nullable: false)
                 },
                 constraints: table =>
                 {

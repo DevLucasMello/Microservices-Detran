@@ -68,8 +68,7 @@ namespace TP.Condutores.Application.Commands
 
             return await PersistirDados(_condutorRepository.UnitOfWork);
         }
-
-        // ** Esperar Mensagem na Fila [AtualizarVeiculoCondutorIntegrationEvent] **
+        
         public async Task<ValidationResult> Handle(AtualizarVeiculoCondutorCommand message, CancellationToken cancellationToken)
         {
             if (!message.EhValido()) return message.ValidationResult;
@@ -119,8 +118,7 @@ namespace TP.Condutores.Application.Commands
 
             return await PersistirDados(_condutorRepository.UnitOfWork);
         }
-
-        // ** Esperar Mensagem na Fila [RemoverVeiculoCondutorIntegrationEvent] **
+        
         public async Task<ValidationResult> Handle(ExcluirVeiculoCondutorCommand message, CancellationToken cancellationToken)
         {
             if (!message.EhValido()) return message.ValidationResult;

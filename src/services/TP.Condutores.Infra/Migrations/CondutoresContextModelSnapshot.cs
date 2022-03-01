@@ -49,9 +49,6 @@ namespace TP.Condutores.Infra.Migrations
                         .HasColumnType("varchar(20)")
                         .HasColumnName("Telefone");
 
-                    b.Property<Guid>("VeiculoId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.ToTable("Condutor");
