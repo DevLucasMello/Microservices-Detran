@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "xM+KHK/CTe9XWay27gMZKNjqZoB+LBnDPzthQ06LNJxREpXYp1LtPR0ZphVi70Yesf0t+DCl+DHymPAnfAK0sQ==",
+  "success": true,
+  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Veiculos.Domain\\TP.Veiculos.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

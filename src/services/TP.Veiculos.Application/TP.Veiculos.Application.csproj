@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>53f77fce-9f9f-425b-814c-55b009d9c7aa</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\building blocks\TP.Core\TP.Core.csproj" />
+    <ProjectReference Include="..\..\building blocks\TP.MessageBus\TP.MessageBus.csproj" />
+    <ProjectReference Include="..\TP.Veiculos.Domain\TP.Veiculos.Domain.csproj" />
+    <ProjectReference Include="..\TP.Veiculos.Infra\TP.Veiculos.Infra.csproj" />
+  </ItemGroup>
+
+</Project>
