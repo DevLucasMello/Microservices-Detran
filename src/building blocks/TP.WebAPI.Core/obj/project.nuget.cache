@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "djvmBSLU1FB4B2naEh5tqk2JuTcGpUIwiOe2tAXtRbv/EhiWKp9IufMrijdvteEWqp0GIZqZYxcxMueQoVywgg==",
+  "dgSpecHash": "0iHRkiS57pgS0LOONlJTCS7EiyKL7f+0oZR4ZtHLUTyeicJeRRD5oiMWLiEBtEd6vcsZ2tP0LQCuDtRjP1ozEg==",
   "success": true,
-  "projectFilePath": "C:\\dev\\TestePadrao\\src\\building blocks\\TP.WebAPI.Core\\TP.WebAPI.Core.csproj",
+  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\building blocks\\TP.WebAPI.Core\\TP.WebAPI.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.12\\microsoft.aspnetcore.authentication.jwtbearer.5.0.12.nupkg.sha512",

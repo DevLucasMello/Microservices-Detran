@@ -12,7 +12,6 @@ namespace TP.Condutores.Domain
         public string Email { get; private set; }
         public string CNH { get; private set; }
         public DateTime DataNascimento { get; private set; }
-        public Guid VeiculoId { get; private set; }
 
         private readonly List<VeiculoCondutor> _veiculo;
         public IReadOnlyCollection<VeiculoCondutor> Veiculo => _veiculo;

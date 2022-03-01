@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h9cZEEBBIxTCO0mVIQe7l1B5WDgMcvmDGMmGwWLscAGtAdk+R/uFq8fpDTGawDo+8ebqEoRkMDfeEETBvskUGA==",
+  "dgSpecHash": "cGnf2YJOXzgfEnRL5xf4f8j43E3FY+cWt9yp3ZQ4FkdM/rWwaJ+L/NzaEH191J8s3R4PUD2dRKFUte9yHwZM4A==",
   "success": true,
-  "projectFilePath": "C:\\dev\\TestePadrao\\src\\services\\TP.Condutores.API\\TP.Condutores.API.csproj",
+  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Condutores.API\\TP.Condutores.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

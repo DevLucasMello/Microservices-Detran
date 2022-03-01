@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using TP.Condutores.Application.Events;
 using TP.Condutores.Domain;
 using TP.Core.Messages;
+using TP.Core.Messages.Integration;
+using TP.MessageBus;
 
 namespace TP.Condutores.Application.Commands
 {
@@ -16,10 +18,12 @@ namespace TP.Condutores.Application.Commands
         IRequestHandler<ExcluirVeiculoCondutorCommand, ValidationResult>
     {
         private readonly ICondutorRepository _condutorRepository;
+        private readonly IMessageBus _bus;
 
-        public CondutorCommandHandler(ICondutorRepository condutorRepository)
+        public CondutorCommandHandler(ICondutorRepository condutorRepository, IMessageBus bus)
         {
             _condutorRepository = condutorRepository;
+            _bus = bus;
         }
 
         public async Task<ValidationResult> Handle(AdicionarCondutorCommand message, CancellationToken cancellationToken)
@@ -84,7 +88,11 @@ namespace TP.Condutores.Application.Commands
 
             var result = await PersistirDados(_condutorRepository.UnitOfWork);
 
-            //if (result.Errors.Count > 0) _mediatorHandler.PublicarEvento(); ** Adicionar Mensagem na Fila [RemoverCondutorVeiculoIntegrationEvent] **
+            if (result.Errors.Count > 0)
+            {
+                var condutorIntegration = new RemoverCondutorVeiculoIntegrationEvent(message.VeiculoId);
+                await _bus.RequestAsync<RemoverCondutorVeiculoIntegrationEvent, ResponseMessage>(condutorIntegration);
+            }
 
             return result;
         }
@@ -137,7 +145,11 @@ namespace TP.Condutores.Application.Commands
 
             var result = await PersistirDados(_condutorRepository.UnitOfWork);
 
-            //if (result.Errors.Count > 0) _mediatorHandler.PublicarEvento(); ** Adicionar Mensagem na Fila [AdicionarCondutorVeiculoIntegrationEvent] **
+            if (result.Errors.Count > 0)
+            {
+                var condutorIntegration = new AdicionarCondutorVeiculoIntegrationEvent(message.CondutorId);
+                await _bus.RequestAsync<AdicionarCondutorVeiculoIntegrationEvent, ResponseMessage>(condutorIntegration);
+            }
 
             return result;
         }
