@@ -81,7 +81,7 @@ namespace TP.Condutores.Application.Commands
                 return ValidationResult;
             }
 
-            AdicionarCondutorVeiculo(message, condutor);
+            condutor.AdicionarVeiculo(message.CondutorId, message.VeiculoId, message.Placa);
 
             _condutorRepository.Atualizar(condutor);
 
@@ -89,7 +89,7 @@ namespace TP.Condutores.Application.Commands
 
             if (result.Errors.Count > 0)
             {
-                var condutorIntegration = new RemoverCondutorVeiculoIntegrationEvent(message.VeiculoId);
+                var condutorIntegration = new RemoverCondutorVeiculoIntegrationEvent(message.VeiculoId, message.CondutorId, condutor.CPF);
                 await _bus.RequestAsync<RemoverCondutorVeiculoIntegrationEvent, ResponseMessage>(condutorIntegration);
             }
 
@@ -145,16 +145,11 @@ namespace TP.Condutores.Application.Commands
 
             if (result.Errors.Count > 0)
             {
-                var condutorIntegration = new AdicionarCondutorVeiculoIntegrationEvent(message.CondutorId);
+                var condutorIntegration = new AdicionarCondutorVeiculoIntegrationEvent(message.CondutorId, message.VeiculoId, message.Placa);
                 await _bus.RequestAsync<AdicionarCondutorVeiculoIntegrationEvent, ResponseMessage>(condutorIntegration);
             }
 
             return result;
-        }
-
-        private void AdicionarCondutorVeiculo(AtualizarVeiculoCondutorCommand message, Condutor condutor)
-        {
-            condutor.AdicionarVeiculo(message.CondutorId, message.VeiculoId, message.Placa);
         }
     }
 }

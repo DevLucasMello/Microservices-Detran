@@ -5,11 +5,14 @@ namespace TP.Core.Messages.Integration
     public class AdicionarCondutorVeiculoIntegrationEvent : IntegrationEvent
     {
         public Guid CondutorId { get; private set; }
+        public Guid VeiculoId { get; private set; }
+        public string Placa { get; private set; }
 
-        public AdicionarCondutorVeiculoIntegrationEvent(Guid condutorId)
-        {
+        public AdicionarCondutorVeiculoIntegrationEvent(Guid condutorId, Guid veiculoId, string placa)
+        {            
             CondutorId = condutorId;
-            // Passar todas as Informações para adicionar Veículo na API de Veículos
+            VeiculoId = veiculoId;
+            Placa = placa;
         }
     }
 }

@@ -48,6 +48,7 @@ namespace TP.Identidade.API.Configuration
             // AutoMapper
             services.AddAutoMapper(typeof(AdicionarCondutorCommandToViewModel), typeof(ViewModelToAdicionarCondutorCommand));
             services.AddAutoMapper(typeof(AtualizarCondutorCommandToViewModel), typeof(ViewModelToAtualizarCondutorCommand));
+            services.AddAutoMapper(typeof(ExibirCondutorQuerieToViewModel), typeof(ViewModelToExibirCondutorQuerie));
         }
     }
 }

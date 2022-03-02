@@ -13,7 +13,6 @@ namespace TP.Core.Messages.Integration
             CondutorId = condutorId;
             VeiculoId = veiculoId;
             Placa = placa;
-            // Passar todas as Informações para adicionar Veículo na API de Veículos
         }
     }
 }
