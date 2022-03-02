@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fpCdZm5DycSNCR8ghUEVqDOyO9YjpljKNoEONZ9Xk7JtSjTygiGXtm6LZDhuVmRwED3B8/uZ37+WFSpWOixAig==",
+  "dgSpecHash": "PHeFGMADMkHO/FbiYhW8oaz4EvJrXwiAsYv1iIEGrCDWNNPD4b4YYN+Q+EdgolhHQWK8EvHqI4us723zgnG3+Q==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Identidade.API\\TP.Identidade.API.csproj",
+  "projectFilePath": "C:\\dev\\TestePadrao\\src\\services\\TP.Identidade.API\\TP.Identidade.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\easynetq\\5.1.1\\easynetq.5.1.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",

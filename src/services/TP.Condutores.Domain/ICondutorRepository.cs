@@ -14,7 +14,6 @@ namespace TP.Condutores.Domain
         Task<VeiculoCondutor> ObterVeiculoId(Guid veiculoId);
         void Adicionar(Condutor condutor);
         void Atualizar(Condutor condutor);
-        void Excluir(Condutor condutor);       
-        
+        void Excluir(Condutor condutor); 
     }
 }

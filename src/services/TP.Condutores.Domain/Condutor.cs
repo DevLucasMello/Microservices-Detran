@@ -32,12 +32,12 @@ namespace TP.Condutores.Domain
 
         public void AdicionarVeiculo(Guid veiculoId, Guid condutorId, string placa)
         {
-            var pl = new VeiculoCondutor(condutorId, placa)
+            var veiculo = new VeiculoCondutor(condutorId, placa)
             {
                 Id = veiculoId
             };
 
-            _veiculo.Add(pl);
+            _veiculo.Add(veiculo);
         }
 
         public void RemoverVeiculo(VeiculoCondutor veiculo, Condutor condutor)

@@ -10,7 +10,7 @@ using TP.Condutores.Infra.Data;
 namespace TP.Condutores.Infra.Migrations
 {
     [DbContext(typeof(CondutoresContext))]
-    [Migration("20220301151017_Initial")]
+    [Migration("20220302151417_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zw768R/Vel8ivZtT0RykArB6PjxKLrN7zim62N0/HKUSnP6N4r9wEBGTX7J8UdqkvOFoCPHFkLDqGQhSqw09/A==",
+  "dgSpecHash": "rPARQw9NJtgLMLgb/QyUS0HqTM8SDpjwjH3x37pT/wB4pIMsH0U3dy4fwyOEJLrEWBqOfzQWpvOG+6/qgxExiQ==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\building blocks\\TP.MessageBus\\TP.MessageBus.csproj",
+  "projectFilePath": "C:\\dev\\TestePadrao\\src\\building blocks\\TP.MessageBus\\TP.MessageBus.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\easynetq\\5.1.1\\easynetq.5.1.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",

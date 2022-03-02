@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XMI6yOvi8vy6bJjS/AvKt/rfiBmY2F3eSFOC3Sxd2zBj3KXukvuS4ADAS+3Ozp3gmcBQbJwuKAPO5/qdAKb+iQ==",
+  "dgSpecHash": "Pj1djy5wjJiTEQJSyMj9dWW0bXaD7a0IR3PBEfMtVo9cuVukcm5EKckcjZ+G85HS+uJLfMEIRxio8z6faPYsXw==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Veiculos.API\\TP.Veiculos.API.csproj",
+  "projectFilePath": "C:\\dev\\TestePadrao\\src\\services\\TP.Veiculos.API\\TP.Veiculos.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

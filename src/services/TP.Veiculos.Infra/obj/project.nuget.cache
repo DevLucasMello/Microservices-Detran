@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gh2KCGlo0lpEbBBSl7/VxS5l0+0rPFr7LpUbOsyLdbFAD+iI+Jpo36WXL6fAcbHa4VsIWQYUtpUcpFoSvKS04A==",
+  "dgSpecHash": "9bFp282tBCdsNYQAZIvmBiMMHbCg83eqlbKGnk298fscs+c3eGpbCABPE90b3PiOIyKl77987DN2OS6yJ7wfpw==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Veiculos.Infra\\TP.Veiculos.Infra.csproj",
+  "projectFilePath": "C:\\dev\\TestePadrao\\src\\services\\TP.Veiculos.Infra\\TP.Veiculos.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

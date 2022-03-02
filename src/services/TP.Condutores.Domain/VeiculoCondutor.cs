@@ -21,10 +21,5 @@ namespace TP.Condutores.Domain
 
         // EF Rel.
         protected VeiculoCondutor() { }
-
-        public void AtualizarPlaca(string placa)
-        {
-            Placa = placa;
-        }
     }
 }
