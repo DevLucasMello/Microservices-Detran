@@ -65,6 +65,13 @@ namespace TP.Condutores.Infra.Data.Repository
             _context.Condutores.Update(condutor);
         }
 
+        public void Atualizar(Condutor condutor, Guid veiculoId, string placa)
+        {
+            var condutorVeiculo = condutor.AdicionarVeiculo(condutor, veiculoId, placa);
+
+            _context.Add(condutorVeiculo);
+        }
+
         public void Excluir(Condutor condutor)
         {
             _context.Condutores.Remove(condutor);

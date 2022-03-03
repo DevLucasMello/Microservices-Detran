@@ -344,6 +344,8 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "EasyNetQ >= 5.1.1",
+      "Microsoft.Extensions.Configuration.Abstractions >= 5.0.0",
+      "Microsoft.Extensions.DependencyInjection.Abstractions >= 5.0.0",
       "Polly >= 7.2.1",
       "TP.Core >= 1.0.0"
     ]
@@ -399,6 +401,14 @@
           "EasyNetQ": {
             "target": "Package",
             "version": "[5.1.1, )"
+          },
+          "Microsoft.Extensions.Configuration.Abstractions": {
+            "target": "Package",
+            "version": "[5.0.0, )"
+          },
+          "Microsoft.Extensions.DependencyInjection.Abstractions": {
+            "target": "Package",
+            "version": "[5.0.0, )"
           },
           "Polly": {
             "target": "Package",

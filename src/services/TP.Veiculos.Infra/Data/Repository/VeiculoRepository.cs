@@ -55,9 +55,11 @@ namespace TP.Veiculos.Infra.Data.Repository
             return await _context.Condutores.AsNoTracking().FirstOrDefaultAsync(p => p.Id == condutorId);
         }
 
-        public void Adicionar(Veiculo veiculo)
+        public void Adicionar(Veiculo veiculo, Guid condutorId, string cpf)
         {
-            _context.Veiculos.Add(veiculo);
+            var veiculoCondutor = veiculo.AdicionarCondutor(veiculo, condutorId, cpf);
+
+            _context.Add(veiculoCondutor);
         }
 
         public void Atualizar(Veiculo veiculo)

@@ -12,7 +12,7 @@ namespace TP.Veiculos.Domain
         Task<Veiculo> ObterPorId(Guid id);
         Task<Veiculo> ObterPorPlaca(string placa);
         Task<CondutorVeiculo> ObterCondutorId(Guid condutorId);
-        void Adicionar(Veiculo veiculo);
+        void Adicionar(Veiculo veiculo, Guid condutorId, string cpf);
         void Atualizar(Veiculo veiculo);
         void Excluir(Veiculo veiculo);
     }

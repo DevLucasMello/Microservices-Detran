@@ -5,7 +5,9 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using TP.Core.Mediator;
+using TP.Veiculos.Application.Commands;
 using TP.Veiculos.Application.Queries;
+using TP.Veiculos.Application.ViewModels;
 using TP.WebAPI.Core.Controllers;
 
 namespace TP.Veiculos.API.Controllers
@@ -54,6 +56,27 @@ namespace TP.Veiculos.API.Controllers
             var veiculo = await _veiculoQueries.ObterVeiculoPorPlaca(placa);
 
             return veiculo == null ? NotFound() : CustomResponse(veiculo);
+        }
+
+        [HttpPost("veiculo")]
+        public async Task<IActionResult> AdicionarVeiculo(AdicionarVeiculoViewModel veiculoViewModel)
+        {
+            var veiculo = _mapper.Map<AdicionarVeiculoCommand>(veiculoViewModel);
+            return CustomResponse(await _mediator.EnviarComando(veiculo));
+        }
+
+        [HttpPut("veiculo/{id}")]
+        public async Task<IActionResult> AtualizarVeiculo(Guid id, AtualizarVeiculoViewModel veiculoViewModel)
+        {
+            if (id.ToString() != veiculoViewModel.Id) return NotFound();
+            var veiculo = _mapper.Map<AtualizarVeiculoCommand>(veiculoViewModel);
+            return CustomResponse(await _mediator.EnviarComando(veiculo));
+        }
+
+        [HttpDelete("veiculo/{id}")]
+        public async Task<IActionResult> ExcluirVeiculo(Guid id)
+        {
+            return CustomResponse(await _mediator.EnviarComando(new ExcluirVeiculoCommand(id)));
         }
     }
 }

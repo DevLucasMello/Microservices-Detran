@@ -45,7 +45,7 @@ namespace TP.Condutores.Application.Services
 
         private async Task<ResponseMessage> RemoverVeiculoCondutor(RemoverVeiculoCondutorIntegrationEvent message)
         {
-            var condutorCommand = new ExcluirVeiculoCondutorCommand(message.CondutorId, message.VeiculoId, message.Placa);
+            var condutorCommand = new ExcluirVeiculoCondutorCommand(message.VeiculoId, message.Placa);
             ValidationResult sucesso;
 
             using (var scope = _serviceProvider.CreateScope())

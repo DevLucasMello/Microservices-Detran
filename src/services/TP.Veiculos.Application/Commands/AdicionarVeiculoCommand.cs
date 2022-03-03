@@ -6,25 +6,24 @@ using TP.Core.Utils;
 namespace TP.Veiculos.Application.Commands
 {
     public class AdicionarVeiculoCommand : Command
-    {
-        public Guid Id { get; set; }
+    {        
         public Guid CondutorId { get; set; }
         public string Placa { get; private set; }
         public string Modelo { get; private set; }
         public string Marca { get; private set; }
         public string Cor { get; private set; }
         public int AnoFabricacao { get; private set; }
+        public string CPF { get; set; }
 
-        public AdicionarVeiculoCommand(Guid id, Guid condutorId, string placa, string modelo, string marca, string cor, int anoFabricacao)
-        {
-            Id = id;
-            AggregateId = id;
+        public AdicionarVeiculoCommand(Guid condutorId, string placa, string modelo, string marca, string cor, int anoFabricacao, string cpf)
+        {           
             CondutorId = condutorId;
             Placa = placa;
             Modelo = modelo;
             Marca = marca;
             Cor = cor;
             AnoFabricacao = anoFabricacao;
+            CPF = cpf;
         }
 
         public override bool EhValido()
@@ -37,10 +36,6 @@ namespace TP.Veiculos.Application.Commands
         {
             public AdicionarVeiculoValidation()
             {
-                RuleFor(c => c.Id)
-                    .NotEqual(Guid.Empty)
-                    .WithMessage("Id do condutor inválido");
-
                 RuleFor(c => c.CondutorId)
                     .NotEqual(Guid.Empty)
                     .WithMessage("Id do condutor inválido");
@@ -66,6 +61,12 @@ namespace TP.Veiculos.Application.Commands
                 RuleFor(c => c.AnoFabricacao)
                     .NotEmpty()
                     .WithMessage("O Ano de Fabricação deve ser informado");
+
+                RuleFor(c => c.CPF)
+                    .NotEmpty()
+                    .WithMessage("O CPF deve ser informado")
+                    .Must(MethodsUtils.IsCpfValid)
+                    .WithMessage("O CPF informado é inválido");
             }
         }
     }

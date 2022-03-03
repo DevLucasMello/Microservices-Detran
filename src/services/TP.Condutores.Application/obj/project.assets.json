@@ -1865,6 +1865,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "EasyNetQ": "5.1.1",
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
           "Polly": "7.2.1",
           "TP.Core": "1.0.0"
         },

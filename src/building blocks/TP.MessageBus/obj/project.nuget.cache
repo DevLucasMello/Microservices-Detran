@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rPARQw9NJtgLMLgb/QyUS0HqTM8SDpjwjH3x37pT/wB4pIMsH0U3dy4fwyOEJLrEWBqOfzQWpvOG+6/qgxExiQ==",
+  "dgSpecHash": "D3K2jrfYFcJlDyU/+3+adgGzaRMQnnYr1r84i6TBq4/9MV0i+a5jR14RORFcwaQTtqJ4a4SbtAFvwPkrWgAI4w==",
   "success": true,
   "projectFilePath": "C:\\dev\\TestePadrao\\src\\building blocks\\TP.MessageBus\\TP.MessageBus.csproj",
   "expectedPackageFiles": [

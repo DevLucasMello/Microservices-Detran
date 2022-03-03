@@ -1,12 +1,11 @@
 ﻿using FluentValidation.Results;
 using MediatR;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using TP.Condutores.Application.Events;
 using TP.Condutores.Domain;
 using TP.Core.Messages;
-using TP.Core.Messages.Integration;
-using TP.MessageBus;
 
 namespace TP.Condutores.Application.Commands
 {
@@ -18,12 +17,10 @@ namespace TP.Condutores.Application.Commands
         IRequestHandler<ExcluirVeiculoCondutorCommand, ValidationResult>
     {
         private readonly ICondutorRepository _condutorRepository;
-        private readonly IMessageBus _bus;
 
-        public CondutorCommandHandler(ICondutorRepository condutorRepository, IMessageBus bus)
+        public CondutorCommandHandler(ICondutorRepository condutorRepository)
         {
             _condutorRepository = condutorRepository;
-            _bus = bus;
         }
 
         public async Task<ValidationResult> Handle(AdicionarCondutorCommand message, CancellationToken cancellationToken)
@@ -73,27 +70,25 @@ namespace TP.Condutores.Application.Commands
         {
             if (!message.EhValido()) return message.ValidationResult;
 
-            var condutor = await _condutorRepository.ObterPorId(message.CondutorId);
+            var condutorExistente = await _condutorRepository.ObterPorId(message.CondutorId);
 
-            if (condutor == null)
+            if (condutorExistente == null)
             {
                 AdicionarErro("Condutor não encontrado.");
                 return ValidationResult;
             }
 
-            condutor.AdicionarVeiculo(message.CondutorId, message.VeiculoId, message.Placa);
-
-            _condutorRepository.Atualizar(condutor);
-
-            var result = await PersistirDados(_condutorRepository.UnitOfWork);
-
-            if (result.Errors.Count > 0)
+            if (condutorExistente.Veiculo == null)
             {
-                var condutorIntegration = new RemoverCondutorVeiculoIntegrationEvent(message.VeiculoId, message.CondutorId, condutor.CPF);
-                await _bus.RequestAsync<RemoverCondutorVeiculoIntegrationEvent, ResponseMessage>(condutorIntegration);
-            }
+                var condutor = new Condutor(condutorExistente.Nome, condutorExistente.CPF, condutorExistente.Telefone, condutorExistente.Email, condutorExistente.CNH, condutorExistente.DataNascimento)
+                {
+                    Id = condutorExistente.Id
+                };
 
-            return result;
+                return await AtualizarCondutorVeiculo(condutor, message.VeiculoId, message.Placa);
+            }
+           
+            return await AtualizarCondutorVeiculo(condutorExistente, message.VeiculoId, message.Placa);            
         }
 
         public async Task<ValidationResult> Handle(ExcluirCondutorCommand message, CancellationToken cancellationToken)
@@ -118,12 +113,20 @@ namespace TP.Condutores.Application.Commands
 
             return await PersistirDados(_condutorRepository.UnitOfWork);
         }
-        
+       
         public async Task<ValidationResult> Handle(ExcluirVeiculoCondutorCommand message, CancellationToken cancellationToken)
         {
             if (!message.EhValido()) return message.ValidationResult;
 
-            var condutor = await _condutorRepository.ObterPorId(message.CondutorId);
+            var veiculo = await _condutorRepository.ObterVeiculoId(message.VeiculoId);
+
+            if (veiculo == null)
+            {
+                AdicionarErro("Veículo não encontrado.");
+                return ValidationResult;
+            }
+
+            var condutor = await _condutorRepository.ObterPorId(veiculo.CondutorId);
 
             if (condutor == null)
             {
@@ -131,25 +134,16 @@ namespace TP.Condutores.Application.Commands
                 return ValidationResult;
             }
 
-            if (condutor.Veiculo == null)
-            {
-                AdicionarErro("Condutor não possui veículo cadastrado.");
-                return ValidationResult;
-            }
-
-            var veiculo = await _condutorRepository.ObterVeiculoId(message.VeiculoId);
-
             condutor.RemoverVeiculo(veiculo, condutor);
 
-            var result = await PersistirDados(_condutorRepository.UnitOfWork);
+            return await PersistirDados(_condutorRepository.UnitOfWork);
+        }
 
-            if (result.Errors.Count > 0)
-            {
-                var condutorIntegration = new AdicionarCondutorVeiculoIntegrationEvent(message.CondutorId, message.VeiculoId, message.Placa);
-                await _bus.RequestAsync<AdicionarCondutorVeiculoIntegrationEvent, ResponseMessage>(condutorIntegration);
-            }
+        private async Task<ValidationResult> AtualizarCondutorVeiculo(Condutor condutor, Guid veiculoId, string placa)
+        {
+            _condutorRepository.Atualizar(condutor, veiculoId, placa);
 
-            return result;
+            return await PersistirDados(_condutorRepository.UnitOfWork);
         }
     }
 }

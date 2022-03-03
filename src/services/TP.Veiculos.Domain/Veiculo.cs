@@ -28,22 +28,16 @@ namespace TP.Veiculos.Domain
         // EF Rel.
         protected Veiculo() { }
 
-        public void AdicionarCondutor(Guid veiculoId, Guid condutorId, string cpf)
+        public Veiculo AdicionarCondutor(Veiculo veiculo, Guid condutorId, string cpf)
         {
-            var condutor = new CondutorVeiculo(veiculoId, cpf)
+            var condutor = new CondutorVeiculo(veiculo.Id, cpf)
             {
                 Id = condutorId
             };
 
-            _condutor.Add(condutor);
-        }
+            veiculo._condutor.Add(condutor);
 
-        public void RemoverCondutor(CondutorVeiculo condutor, Veiculo veiculo)
-        {
-            veiculo._condutor.ForEach(v =>
-            {
-                if (v.Id == condutor.Id && v.VeiculoId == condutor.VeiculoId) _condutor.Remove(v);
-            });
+            return veiculo;
         }
     }
 }

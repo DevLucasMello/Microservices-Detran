@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using System;
+using TP.Veiculos.Application.Commands;
+using TP.Veiculos.Application.ViewModels;
 
 namespace TP.Veiculos.Application.AutoMapper
 {
@@ -6,7 +9,7 @@ namespace TP.Veiculos.Application.AutoMapper
     {
         public AtualizarVeiculoCommandToViewModel()
         {
-            //CreateMap<AdicionarVeiculoCommand, AdicionarVeiculoViewModel>();
+            CreateMap<AtualizarVeiculoCommand, AtualizarVeiculoViewModel>();
         }
     }
 
@@ -14,8 +17,8 @@ namespace TP.Veiculos.Application.AutoMapper
     {
         public ViewModelToAtualizarVeiculoCommand()
         {
-            //CreateMap<AdicionarVeiculoViewModel, AdicionarVeiculoCommand>()
-            //    .ConstructUsing(c => new AdicionarVeiculoCommand(Guid.Parse(c.Id), c.CPF, c.Telefone, c.Email, c.CNH, Convert.ToDateTime(c.DataNascimento)));
+            CreateMap<AtualizarVeiculoViewModel, AtualizarVeiculoCommand>()
+                .ConstructUsing(c => new AtualizarVeiculoCommand(Guid.Parse(c.Id), c.Placa, c.Modelo, c.Marca, c.Cor, c.AnoFabricacao));
         }
     }
 }

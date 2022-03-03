@@ -7,14 +7,11 @@ namespace TP.Condutores.Application.Commands
 {
     public class ExcluirVeiculoCondutorCommand : Command
     {
-        public Guid CondutorId { get; set; }
         public Guid VeiculoId { get; private set; }
         public string Placa { get; private set; }
 
-        public ExcluirVeiculoCondutorCommand(Guid condutorId, Guid veiculoId, string placa)
+        public ExcluirVeiculoCondutorCommand(Guid veiculoId, string placa)
         {
-            CondutorId = condutorId;
-            AggregateId = condutorId;
             VeiculoId = veiculoId;
             Placa = placa;
         }
@@ -29,10 +26,6 @@ namespace TP.Condutores.Application.Commands
         {
             public ExcluirVeiculoCondutorValidation()
             {
-                RuleFor(c => c.CondutorId)
-                    .NotEqual(Guid.Empty)
-                    .WithMessage("Id do condutor inválido");
-
                 RuleFor(c => c.VeiculoId)
                     .NotEqual(Guid.Empty)
                     .WithMessage("Id do veículo inválido");

@@ -31,7 +31,6 @@ namespace TP.Veiculos.API.Configuration
             services.AddScoped<IRequestHandler<AdicionarVeiculoCommand, ValidationResult>, VeiculoCommandHandler>();
             services.AddScoped<IRequestHandler<AtualizarVeiculoCommand, ValidationResult>, VeiculoCommandHandler>();
             services.AddScoped<IRequestHandler<ExcluirVeiculoCommand, ValidationResult>, VeiculoCommandHandler>();
-            services.AddScoped<IRequestHandler<ExcluirCondutorVeiculoCommand, ValidationResult>, VeiculoCommandHandler>();
 
             // Events
             services.AddScoped<INotificationHandler<VeiculoCadastradoEvent>, VeiculoEventHandler>();
