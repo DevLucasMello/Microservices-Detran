@@ -15,7 +15,7 @@ namespace TP.Condutores.Application.AutoMapper
                 .ForMember(n => n.UltimoNome, c => c.MapFrom(c => c.Nome.UltimoNome))
                 .ForMember(n => n.Veiculos, c => c.MapFrom(c => c.Veiculo));
 
-            CreateMap<VeiculoCondutor, VeiculoCondutorViewModel>();
+            CreateMap<Veiculo, VeiculoCondutorViewModel>();
         }
     }
 
@@ -27,8 +27,8 @@ namespace TP.Condutores.Application.AutoMapper
                 .ConstructUsing(c => new Condutor(new Nome(c.PrimeiroNome, c.UltimoNome), 
                 c.CPF, c.Telefone, c.Email, c.CNH, Convert.ToDateTime(c.DataNascimento)));
 
-            CreateMap<VeiculoCondutorViewModel, VeiculoCondutor>()
-                .ConstructUsing(c => new VeiculoCondutor(Guid.Parse(c.CondutorId), c.Placa));
+            CreateMap<VeiculoCondutorViewModel, Veiculo>()
+                .ConstructUsing(c => new Veiculo(c.VeiculoId, c.Placa));
         }
     }
 }

@@ -4,7 +4,7 @@ namespace TP.Veiculos.Application.ViewModels
 {
     public class ExibirVeiculoViewModel
     {        
-        public string Id { get; set; }        
+        public string Id { get; set; }
         public string Placa { get; set; }        
         public string Modelo { get; set; }        
         public string Marca { get; set; }        
@@ -15,7 +15,7 @@ namespace TP.Veiculos.Application.ViewModels
 
     public class CondutorVeiculoViewModel
     {
-        public string VeiculoId { get; set; }
+        public string CondutorId { get; set; }
         public string CPF { get; set; }
     }
 }

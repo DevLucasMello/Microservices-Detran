@@ -22,6 +22,11 @@ C:\dev\Teste-Padrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Vei
 C:\dev\Teste-Padrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\ref\TP.Veiculos.Application.dll
 C:\dev\Teste-Padrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.pdb
 C:\dev\Teste-Padrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.genruntimeconfig.cache
+C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.csproj.AssemblyReference.cache
+C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.AssemblyInfoInputs.cache
+C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.AssemblyInfo.cs
+C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.csproj.CoreCompileInputs.cache
 C:\dev\TestePadrao\src\services\TP.Veiculos.Application\bin\Debug\net5.0\TP.Veiculos.Application.deps.json
 C:\dev\TestePadrao\src\services\TP.Veiculos.Application\bin\Debug\net5.0\TP.Veiculos.Application.runtimeconfig.json
 C:\dev\TestePadrao\src\services\TP.Veiculos.Application\bin\Debug\net5.0\TP.Veiculos.Application.runtimeconfig.dev.json
@@ -36,11 +41,6 @@ C:\dev\TestePadrao\src\services\TP.Veiculos.Application\bin\Debug\net5.0\TP.Core
 C:\dev\TestePadrao\src\services\TP.Veiculos.Application\bin\Debug\net5.0\TP.MessageBus.pdb
 C:\dev\TestePadrao\src\services\TP.Veiculos.Application\bin\Debug\net5.0\TP.Veiculos.Domain.pdb
 C:\dev\TestePadrao\src\services\TP.Veiculos.Application\bin\Debug\net5.0\TP.Veiculos.Infra.pdb
-C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.csproj.AssemblyReference.cache
-C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.AssemblyInfoInputs.cache
-C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.AssemblyInfo.cs
-C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.csproj.CoreCompileInputs.cache
 C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.csproj.CopyComplete
 C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\TP.Veiculos.Application.dll
 C:\dev\TestePadrao\src\services\TP.Veiculos.Application\obj\Debug\net5.0\ref\TP.Veiculos.Application.dll

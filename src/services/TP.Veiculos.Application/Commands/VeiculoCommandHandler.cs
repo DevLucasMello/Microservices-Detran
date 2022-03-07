@@ -38,7 +38,7 @@ namespace TP.Veiculos.Application.Commands
                 return ValidationResult;
             }
 
-            _veiculoRepository.Adicionar(veiculo, message.CondutorId, message.CPF);
+            _veiculoRepository.Adicionar(veiculo, message.CondutorId.ToString(), message.CPF);
 
             veiculo.AdicionarEvento(new VeiculoCadastradoEvent(veiculo.Id, message.CondutorId, message.Placa));
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TP.Veiculos.Infra.Migrations
+namespace TP.Condutores.Infra.Migrations
 {
     public partial class Initial : Migration
     {
@@ -12,8 +12,13 @@ namespace TP.Veiculos.Infra.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    VeiculoId = table.Column<string>(type: "varchar(40)", nullable: false),
-                    CPF = table.Column<string>(type: "varchar(20)", nullable: false)
+                    PrimeiroNome = table.Column<string>(type: "varchar(50)", nullable: true),
+                    UltimoNome = table.Column<string>(type: "varchar(50)", nullable: true),
+                    CPF = table.Column<string>(type: "varchar(20)", nullable: false),
+                    Telefone = table.Column<string>(type: "varchar(20)", nullable: false),
+                    Email = table.Column<string>(type: "varchar(100)", nullable: false),
+                    CNH = table.Column<string>(type: "varchar(20)", nullable: false),
+                    DataNascimento = table.Column<DateTime>(type: "datetime", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -25,11 +30,7 @@ namespace TP.Veiculos.Infra.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Placa = table.Column<string>(type: "varchar(20)", nullable: false),
-                    Modelo = table.Column<string>(type: "varchar(50)", nullable: false),
-                    Marca = table.Column<string>(type: "varchar(50)", nullable: false),
-                    Cor = table.Column<string>(type: "varchar(50)", nullable: false),
-                    AnoFabricacao = table.Column<int>(type: "int", nullable: false)
+                    Placa = table.Column<string>(type: "varchar(20)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -37,7 +38,7 @@ namespace TP.Veiculos.Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CondutoresVeiculos",
+                name: "VeiculosCondutores",
                 columns: table => new
                 {
                     CondutorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -45,15 +46,15 @@ namespace TP.Veiculos.Infra.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CondutoresVeiculos", x => new { x.CondutorId, x.VeiculoId });
+                    table.PrimaryKey("PK_VeiculosCondutores", x => new { x.CondutorId, x.VeiculoId });
                     table.ForeignKey(
-                        name: "FK_CondutoresVeiculos_Condutor_VeiculoId",
+                        name: "FK_VeiculosCondutores_Condutor_VeiculoId",
                         column: x => x.VeiculoId,
                         principalTable: "Condutor",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CondutoresVeiculos_Veiculo_CondutorId",
+                        name: "FK_VeiculosCondutores_Veiculo_CondutorId",
                         column: x => x.CondutorId,
                         principalTable: "Veiculo",
                         principalColumn: "Id",
@@ -61,15 +62,15 @@ namespace TP.Veiculos.Infra.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CondutoresVeiculos_VeiculoId",
-                table: "CondutoresVeiculos",
+                name: "IX_VeiculosCondutores_VeiculoId",
+                table: "VeiculosCondutores",
                 column: "VeiculoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CondutoresVeiculos");
+                name: "VeiculosCondutores");
 
             migrationBuilder.DropTable(
                 name: "Condutor");

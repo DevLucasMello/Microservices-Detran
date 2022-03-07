@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TP.Core.DomainObjects;
 
 namespace TP.Veiculos.Domain
@@ -12,8 +11,8 @@ namespace TP.Veiculos.Domain
         public string Cor { get; private set; }
         public int AnoFabricacao { get; private set; }
 
-        private readonly List<CondutorVeiculo> _condutor;
-        public IReadOnlyCollection<CondutorVeiculo> Condutor => _condutor;
+        private readonly List<Condutor> _condutor;
+        public IReadOnlyCollection<Condutor> Condutor => _condutor;
 
         public Veiculo(string placa, string modelo, string marca, string cor, int anoFabricacao)
         {
@@ -22,18 +21,15 @@ namespace TP.Veiculos.Domain
             Marca = marca;
             Cor = cor;
             AnoFabricacao = anoFabricacao;
-            _condutor ??= new List<CondutorVeiculo>();
+            _condutor ??= new List<Condutor>();
         }
 
         // EF Rel.
         protected Veiculo() { }
 
-        public Veiculo AdicionarCondutor(Veiculo veiculo, Guid condutorId, string cpf)
+        public Veiculo AdicionarCondutor(Veiculo veiculo, string idCondutor, string cpf)
         {
-            var condutor = new CondutorVeiculo(veiculo.Id, cpf)
-            {
-                Id = condutorId
-            };
+            var condutor = new Condutor(idCondutor, cpf);
 
             veiculo._condutor.Add(condutor);
 

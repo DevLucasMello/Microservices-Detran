@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TP.Condutores.Domain;
 using TP.Core.Data;
@@ -28,16 +27,10 @@ namespace TP.Condutores.Infra.Data.Repository
 
         public async Task<IEnumerable<Condutor>> ObterCondutoresPorPlaca(string placa)
         {
-            var condutores = await _context.Veiculos
+            return await _context.Condutores
+                                .FromSqlRaw("SELECT C FROM Condutor C INNER JOIN Veiculo V ON V.Placa = {0}", placa)
                                 .AsNoTracking()
-                                .Where(p => p.Placa == placa)
-                                .Select(p => p.CondutorId)
                                 .ToListAsync();
-
-            return await _context.Condutores                
-                .AsNoTracking()
-                .Where(p => condutores.Contains(p.Id))
-                .ToListAsync();
         }
 
         public async Task<Condutor> ObterPorId(Guid id)
@@ -50,7 +43,7 @@ namespace TP.Condutores.Infra.Data.Repository
             return await _context.Condutores.AsNoTracking().FirstOrDefaultAsync(c => c.CPF == cpf);
         }
 
-        public async Task<VeiculoCondutor> ObterVeiculoId(Guid veiculoId)
+        public async Task<Veiculo> ObterVeiculoId(Guid veiculoId)
         {
             return await _context.Veiculos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == veiculoId);
         }
@@ -65,16 +58,19 @@ namespace TP.Condutores.Infra.Data.Repository
             _context.Condutores.Update(condutor);
         }
 
-        public void Atualizar(Condutor condutor, Guid veiculoId, string placa)
-        {
-            var condutorVeiculo = condutor.AdicionarVeiculo(condutor, veiculoId, placa);
-
-            _context.Add(condutorVeiculo);
+        public void AtualizarCondutorVeiculo(string idVeiculo, string placa)
+        {            
+            _context.Veiculos.Add(new Veiculo(idVeiculo, placa));
         }
 
         public void Excluir(Condutor condutor)
         {
             _context.Condutores.Remove(condutor);
+        }
+
+        public void RemoverVeiculoCondutor(Veiculo veiculo)
+        {
+            _context.Veiculos.Remove(veiculo);
         }
 
         public void Dispose()

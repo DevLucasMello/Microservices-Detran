@@ -4,21 +4,21 @@ using TP.Condutores.Domain;
 
 namespace TP.Condutores.Infra.Data.Mappings
 {
-    public class VeiculoMapping : IEntityTypeConfiguration<VeiculoCondutor>
+    public class VeiculoMapping : IEntityTypeConfiguration<Veiculo>
     {
-        public void Configure(EntityTypeBuilder<VeiculoCondutor> builder)
+        public void Configure(EntityTypeBuilder<Veiculo> builder)
         {
             builder.HasKey(c => c.Id);
 
-            builder.Property(c => c.CondutorId)
+            builder.Property(c => c.IdVeiculo)
                 .IsRequired()
-                .HasColumnName("CondutorId")
+                .HasColumnName("VeiculoId")
                 .HasColumnType("varchar(40)");
 
             builder.Property(c => c.Placa)
                 .IsRequired()
                 .HasColumnName("Placa")
-                .HasColumnType("varchar(20)");            
+                .HasColumnType("varchar(20)");
 
             builder.ToTable("Veiculo");
         }

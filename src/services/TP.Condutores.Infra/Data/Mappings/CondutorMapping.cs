@@ -54,8 +54,8 @@ namespace TP.Condutores.Infra.Data.Mappings
                 .WithMany(p => p.Condutor)
                 .UsingEntity<Dictionary<string, object>>(
                     "VeiculosCondutores",
-                    p => p.HasOne<VeiculoCondutor>().WithMany().HasForeignKey("CondutorId"),
-                    p => p.HasOne<Condutor>().WithMany().HasForeignKey("VeiculoId")                    
+                    p => p.HasOne<Veiculo>().WithMany().HasForeignKey("CondutorId"),
+                    p => p.HasOne<Condutor>().WithMany().HasForeignKey("VeiculoId")
                 );
 
             builder.ToTable("Condutor");

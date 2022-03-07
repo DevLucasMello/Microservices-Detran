@@ -4,15 +4,15 @@ using TP.Veiculos.Domain;
 
 namespace TP.Veiculos.Infra.Data.Mappings
 {
-    public class CondutorMapping : IEntityTypeConfiguration<CondutorVeiculo>
+    public class CondutorMapping : IEntityTypeConfiguration<Condutor>
     {
-        public void Configure(EntityTypeBuilder<CondutorVeiculo> builder)
+        public void Configure(EntityTypeBuilder<Condutor> builder)
         {
             builder.HasKey(c => c.Id);
 
-            builder.Property(c => c.VeiculoId)
+            builder.Property(c => c.IdCondutor)
                 .IsRequired()
-                .HasColumnName("VeiculoId")
+                .HasColumnName("CondutorId")
                 .HasColumnType("varchar(40)");
 
             builder.Property(c => c.CPF)

@@ -1,6 +1,5 @@
 ﻿using FluentValidation.Results;
 using MediatR;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using TP.Condutores.Application.Events;
@@ -70,25 +69,17 @@ namespace TP.Condutores.Application.Commands
         {
             if (!message.EhValido()) return message.ValidationResult;
 
-            var condutorExistente = await _condutorRepository.ObterPorId(message.CondutorId);
+            var condutor = await _condutorRepository.ObterPorId(message.CondutorId);
 
-            if (condutorExistente == null)
+            if (condutor == null)
             {
                 AdicionarErro("Condutor não encontrado.");
                 return ValidationResult;
             }
 
-            if (condutorExistente.Veiculo == null)
-            {
-                var condutor = new Condutor(condutorExistente.Nome, condutorExistente.CPF, condutorExistente.Telefone, condutorExistente.Email, condutorExistente.CNH, condutorExistente.DataNascimento)
-                {
-                    Id = condutorExistente.Id
-                };
+            _condutorRepository.AtualizarCondutorVeiculo(message.VeiculoId.ToString(), message.Placa);
 
-                return await AtualizarCondutorVeiculo(condutor, message.VeiculoId, message.Placa);
-            }
-           
-            return await AtualizarCondutorVeiculo(condutorExistente, message.VeiculoId, message.Placa);            
+            return await PersistirDados(_condutorRepository.UnitOfWork);
         }
 
         public async Task<ValidationResult> Handle(ExcluirCondutorCommand message, CancellationToken cancellationToken)
@@ -126,22 +117,7 @@ namespace TP.Condutores.Application.Commands
                 return ValidationResult;
             }
 
-            var condutor = await _condutorRepository.ObterPorId(veiculo.CondutorId);
-
-            if (condutor == null)
-            {
-                AdicionarErro("Condutor não encontrado.");
-                return ValidationResult;
-            }
-
-            condutor.RemoverVeiculo(veiculo, condutor);
-
-            return await PersistirDados(_condutorRepository.UnitOfWork);
-        }
-
-        private async Task<ValidationResult> AtualizarCondutorVeiculo(Condutor condutor, Guid veiculoId, string placa)
-        {
-            _condutorRepository.Atualizar(condutor, veiculoId, placa);
+            _condutorRepository.RemoverVeiculoCondutor(veiculo);
 
             return await PersistirDados(_condutorRepository.UnitOfWork);
         }

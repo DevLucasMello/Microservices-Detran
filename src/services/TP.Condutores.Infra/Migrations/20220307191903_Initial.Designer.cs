@@ -10,7 +10,7 @@ using TP.Condutores.Infra.Data;
 namespace TP.Condutores.Infra.Migrations
 {
     [DbContext(typeof(CondutoresContext))]
-    [Migration("20220302151417_Initial")]
+    [Migration("20220307191903_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,16 +56,11 @@ namespace TP.Condutores.Infra.Migrations
                     b.ToTable("Condutor");
                 });
 
-            modelBuilder.Entity("TP.Condutores.Domain.VeiculoCondutor", b =>
+            modelBuilder.Entity("TP.Condutores.Domain.Veiculo", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CondutorId")
-                        .IsRequired()
-                        .HasColumnType("varchar(40)")
-                        .HasColumnName("CondutorId");
 
                     b.Property<string>("Placa")
                         .IsRequired()
@@ -122,7 +117,7 @@ namespace TP.Condutores.Infra.Migrations
 
             modelBuilder.Entity("VeiculosCondutores", b =>
                 {
-                    b.HasOne("TP.Condutores.Domain.VeiculoCondutor", null)
+                    b.HasOne("TP.Condutores.Domain.Veiculo", null)
                         .WithMany()
                         .HasForeignKey("CondutorId")
                         .OnDelete(DeleteBehavior.Cascade)

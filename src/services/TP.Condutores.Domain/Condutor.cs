@@ -13,8 +13,8 @@ namespace TP.Condutores.Domain
         public string CNH { get; private set; }
         public DateTime DataNascimento { get; private set; }
 
-        private readonly List<VeiculoCondutor> _veiculo;
-        public IReadOnlyCollection<VeiculoCondutor> Veiculo => _veiculo;
+        private readonly List<Veiculo> _veiculo;
+        public IReadOnlyCollection<Veiculo> Veiculo => _veiculo;
 
         public Condutor(Nome nome, string cpf, string telefone, string email, string cnh, DateTime dataNascimento)
         {
@@ -24,30 +24,18 @@ namespace TP.Condutores.Domain
             Email = email;
             CNH = cnh;
             DataNascimento = dataNascimento;
-            _veiculo ??= new List<VeiculoCondutor>();
+            _veiculo ??= new List<Veiculo>();
         }
 
         // EF Rel.
         protected Condutor() { }
 
-        public void RemoverVeiculo(VeiculoCondutor veiculo, Condutor condutor)
+        public void RemoverVeiculo(Veiculo veiculo, Condutor condutor)
         {
             condutor._veiculo.ForEach(v => 
             {
-                if (v.Id == veiculo.Id && v.CondutorId == veiculo.CondutorId) _veiculo.Remove(v);
+                if (v.Id == veiculo.Id) _veiculo.Remove(v);
             });
-        }
-
-        public Condutor AdicionarVeiculo(Condutor condutor, Guid veiculoId, string placa)
-        {
-            var veiculo = new VeiculoCondutor(condutor.Id, placa)
-            {
-                Id = veiculoId
-            };
-
-            condutor._veiculo.Add(veiculo);
-
-            return condutor;
         }
     }
 }

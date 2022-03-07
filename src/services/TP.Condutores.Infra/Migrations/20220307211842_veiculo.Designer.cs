@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TP.Condutores.Infra.Data;
 
 namespace TP.Condutores.Infra.Migrations
 {
     [DbContext(typeof(CondutoresContext))]
-    partial class CondutoresContextModelSnapshot : ModelSnapshot
+    [Migration("20220307211842_veiculo")]
+    partial class veiculo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

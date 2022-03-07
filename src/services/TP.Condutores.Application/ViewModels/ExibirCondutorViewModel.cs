@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using TP.Condutores.Domain;
 
 namespace TP.Condutores.Application.ViewModels
 {
@@ -18,7 +17,7 @@ namespace TP.Condutores.Application.ViewModels
 
     public class VeiculoCondutorViewModel
     {
-        public string CondutorId { get; set; }
+        public string VeiculoId { get; set; }
         public string Placa { get; set; }
     }
 }

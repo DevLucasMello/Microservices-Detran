@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TP.Core.Data;
 using TP.Veiculos.Domain;
@@ -28,16 +27,10 @@ namespace TP.Veiculos.Infra.Data.Repository
 
         public async Task<IEnumerable<Veiculo>> ObterVeiculosPorCPF(string cpf)
         {
-            var veiculos = await _context.Condutores
-                                .AsNoTracking()
-                                .Where(p => p.CPF == cpf)
-                                .Select(p => p.VeiculoId)
-                                .ToListAsync();
-
             return await _context.Veiculos
-                .AsNoTracking()
-                .Where(p => veiculos.Contains(p.Id))
-                .ToListAsync();
+                                .FromSqlRaw("SELECT V FROM Veiculo V INNER JOIN Condutor c ON C.CPF = {0}", cpf)
+                                .AsNoTracking()
+                                .ToListAsync();
         }
 
         public async Task<Veiculo> ObterPorId(Guid id)
@@ -50,14 +43,15 @@ namespace TP.Veiculos.Infra.Data.Repository
             return await _context.Veiculos.AsNoTracking().FirstOrDefaultAsync(c => c.Placa == placa);
         }
 
-        public async Task<CondutorVeiculo> ObterCondutorId(Guid condutorId)
+        public async Task<Condutor> ObterCondutorId(Guid condutorId)
         {
             return await _context.Condutores.AsNoTracking().FirstOrDefaultAsync(p => p.Id == condutorId);
         }
 
-        public void Adicionar(Veiculo veiculo, Guid condutorId, string cpf)
+        public void Adicionar(Veiculo veiculo, string idCondutor, string cpf)
         {
-            var veiculoCondutor = veiculo.AdicionarCondutor(veiculo, condutorId, cpf);
+            
+            var veiculoCondutor = veiculo.AdicionarCondutor(veiculo, idCondutor, cpf);
 
             _context.Add(veiculoCondutor);
         }

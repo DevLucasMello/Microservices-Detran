@@ -22,7 +22,7 @@ namespace TP.Condutores.Infra.Data
         }
 
         public DbSet<Condutor> Condutores { get; set; }
-        public DbSet<VeiculoCondutor> Veiculos { get; set; }
+        public DbSet<Veiculo> Veiculos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
