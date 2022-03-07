@@ -30,53 +30,34 @@ namespace TP.Condutores.Infra.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CondutorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    VeiculoId = table.Column<string>(type: "varchar(40)", nullable: false),
                     Placa = table.Column<string>(type: "varchar(20)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Veiculo", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "VeiculosCondutores",
-                columns: table => new
-                {
-                    CondutorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    VeiculoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_VeiculosCondutores", x => new { x.CondutorId, x.VeiculoId });
                     table.ForeignKey(
-                        name: "FK_VeiculosCondutores_Condutor_VeiculoId",
-                        column: x => x.VeiculoId,
-                        principalTable: "Condutor",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_VeiculosCondutores_Veiculo_CondutorId",
+                        name: "FK_Condutor_Veiculo",
                         column: x => x.CondutorId,
-                        principalTable: "Veiculo",
+                        principalTable: "Condutor",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_VeiculosCondutores_VeiculoId",
-                table: "VeiculosCondutores",
-                column: "VeiculoId");
+                name: "IX_Veiculo_CondutorId",
+                table: "Veiculo",
+                column: "CondutorId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "VeiculosCondutores");
+                name: "Veiculo");
 
             migrationBuilder.DropTable(
                 name: "Condutor");
-
-            migrationBuilder.DropTable(
-                name: "Veiculo");
         }
     }
 }

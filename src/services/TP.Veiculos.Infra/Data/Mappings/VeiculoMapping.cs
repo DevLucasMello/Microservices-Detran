@@ -34,16 +34,7 @@ namespace TP.Veiculos.Infra.Data.Mappings
             builder.Property(c => c.AnoFabricacao)
                .IsRequired()
                .HasColumnName("AnoFabricacao")
-               .HasColumnType("int");
-
-            builder
-                .HasMany(p => p.Condutor)
-                .WithMany(p => p.Veiculo)
-                .UsingEntity<Dictionary<string, object>>(
-                    "CondutoresVeiculos",
-                    p => p.HasOne<Condutor>().WithMany().HasForeignKey("VeiculoId"),
-                    p => p.HasOne<Veiculo>().WithMany().HasForeignKey("CondutorId")
-                );
+               .HasColumnType("int");            
 
             builder.ToTable("Veiculo");
         }

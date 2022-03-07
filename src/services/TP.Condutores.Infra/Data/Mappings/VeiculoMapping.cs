@@ -10,6 +10,16 @@ namespace TP.Condutores.Infra.Data.Mappings
         {
             builder.HasKey(c => c.Id);
 
+            builder
+                .HasOne(x => x.Condutor)
+                .WithMany(x => x.Veiculo)
+                .HasConstraintName("FK_Condutor_Veiculo")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Property(c => c.CondutorId)
+                .IsRequired()
+                .HasColumnName("CondutorId");
+
             builder.Property(c => c.IdVeiculo)
                 .IsRequired()
                 .HasColumnName("VeiculoId")

@@ -17,6 +17,7 @@ namespace TP.Condutores.Application.ViewModels
 
     public class VeiculoCondutorViewModel
     {
+        public string CondutorId { get; set; }
         public string VeiculoId { get; set; }
         public string Placa { get; set; }
     }

@@ -10,10 +10,20 @@ namespace TP.Veiculos.Infra.Data.Mappings
         {
             builder.HasKey(c => c.Id);
 
+            builder
+                .HasOne(x => x.Veiculo)
+                .WithMany(x => x.Condutor)
+                .HasConstraintName("FK_Veiculo_Condutor")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Property(c => c.VeiculoId)
+                .IsRequired()
+                .HasColumnName("VeiculoId");
+
             builder.Property(c => c.IdCondutor)
                 .IsRequired()
                 .HasColumnName("CondutorId")
-                .HasColumnType("varchar(40)");
+                .HasColumnType("varchar(40)");            
 
             builder.Property(c => c.CPF)
                 .IsRequired()

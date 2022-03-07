@@ -28,7 +28,7 @@ namespace TP.Condutores.Application.AutoMapper
                 c.CPF, c.Telefone, c.Email, c.CNH, Convert.ToDateTime(c.DataNascimento)));
 
             CreateMap<VeiculoCondutorViewModel, Veiculo>()
-                .ConstructUsing(c => new Veiculo(c.VeiculoId, c.Placa));
+                .ConstructUsing(c => new Veiculo(Guid.Parse(c.CondutorId), c.VeiculoId, c.Placa));
         }
     }
 }

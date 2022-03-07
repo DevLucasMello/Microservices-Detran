@@ -60,6 +60,10 @@ namespace TP.Condutores.Infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("CondutorId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CondutorId");
+
                     b.Property<string>("IdVeiculo")
                         .IsRequired()
                         .HasColumnType("varchar(40)")
@@ -72,22 +76,9 @@ namespace TP.Condutores.Infra.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CondutorId");
+
                     b.ToTable("Veiculo");
-                });
-
-            modelBuilder.Entity("VeiculosCondutores", b =>
-                {
-                    b.Property<Guid>("CondutorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("VeiculoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("CondutorId", "VeiculoId");
-
-                    b.HasIndex("VeiculoId");
-
-                    b.ToTable("VeiculosCondutores");
                 });
 
             modelBuilder.Entity("TP.Condutores.Domain.Condutor", b =>
@@ -118,19 +109,21 @@ namespace TP.Condutores.Infra.Migrations
                     b.Navigation("Nome");
                 });
 
-            modelBuilder.Entity("VeiculosCondutores", b =>
+            modelBuilder.Entity("TP.Condutores.Domain.Veiculo", b =>
                 {
-                    b.HasOne("TP.Condutores.Domain.Veiculo", null)
-                        .WithMany()
+                    b.HasOne("TP.Condutores.Domain.Condutor", "Condutor")
+                        .WithMany("Veiculo")
                         .HasForeignKey("CondutorId")
+                        .HasConstraintName("FK_Condutor_Veiculo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TP.Condutores.Domain.Condutor", null)
-                        .WithMany()
-                        .HasForeignKey("VeiculoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Condutor");
+                });
+
+            modelBuilder.Entity("TP.Condutores.Domain.Condutor", b =>
+                {
+                    b.Navigation("Veiculo");
                 });
 #pragma warning restore 612, 618
         }

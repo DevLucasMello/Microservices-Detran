@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System;
 using TP.Veiculos.Application.ViewModels;
 using TP.Veiculos.Domain;
 
@@ -23,7 +24,7 @@ namespace TP.Veiculos.Application.AutoMapper
                 .ConstructUsing(c => new Veiculo(c.Placa, c.Modelo, c.Marca, c.Cor, c.AnoFabricacao));
 
             CreateMap<CondutorVeiculoViewModel, Condutor>()
-                .ConstructUsing(c => new Condutor(c.CondutorId, c.CPF));
+                .ConstructUsing(c => new Condutor(Guid.Parse(c.VeiculoId), c.CondutorId, c.CPF));
         }
     }
 }

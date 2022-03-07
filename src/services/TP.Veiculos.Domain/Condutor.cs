@@ -1,20 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using TP.Core.DomainObjects;
 namespace TP.Veiculos.Domain
 {
     public class Condutor : Entity
     {
+        public Guid VeiculoId { get; private set; }
         public string IdCondutor { get; private set; }
         public string CPF { get; private set; }
+        public Veiculo Veiculo { get; private set; }
 
-        private readonly List<Veiculo> _veiculo;
-        public IReadOnlyCollection<Veiculo> Veiculo => _veiculo;
-
-        public Condutor(string idCondutor, string cpf)
+        public Condutor(Guid idVeiculo, string idCondutor, string cpf)
         {
+            VeiculoId = idVeiculo;
             IdCondutor = idCondutor;
             CPF = cpf;
-            _veiculo ??= new List<Veiculo>();
         }
 
         // EF Rel.

@@ -29,7 +29,7 @@ namespace TP.Veiculos.Domain
 
         public Veiculo AdicionarCondutor(Veiculo veiculo, string idCondutor, string cpf)
         {
-            var condutor = new Condutor(idCondutor, cpf);
+            var condutor = new Condutor(veiculo.Id, idCondutor, cpf);
 
             veiculo._condutor.Add(condutor);
 

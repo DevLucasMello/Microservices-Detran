@@ -28,7 +28,7 @@ namespace TP.Condutores.Infra.Data.Repository
         public async Task<IEnumerable<Condutor>> ObterCondutoresPorPlaca(string placa)
         {
             return await _context.Condutores
-                                .FromSqlRaw("SELECT C FROM Condutor C INNER JOIN Veiculo V ON V.Placa = {0}", placa)
+                                .FromSqlRaw("SELECT C.Id, C.PrimeiroNome, C.UltimoNome, C.CPF, C.Telefone, C.Email, C.CNH, C.DataNascimento FROM Condutor C INNER JOIN Veiculo V ON V.Placa = {0}", placa)
                                 .AsNoTracking()
                                 .ToListAsync();
         }
@@ -58,9 +58,9 @@ namespace TP.Condutores.Infra.Data.Repository
             _context.Condutores.Update(condutor);
         }
 
-        public void AtualizarCondutorVeiculo(string idVeiculo, string placa)
+        public void AtualizarCondutorVeiculo(Guid idCondutor, string idVeiculo, string placa)
         {            
-            _context.Veiculos.Add(new Veiculo(idVeiculo, placa));
+            _context.Veiculos.Add(new Veiculo(idCondutor, idVeiculo, placa));
         }
 
         public void Excluir(Condutor condutor)

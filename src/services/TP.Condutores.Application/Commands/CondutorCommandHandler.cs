@@ -77,7 +77,7 @@ namespace TP.Condutores.Application.Commands
                 return ValidationResult;
             }
 
-            _condutorRepository.AtualizarCondutorVeiculo(message.VeiculoId.ToString(), message.Placa);
+            _condutorRepository.AtualizarCondutorVeiculo(message.CondutorId, message.VeiculoId.ToString(), message.Placa);
 
             return await PersistirDados(_condutorRepository.UnitOfWork);
         }

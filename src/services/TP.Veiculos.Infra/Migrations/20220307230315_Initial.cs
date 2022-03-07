@@ -8,18 +8,6 @@ namespace TP.Veiculos.Infra.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Condutor",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CPF = table.Column<string>(type: "varchar(20)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Condutor", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Veiculo",
                 columns: table => new
                 {
@@ -36,40 +24,33 @@ namespace TP.Veiculos.Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CondutoresVeiculos",
+                name: "Condutor",
                 columns: table => new
                 {
-                    CondutorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    VeiculoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    VeiculoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CondutorId = table.Column<string>(type: "varchar(40)", nullable: false),
+                    CPF = table.Column<string>(type: "varchar(20)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CondutoresVeiculos", x => new { x.CondutorId, x.VeiculoId });
+                    table.PrimaryKey("PK_Condutor", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CondutoresVeiculos_Condutor_VeiculoId",
+                        name: "FK_Veiculo_Condutor",
                         column: x => x.VeiculoId,
-                        principalTable: "Condutor",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CondutoresVeiculos_Veiculo_CondutorId",
-                        column: x => x.CondutorId,
                         principalTable: "Veiculo",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CondutoresVeiculos_VeiculoId",
-                table: "CondutoresVeiculos",
+                name: "IX_Condutor_VeiculoId",
+                table: "Condutor",
                 column: "VeiculoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "CondutoresVeiculos");
-
             migrationBuilder.DropTable(
                 name: "Condutor");
 

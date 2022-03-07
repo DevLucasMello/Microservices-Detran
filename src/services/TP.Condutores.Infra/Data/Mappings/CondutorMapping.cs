@@ -47,16 +47,7 @@ namespace TP.Condutores.Infra.Data.Mappings
             builder.Property(c => c.DataNascimento)
                 .IsRequired()
                 .HasColumnName("DataNascimento")
-                .HasColumnType("datetime");
-
-            builder
-                .HasMany(p => p.Veiculo)
-                .WithMany(p => p.Condutor)
-                .UsingEntity<Dictionary<string, object>>(
-                    "VeiculosCondutores",
-                    p => p.HasOne<Veiculo>().WithMany().HasForeignKey("CondutorId"),
-                    p => p.HasOne<Condutor>().WithMany().HasForeignKey("VeiculoId")
-                );
+                .HasColumnType("datetime");           
 
             builder.ToTable("Condutor");
         }
