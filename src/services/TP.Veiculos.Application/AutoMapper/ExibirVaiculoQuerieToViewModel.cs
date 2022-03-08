@@ -12,7 +12,7 @@ namespace TP.Veiculos.Application.AutoMapper
             CreateMap<Veiculo, ExibirVeiculoViewModel>()                
                 .ForMember(n => n.Condutores, c => c.MapFrom(c => c.Condutor));
 
-            CreateMap<Condutor, ExibirVeiculoViewModel>();
+            CreateMap<Condutor, CondutorVeiculoViewModel>();
         }
     }
 

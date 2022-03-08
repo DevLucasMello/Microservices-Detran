@@ -94,7 +94,7 @@ namespace TP.Condutores.Application.Commands
                 return ValidationResult;
             }
 
-            if (condutor.Veiculo != null)
+            if (condutor.Veiculo.Count > 0)
             {
                 AdicionarErro("Necessário excluir os veículos cadastrados do condutor antes de excluí-lo.");
                 return ValidationResult;

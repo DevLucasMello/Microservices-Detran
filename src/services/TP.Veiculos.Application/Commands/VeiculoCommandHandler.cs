@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using MediatR;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using TP.Core.Messages;
@@ -26,17 +27,26 @@ namespace TP.Veiculos.Application.Commands
 
         public async Task<ValidationResult> Handle(AdicionarVeiculoCommand message, CancellationToken cancellationToken)
         {
-            if (!message.EhValido()) return message.ValidationResult;
+            if (!message.EhValido()) return message.ValidationResult;            
+
+            var veiculos = await _veiculoRepository.ObterVeiculosPorCPF(message.CPF);
+
+            if (veiculos.Any())
+            {
+                var check = false;
+                veiculos.ToList().ForEach(v =>
+                {
+                    if (v.Placa == message.Placa)
+                    {
+                        check = true;
+                        AdicionarErro("Esta placa já foi cadastrada para este condutor.");                        
+                    }
+                });
+
+                if (check) return ValidationResult;
+            }
 
             var veiculo = new Veiculo(message.Placa, message.Modelo, message.Marca, message.Cor, message.AnoFabricacao);
-
-            var veiculoExistente = await _veiculoRepository.ObterPorPlaca(veiculo.Placa);
-
-            if (veiculoExistente != null)
-            {
-                AdicionarErro("Esta placa pertence a outro veículo.");
-                return ValidationResult;
-            }
 
             _veiculoRepository.Adicionar(veiculo, message.CondutorId.ToString(), message.CPF);
 

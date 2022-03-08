@@ -43,17 +43,9 @@ namespace TP.Veiculos.API.Controllers
         }
 
         [HttpGet("veiculo/{id}")]
-        public async Task<IActionResult> ObterCondutorPorId(Guid id)
+        public async Task<IActionResult> ObterVeiculoPorId(Guid id)
         {
             var veiculo = await _veiculoQueries.ObterVeiculoPorId(id);
-
-            return veiculo == null ? NotFound() : CustomResponse(veiculo);
-        }
-
-        [HttpGet("veiculo/placa/{placa}")]
-        public async Task<IActionResult> ObterCondutorPorCpf(string placa)
-        {
-            var veiculo = await _veiculoQueries.ObterVeiculoPorPlaca(placa);
 
             return veiculo == null ? NotFound() : CustomResponse(veiculo);
         }

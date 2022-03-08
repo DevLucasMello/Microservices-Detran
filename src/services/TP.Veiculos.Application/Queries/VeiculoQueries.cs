@@ -12,7 +12,6 @@ namespace TP.Veiculos.Application.Queries
         Task<IEnumerable<ExibirVeiculoViewModel>> ObterTodosVeiculos();
         Task<IEnumerable<ExibirVeiculoViewModel>> ObterVeiculosPorCPF(string cpf);
         Task<ExibirVeiculoViewModel> ObterVeiculoPorId(Guid id);
-        Task<ExibirVeiculoViewModel> ObterVeiculoPorPlaca(string placa);
     }
 
     public class VeiculoQueries : IVeiculoQueries
@@ -49,16 +48,6 @@ namespace TP.Veiculos.Application.Queries
         public async Task<ExibirVeiculoViewModel> ObterVeiculoPorId(Guid id)
         {
             var veiculo = await _veiculoRepository.ObterPorId(id);
-
-            if (veiculo == null)
-                return null;
-
-            return _mapper.Map<ExibirVeiculoViewModel>(veiculo);
-        }
-
-        public async Task<ExibirVeiculoViewModel> ObterVeiculoPorPlaca(string placa)
-        {
-            var veiculo = await _veiculoRepository.ObterPorPlaca(placa);
 
             if (veiculo == null)
                 return null;

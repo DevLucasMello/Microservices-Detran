@@ -20,7 +20,7 @@ namespace TP.Condutores.Infra.Data.Mappings
                 .IsRequired()
                 .HasColumnName("CondutorId");
 
-            builder.Property(c => c.IdVeiculo)
+            builder.Property(c => c.VeiculoId)
                 .IsRequired()
                 .HasColumnName("VeiculoId")
                 .HasColumnType("varchar(40)");

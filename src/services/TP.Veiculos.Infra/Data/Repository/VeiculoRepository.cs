@@ -21,6 +21,7 @@ namespace TP.Veiculos.Infra.Data.Repository
         public async Task<IEnumerable<Veiculo>> ObterTodos()
         {
             return await _context.Veiculos
+                .Include(c => c.Condutor)
                 .AsNoTracking()
                 .ToListAsync();
         }
@@ -28,24 +29,16 @@ namespace TP.Veiculos.Infra.Data.Repository
         public async Task<IEnumerable<Veiculo>> ObterVeiculosPorCPF(string cpf)
         {
             return await _context.Veiculos
-                                .FromSqlRaw("SELECT V FROM Veiculo V INNER JOIN Condutor c ON C.CPF = {0}", cpf)
+                                .FromSqlRaw(@"SELECT v.Id, v.Placa, v.Marca, v.Modelo, v.Cor, v.AnoFabricacao
+                                              FROM Veiculo v
+                                              WHERE v.Id IN (SELECT c.VeiculoId FROM Condutor c WHERE c.CPF = {0})", cpf)
                                 .AsNoTracking()
                                 .ToListAsync();
         }
 
         public async Task<Veiculo> ObterPorId(Guid id)
         {
-            return await _context.Veiculos.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
-        }
-
-        public async Task<Veiculo> ObterPorPlaca(string placa)
-        {
-            return await _context.Veiculos.AsNoTracking().FirstOrDefaultAsync(c => c.Placa == placa);
-        }
-
-        public async Task<Condutor> ObterCondutorId(Guid condutorId)
-        {
-            return await _context.Condutores.AsNoTracking().FirstOrDefaultAsync(p => p.Id == condutorId);
+            return await _context.Veiculos.Include(c => c.Condutor).AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public void Adicionar(Veiculo veiculo, string idCondutor, string cpf)

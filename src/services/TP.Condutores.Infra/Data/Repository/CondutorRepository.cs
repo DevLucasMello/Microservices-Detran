@@ -20,7 +20,8 @@ namespace TP.Condutores.Infra.Data.Repository
 
         public async Task<IEnumerable<Condutor>> ObterTodos()
         {
-            return await _context.Condutores               
+            return await _context.Condutores
+                .Include(c => c.Veiculo)
                 .AsNoTracking()                
                 .ToListAsync();
         }
@@ -28,24 +29,26 @@ namespace TP.Condutores.Infra.Data.Repository
         public async Task<IEnumerable<Condutor>> ObterCondutoresPorPlaca(string placa)
         {
             return await _context.Condutores
-                                .FromSqlRaw("SELECT C.Id, C.PrimeiroNome, C.UltimoNome, C.CPF, C.Telefone, C.Email, C.CNH, C.DataNascimento FROM Condutor C INNER JOIN Veiculo V ON V.Placa = {0}", placa)
+                                .FromSqlRaw(@"SELECT c.Id, c.PrimeiroNome, c.UltimoNome, c.CPF, c.CNH, c.Telefone, c.Email, c.DataNascimento
+                                              FROM Condutor c
+                                              WHERE c.Id IN (SELECT v.CondutorId FROM Veiculo v WHERE v.Placa = {0})", placa)
                                 .AsNoTracking()
                                 .ToListAsync();
         }
 
         public async Task<Condutor> ObterPorId(Guid id)
         {
-            return await _context.Condutores.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
+            return await _context.Condutores.Include(c => c.Veiculo).AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public async Task<Condutor> ObterPorCPF(string cpf)
         {
-            return await _context.Condutores.AsNoTracking().FirstOrDefaultAsync(c => c.CPF == cpf);
+            return await _context.Condutores.Include(c => c.Veiculo).AsNoTracking().FirstOrDefaultAsync(c => c.CPF == cpf);
         }
 
         public async Task<Veiculo> ObterVeiculoId(Guid veiculoId)
-        {
-            return await _context.Veiculos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == veiculoId);
+        {            
+            return await _context.Veiculos.AsNoTracking().FirstOrDefaultAsync(p => p.VeiculoId.ToLower() == veiculoId.ToString().ToLower());
         }
 
         public void Adicionar(Condutor condutor)
