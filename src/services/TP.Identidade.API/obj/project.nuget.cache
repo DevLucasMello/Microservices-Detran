@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bqJABq6PotbVOZl5eHDwDoIVhqyOmzhsQ/HM4A216S6ZnrsQq2TF9gh9Oj8y72qzVudO76U4rZW/aNasuwe0rw==",
+  "dgSpecHash": "WLseWIXYOQGup1s0Yhp28sMK2rXQNXO+1TAE/dSzKYw4K5RyN0645UOJukBUxMkzbqa0Ek2fc4W2UrfLIVPIfg==",
   "success": true,
   "projectFilePath": "C:\\dev\\TestePadrao\\src\\services\\TP.Identidade.API\\TP.Identidade.API.csproj",
   "expectedPackageFiles": [
@@ -31,6 +31,8 @@
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\5.0.0\\microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\5.0.12\\microsoft.extensions.fileproviders.embedded.5.0.12.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.http\\5.0.0\\microsoft.extensions.http.5.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.http.polly\\5.0.1\\microsoft.extensions.http.polly.5.0.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.identity.core\\5.0.12\\microsoft.extensions.identity.core.5.0.12.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.identity.stores\\5.0.12\\microsoft.extensions.identity.stores.5.0.12.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
@@ -51,6 +53,7 @@
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\polly\\7.2.1\\polly.7.2.1.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\polly.extensions.http\\3.0.0\\polly.extensions.http.3.0.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\rabbitmq.client\\6.0.0\\rabbitmq.client.6.0.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",

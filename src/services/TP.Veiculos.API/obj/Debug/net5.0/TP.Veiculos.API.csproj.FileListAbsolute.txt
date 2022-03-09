@@ -170,3 +170,5 @@ C:\dev\TestePadrao\src\services\TP.Veiculos.API\obj\Debug\net5.0\TP.Veiculos.API
 C:\dev\TestePadrao\src\services\TP.Veiculos.API\obj\Debug\net5.0\ref\TP.Veiculos.API.dll
 C:\dev\TestePadrao\src\services\TP.Veiculos.API\obj\Debug\net5.0\TP.Veiculos.API.pdb
 C:\dev\TestePadrao\src\services\TP.Veiculos.API\obj\Debug\net5.0\TP.Veiculos.API.genruntimeconfig.cache
+C:\dev\TestePadrao\src\services\TP.Veiculos.API\bin\Debug\net5.0\Microsoft.Extensions.Http.Polly.dll
+C:\dev\TestePadrao\src\services\TP.Veiculos.API\bin\Debug\net5.0\Polly.Extensions.Http.dll
