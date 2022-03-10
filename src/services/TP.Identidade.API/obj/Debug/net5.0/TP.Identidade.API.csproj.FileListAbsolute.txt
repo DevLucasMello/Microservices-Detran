@@ -164,3 +164,5 @@ C:\dev\TestePadrao\src\services\TP.Identidade.API\obj\Debug\net5.0\TP.Identidade
 C:\dev\TestePadrao\src\services\TP.Identidade.API\obj\Debug\net5.0\TP.Identidade.API.genruntimeconfig.cache
 C:\dev\TestePadrao\src\services\TP.Identidade.API\bin\Debug\net5.0\Microsoft.Extensions.Http.Polly.dll
 C:\dev\TestePadrao\src\services\TP.Identidade.API\bin\Debug\net5.0\Polly.Extensions.Http.dll
+C:\dev\Teste-Padrao\src\services\TP.Identidade.API\bin\Debug\net5.0\Microsoft.Extensions.Http.Polly.dll
+C:\dev\Teste-Padrao\src\services\TP.Identidade.API\bin\Debug\net5.0\Polly.Extensions.Http.dll

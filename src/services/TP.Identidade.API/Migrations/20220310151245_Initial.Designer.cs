@@ -10,7 +10,7 @@ using TP.Identidade.API.Data;
 namespace TP.Identidade.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220302151318_Initial")]
+    [Migration("20220310151245_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

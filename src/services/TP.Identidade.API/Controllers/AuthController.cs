@@ -13,7 +13,6 @@ using System.Linq;
 using System.Collections.Generic;
 using TP.WebAPI.Core.Identidade;
 using TP.WebAPI.Core.Controllers;
-using TP.MessageBus;
 
 namespace TP.Identidade.API.Configuration
 {
@@ -24,17 +23,13 @@ namespace TP.Identidade.API.Configuration
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
 
-        private readonly IMessageBus _bus;
-
         public AuthController(SignInManager<IdentityUser> signInManager,
                               UserManager<IdentityUser> userManager,
-                              IOptions<AppSettings> appSettings,
-                              IMessageBus bus)
+                              IOptions<AppSettings> appSettings)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
-            _bus = bus;
         }
 
         [HttpPost("nova-conta")]

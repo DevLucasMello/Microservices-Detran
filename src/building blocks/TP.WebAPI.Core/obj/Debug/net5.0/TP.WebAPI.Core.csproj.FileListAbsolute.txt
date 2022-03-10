@@ -24,3 +24,7 @@ C:\dev\TestePadrao\src\building blocks\TP.WebAPI.Core\bin\Debug\net5.0\TP.Core.d
 C:\dev\TestePadrao\src\building blocks\TP.WebAPI.Core\bin\Debug\net5.0\TP.Core.pdb
 C:\dev\TestePadrao\src\building blocks\TP.WebAPI.Core\obj\Debug\net5.0\TP.WebAPI.Core.csproj.AssemblyReference.cache
 C:\dev\TestePadrao\src\building blocks\TP.WebAPI.Core\obj\Debug\net5.0\TP.WebAPI.Core.csproj.CopyComplete
+C:\dev\Teste-Padrao\src\building blocks\TP.WebAPI.Core\bin\Debug\net5.0\TP.Core.dll
+C:\dev\Teste-Padrao\src\building blocks\TP.WebAPI.Core\bin\Debug\net5.0\TP.Core.pdb
+C:\dev\Teste-Padrao\src\building blocks\TP.WebAPI.Core\obj\Debug\net5.0\TP.WebAPI.Core.csproj.AssemblyReference.cache
+C:\dev\Teste-Padrao\src\building blocks\TP.WebAPI.Core\obj\Debug\net5.0\TP.WebAPI.Core.csproj.CopyComplete

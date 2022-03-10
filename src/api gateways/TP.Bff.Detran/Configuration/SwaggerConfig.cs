@@ -14,7 +14,7 @@ namespace TP.Bff.Detran.Configuration
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "Teste Padrão",
-                    Description = "Esta API faz a comuniçaão entre as demais API's e o front-end.",
+                    Description = "Esta API faz a comunicação entre as demais API's e o front-end.",
                     Contact = new OpenApiContact() { Name = "Lucas Santos", Email = "lucas.sports@hotmail.com" },
                     License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
                 });

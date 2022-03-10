@@ -60,7 +60,7 @@ namespace TP.Veiculos.API.Controllers
         [HttpPut("veiculo/{id}")]
         public async Task<IActionResult> AtualizarVeiculo(Guid id, AtualizarVeiculoViewModel veiculoViewModel)
         {
-            if (id.ToString() != veiculoViewModel.Id) return NotFound();
+            if (id.ToString().ToLower() != veiculoViewModel.Id.ToLower()) return NotFound();
             var veiculo = _mapper.Map<AtualizarVeiculoCommand>(veiculoViewModel);
             return CustomResponse(await _mediator.EnviarComando(veiculo));
         }

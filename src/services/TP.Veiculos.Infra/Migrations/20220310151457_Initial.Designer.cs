@@ -10,8 +10,8 @@ using TP.Veiculos.Infra.Data;
 namespace TP.Veiculos.Infra.Migrations
 {
     [DbContext(typeof(VeiculosContext))]
-    [Migration("20220308185512_CondutorId")]
-    partial class CondutorId
+    [Migration("20220310151457_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

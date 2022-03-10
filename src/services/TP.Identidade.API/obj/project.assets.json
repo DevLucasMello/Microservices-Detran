@@ -6340,11 +6340,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\dev\\TestePadrao\\src\\services\\TP.Identidade.API\\TP.Identidade.API.csproj",
+      "projectUniqueName": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Identidade.API\\TP.Identidade.API.csproj",
       "projectName": "TP.Identidade.API",
-      "projectPath": "C:\\dev\\TestePadrao\\src\\services\\TP.Identidade.API\\TP.Identidade.API.csproj",
+      "projectPath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Identidade.API\\TP.Identidade.API.csproj",
       "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
-      "outputPath": "C:\\dev\\TestePadrao\\src\\services\\TP.Identidade.API\\obj\\",
+      "outputPath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Identidade.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6365,11 +6365,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\dev\\TestePadrao\\src\\building blocks\\TP.MessageBus\\TP.MessageBus.csproj": {
-              "projectPath": "C:\\dev\\TestePadrao\\src\\building blocks\\TP.MessageBus\\TP.MessageBus.csproj"
+            "C:\\dev\\Teste-Padrao\\src\\building blocks\\TP.MessageBus\\TP.MessageBus.csproj": {
+              "projectPath": "C:\\dev\\Teste-Padrao\\src\\building blocks\\TP.MessageBus\\TP.MessageBus.csproj"
             },
-            "C:\\dev\\TestePadrao\\src\\building blocks\\TP.WebAPI.Core\\TP.WebAPI.Core.csproj": {
-              "projectPath": "C:\\dev\\TestePadrao\\src\\building blocks\\TP.WebAPI.Core\\TP.WebAPI.Core.csproj"
+            "C:\\dev\\Teste-Padrao\\src\\building blocks\\TP.WebAPI.Core\\TP.WebAPI.Core.csproj": {
+              "projectPath": "C:\\dev\\Teste-Padrao\\src\\building blocks\\TP.WebAPI.Core\\TP.WebAPI.Core.csproj"
             }
           }
         }

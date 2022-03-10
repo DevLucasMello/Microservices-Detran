@@ -30,14 +30,15 @@ namespace TP.WebAPI.Core.Http
         protected bool TratarErrosResponse(HttpResponseMessage response)
         {
             if (response.StatusCode == HttpStatusCode.BadRequest) return false;
+            if (response.StatusCode == HttpStatusCode.NotFound) return false;
 
             response.EnsureSuccessStatusCode();
             return true;
         }
 
-        protected ResponseResult RetornoOk()
+        protected ResponseResult RetornoOk(HttpResponseMessage response)
         {
-            return new ResponseResult();
+            return new ResponseResult() { Status = (int)response.StatusCode, Title = "sucesso" };
         }
     }
 }

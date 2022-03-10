@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gduR+M8S57yDIJmGg3vFup4xUqadxJKYEibrnR0laCljG8UFZssJM4PGYgyla4S7w/a09TM0LYFmW2HZDiiV4g==",
+  "dgSpecHash": "hqqjMeVxXIO7SH/+ZKxkW70pYYlxZWItYahuuEp0cA/TrFXBmRVToSzrgjipQf6e3FLU3BQZOyJaDH4WIcBc1Q==",
   "success": true,
-  "projectFilePath": "C:\\dev\\TestePadrao\\src\\building blocks\\TP.WebAPI.Core\\TP.WebAPI.Core.csproj",
+  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\building blocks\\TP.WebAPI.Core\\TP.WebAPI.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",

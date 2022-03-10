@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\building blocks\TP.Core\TP.Core.csproj" />
     <ProjectReference Include="..\..\building blocks\TP.MessageBus\TP.MessageBus.csproj" />
     <ProjectReference Include="..\..\building blocks\TP.WebAPI.Core\TP.WebAPI.Core.csproj" />

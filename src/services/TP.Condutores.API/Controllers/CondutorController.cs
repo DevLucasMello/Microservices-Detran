@@ -68,6 +68,7 @@ namespace TP.Condutores.API.Controllers
         [HttpPut("condutor/{id}")]
         public async Task<IActionResult> AtualizarCondutor(Guid id, AtualizarCondutorViewModel condutorViewModel)
         {
+            if (id.ToString().ToLower() != condutorViewModel.Id.ToLower()) return NotFound();
             var condutor = _mapper.Map<AtualizarCondutorCommand>(condutorViewModel);
             return CustomResponse(await _mediator.EnviarComando(condutor));
         }
