@@ -1,0 +1,82 @@
+version: "3"
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbit-tp
+    environment:
+      RABBITMQ_DEFAULT_USER: "devlucastp"
+      RABBITMQ_DEFAULT_PASS: "devlucastp"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  sql-server:
+    image: devlucasmello/tp-sql-server:latest
+    container_name: tp-sql-server
+    build: 
+      context: ../sql
+      dockerfile: ./Dockerfile
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Lm@518792"
+      ACCEPT_EULA: "Y"
+
+  detran:
+    image: devlucasmello/tp-gateway-detran:latest
+    container_name: tp-gateway-detran
+    build:
+      context: ../src
+      dockerfile: ./api gateways/TP.Bff.Detran/Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://*:5001
+    depends_on:
+      - rabbitmq
+      - sql-server
+      - api-identidade      
+      - api-condutor
+      - api-veiculo
+
+  api-identidade:
+    image: devlucasmello/tp-api-identidade:latest
+    container_name: tp-api-identidade
+    build:
+      context: ../src
+      dockerfile: ./services/TP.Identidade.API/Dockerfile    
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://*:5101
+    depends_on:
+      - rabbitmq      
+
+  api-condutor:
+    image: devlucasmello/tp-api-condutor:latest
+    container_name: tp-api-condutor
+    build:
+      context: ../src
+      dockerfile: ./services/TP.Condutores.API/Dockerfile    
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://*:5301
+    depends_on:
+      - rabbitmq
+      - api-identidade
+
+  api-veiculo:
+    image: devlucasmello/tp-api-veiculo:latest
+    container_name: tp-api-veiculo
+    build:
+      context: ../src
+      dockerfile: ./services/TP.Veiculos.API/Dockerfile    
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://*:5401
+    depends_on:
+      - rabbitmq
+      - api-identidade      
+      - api-condutor

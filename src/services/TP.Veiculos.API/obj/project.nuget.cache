@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KJDg7Y+xnQydAwppfwpILqUYbMnpYAzM3Ix8h50A1ssqxvaNBM9M1gfGGsm0+HxjNxiSX6TXABLfc757VYX2cg==",
+  "dgSpecHash": "TwdJo53pTlZKTDZrVvZIDcf8ylSTgTWN2pTTQigGQtCxVm+zDd3bJ1QESgrE2QQlqGLXLaY+EUNytizd+MMKBA==",
   "success": true,
   "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Veiculos.API\\TP.Veiculos.API.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,7 @@
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
