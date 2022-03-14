@@ -35,9 +35,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://*:5001
-    depends_on:
-      - rabbitmq
-      - sql-server
+    depends_on:      
       - api-identidade      
       - api-condutor
       - api-veiculo
@@ -52,7 +50,8 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://*:5101
     depends_on:
-      - rabbitmq      
+      - rabbitmq
+      - sql-server
 
   api-condutor:
     image: devlucasmello/tp-api-condutor:latest
@@ -63,8 +62,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://*:5301
-    depends_on:
-      - rabbitmq
+    depends_on:      
       - api-identidade
 
   api-veiculo:
@@ -76,7 +74,5 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://*:5401
-    depends_on:
-      - rabbitmq
-      - api-identidade      
+    depends_on:      
       - api-condutor
