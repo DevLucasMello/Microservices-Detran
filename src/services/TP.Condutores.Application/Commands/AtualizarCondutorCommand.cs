@@ -14,9 +14,9 @@ namespace TP.Condutores.Application.Commands
         public string Telefone { get; set; }
         public string Email { get; set; }
         public string CNH { get; set; }
-        public DateTime DataNascimento { get; set; }
+        public DateTime? DataNascimento { get; set; }
 
-        public AtualizarCondutorCommand(Guid id, Nome nome, string cpf, string telefone, string email, string cnh, DateTime dataNascimento)
+        public AtualizarCondutorCommand(Guid id, Nome nome, string cpf, string telefone, string email, string cnh, DateTime? dataNascimento)
         {
             Id = id;
             AggregateId = id;

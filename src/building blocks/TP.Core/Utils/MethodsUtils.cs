@@ -11,8 +11,9 @@ namespace TP.Core.Utils
             return new string(input.Where(char.IsDigit).ToArray());
         }
 
-        public static bool CondutorMaiorDeIdade(DateTime dataNascimento)
+        public static bool CondutorMaiorDeIdade(DateTime? dataNascimento)
         {
+            if (dataNascimento == null) return false;
             return dataNascimento <= DateTime.Now.AddYears(-18);
         }
 

@@ -248,3 +248,4 @@ C:\dev\Teste-Padrao\src\api gateways\TP.Bff.Detran\obj\Debug\net5.0\scopedcss\bu
 C:\dev\Teste-Padrao\src\api gateways\TP.Bff.Detran\obj\Debug\net5.0\TP.Bff.Detran.RazorTargetAssemblyInfo.cache
 C:\dev\Teste-Padrao\src\api gateways\TP.Bff.Detran\obj\Debug\net5.0\TP.Bff.Detran.csproj.CopyComplete
 C:\dev\Teste-Padrao\src\api gateways\TP.Bff.Detran\obj\Debug\net5.0\TP.Bff.Detran.genruntimeconfig.cache
+C:\dev\Teste-Padrao\src\api gateways\TP.Bff.Detran\bin\Debug\net5.0\appsettings.Production.json

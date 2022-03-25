@@ -11,12 +11,12 @@ namespace TP.Condutores.Domain
         public string Telefone { get; private set; }
         public string Email { get; private set; }
         public string CNH { get; private set; }
-        public DateTime DataNascimento { get; private set; }
+        public DateTime? DataNascimento { get; private set; }
 
         private readonly List<Veiculo> _veiculo;
         public IReadOnlyCollection<Veiculo> Veiculo => _veiculo;
 
-        public Condutor(Nome nome, string cpf, string telefone, string email, string cnh, DateTime dataNascimento)
+        public Condutor(Nome nome, string cpf, string telefone, string email, string cnh, DateTime? dataNascimento)
         {
             Nome = nome;
             CPF = cpf;
@@ -29,13 +29,5 @@ namespace TP.Condutores.Domain
 
         // EF Rel.
         protected Condutor() { }
-
-        public void RemoverVeiculo(Veiculo veiculo, Condutor condutor)
-        {
-            condutor._veiculo.ForEach(v => 
-            {
-                if (v.Id == veiculo.Id) _veiculo.Remove(v);
-            });
-        }
     }
 }
