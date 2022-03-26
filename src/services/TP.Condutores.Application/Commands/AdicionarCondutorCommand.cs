@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using System;
+using TP.Condutores.Application.Messages;
 using TP.Core.DomainObjects;
 using TP.Core.Messages;
 using TP.Core.Utils;
@@ -33,61 +34,48 @@ namespace TP.Condutores.Application.Commands
     }
 
     public class AdicionarCondutorValidation : AbstractValidator<AdicionarCondutorCommand>
-    {
-        public static string PrimeiroNomeErroMsg => "O primeiro nome não foi informado";
-        public static string UltimoNomeErroMsg => "O último nome não foi informado";
-        public static string CPFErroMsg => "O CPF deve ser informado";
-        public static string TelefoneErroMsg => "O Telefone deve ser preenchido";
-        public static string EmailErroMsg => "O Email não foi informado";
-        public static string CNHErroMsg => "A CNH deve ser informada";
-        public static string DataNascimentoErroMsg => "A Data de Nascimento deve ser informada";
-        public static string PrimeiroNomeQtdErroMsg => "O campo nome deve ter entre 3 e 150 caracteres";
-        public static string UltimoNomeQtdErroMsg => "O campo nome deve ter entre 3 e 150 caracteres";
-        public static string CPFInvalidoErroMsg => "O CPF informado é inválido";
-        public static string TelefoneQtdErroMsg => "Informe o telefone com no mínimo 9 digitos";
-        public static string EmailInvalidoErroMsg => "Endereço de E-mail inválido";
-        public static string DataNascimentoMenor18ErroMsg => "O Condutor deve ter no mínimo 18 anos";
+    {        
         public AdicionarCondutorValidation()
         {
             RuleFor(n => n.Nome.PrimeiroNome)
                 .NotEmpty()
-                .WithMessage(PrimeiroNomeErroMsg)
+                .WithMessage(CondutorCommandErrorMessages.PrimeiroNomeNuloErroMsg)
                 .Length(3, 150)
-                .WithMessage(PrimeiroNomeQtdErroMsg);
+                .WithMessage(CondutorCommandErrorMessages.PrimeiroNomeQtdErroMsg);
 
             RuleFor(n => n.Nome.UltimoNome)
                 .NotEmpty()
-                .WithMessage(UltimoNomeErroMsg)
+                .WithMessage(CondutorCommandErrorMessages.UltimoNomeNuloErroMsg)
                 .Length(3, 150)
-                .WithMessage(UltimoNomeQtdErroMsg);
+                .WithMessage(CondutorCommandErrorMessages.UltimoNomeQtdErroMsg);
 
             RuleFor(c => c.CPF)
                 .NotEmpty()
-                .WithMessage(CPFErroMsg)
+                .WithMessage(CondutorCommandErrorMessages.CPFNuloErroMsg)
                 .Must(MethodsUtils.IsCpfValid)
-                .WithMessage(CPFInvalidoErroMsg);
+                .WithMessage(CondutorCommandErrorMessages.CPFInvalidoErroMsg);
 
             RuleFor(c => c.Telefone)
                 .NotEmpty()
-                .WithMessage(TelefoneErroMsg)
+                .WithMessage(CondutorCommandErrorMessages.TelefoneNuloErroMsg)
                 .MinimumLength(9)
-                .WithMessage(TelefoneQtdErroMsg);
+                .WithMessage(CondutorCommandErrorMessages.TelefoneQtdErroMsg);
 
             RuleFor(s => s.Email)
                 .NotEmpty()
-                .WithMessage(EmailErroMsg)
+                .WithMessage(CondutorCommandErrorMessages.EmailNuloErroMsg)
                 .EmailAddress()
-                .WithMessage(EmailInvalidoErroMsg);
+                .WithMessage(CondutorCommandErrorMessages.EmailInvalidoErroMsg);
 
             RuleFor(c => c.CNH)
                 .NotEmpty()
-                .WithMessage(CNHErroMsg);
+                .WithMessage(CondutorCommandErrorMessages.CNHNuloErroMsg);
 
             RuleFor(c => c.DataNascimento)
                 .NotEmpty()
-                .WithMessage(DataNascimentoErroMsg)
+                .WithMessage(CondutorCommandErrorMessages.DataNascimentoNuloErroMsg)
                 .Must(MethodsUtils.CondutorMaiorDeIdade)
-                .WithMessage(DataNascimentoMenor18ErroMsg);
+                .WithMessage(CondutorCommandErrorMessages.DataNascimentoMenor18ErroMsg);
         }
     }
 }
