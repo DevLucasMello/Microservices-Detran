@@ -183,3 +183,7 @@ C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\obj\Debug\net5.0\TP.Co
 C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\obj\Debug\net5.0\ref\TP.Condutores.Application.Tests.dll
 C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\obj\Debug\net5.0\TP.Condutores.Application.Tests.pdb
 C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\obj\Debug\net5.0\TP.Condutores.Application.Tests.genruntimeconfig.cache
+C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\bin\Debug\net5.0\Castle.Core.dll
+C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\bin\Debug\net5.0\Moq.dll
+C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\bin\Debug\net5.0\Moq.AutoMock.dll
+C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\bin\Debug\net5.0\Bogus.dll

@@ -1,19 +1,27 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using TP.Condutores.Application.Commands;
 using TP.Condutores.Application.Messages;
-using TP.Core.DomainObjects;
+using TP.Condutores.Application.Tests.Fixtures.Tests;
 using Xunit;
-namespace TP.Condutores.Application.Tests.Condutor
+namespace TP.Condutores.Application.Tests
 {
+    [Collection(nameof(CondutorAutoMockerCollection))]
     public class AdicionarCondutorCommandTests
     {
+        private readonly CondutorTestsAutoMockerFixture _condutorTestsAutoMockerFixture;
+
+        public AdicionarCondutorCommandTests(CondutorTestsAutoMockerFixture condutorTestsFixture)
+        {
+            _condutorTestsAutoMockerFixture = condutorTestsFixture;
+        }
+
         [Fact(DisplayName = "Adicionar Condutor Comando Válido")]
         [Trait("Categoria", "CondutoresAPI - Condutor Commands")]
         public void AdicionarCondutorCommand_ComandoEstaValido_DevePassarNaValidacao()
         {
             // Arrange
-            var condutorCommand = new AdicionarCondutorCommand(new Nome("Lucas", "Santos"), "78289985037", "1111-2222", "teste@teste.com.br", "82954171198", new DateTime(1990, 02, 11));
+            var condutor = _condutorTestsAutoMockerFixture.CondutorValido();
+            var condutorCommand = new AdicionarCondutorCommand(condutor.Nome, condutor.CPF, condutor.Telefone, condutor.Email, condutor.CNH, condutor.DataNascimento);
 
             // Act
             var result = condutorCommand.EhValido();
@@ -27,11 +35,11 @@ namespace TP.Condutores.Application.Tests.Condutor
         public void AdicionarCondutorCommand_ComandoEstaInvalido_NaoDevePassarNaValidacao()
         {
             // Arrange
-            var condutorCommand = new AdicionarCondutorCommand(new Nome("", ""), "", "", "", "", null);
+            var condutor = _condutorTestsAutoMockerFixture.CondutorInvalido();
+            var condutorCommand = new AdicionarCondutorCommand(condutor.Nome, condutor.CPF, condutor.Telefone, condutor.Email, condutor.CNH, condutor.DataNascimento);
 
             // Act
             var result = condutorCommand.EhValido();
-            var erros = condutorCommand.ValidationResult.Errors.Count;
 
             // Assert
             Assert.False(result);

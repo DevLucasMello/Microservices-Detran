@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using System;
+using TP.Condutores.Application.Messages;
 using TP.Core.Messages;
 using TP.Core.Utils;
 
@@ -28,13 +29,13 @@ namespace TP.Condutores.Application.Commands
             {
                 RuleFor(c => c.VeiculoId)
                     .NotEqual(Guid.Empty)
-                    .WithMessage("Id do veículo inválido");
+                    .WithMessage(CondutorCommandErrorMessages.VeiculoIdNuloErroMsg);
 
                 RuleFor(c => c.Placa)
                     .NotEmpty()
-                    .WithMessage("A placa deve ser informada")
+                    .WithMessage(CondutorCommandErrorMessages.PlacaNuloErroMsg)
                     .Must(MethodsUtils.IsPlaqueValid)
-                    .WithMessage("A placa informada é inválida");
+                    .WithMessage(CondutorCommandErrorMessages.PlacaInvalidaErroMsg);
             }
         }
     }

@@ -2,6 +2,11 @@
 {
     public static class CondutorCommandErrorMessages
     {
+        public static string IdNuloErroMsg => "O Id não foi informado";
+        public static string CondutorIdNuloErroMsg => "Id do condutor inválido";
+        public static string VeiculoIdNuloErroMsg => "Id do veículo inválido";
+        public static string PlacaNuloErroMsg => "A placa deve ser informada";
+        public static string PlacaInvalidaErroMsg => "A placa informada é inválida";
         public static string PrimeiroNomeNuloErroMsg => "O primeiro nome não foi informado";
         public static string UltimoNomeNuloErroMsg => "O último nome não foi informado";
         public static string CPFNuloErroMsg => "O CPF deve ser informado";

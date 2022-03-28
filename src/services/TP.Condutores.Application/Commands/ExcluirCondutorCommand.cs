@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using System;
+using TP.Condutores.Application.Messages;
 using TP.Core.Messages;
 
 namespace TP.Condutores.Application.Commands
@@ -25,7 +26,7 @@ namespace TP.Condutores.Application.Commands
             {
                 RuleFor(c => c.Id)
                     .NotEqual(Guid.Empty)
-                    .WithMessage("Id do condutor inválido");
+                    .WithMessage(CondutorCommandErrorMessages.IdNuloErroMsg);
             }
         }
     }

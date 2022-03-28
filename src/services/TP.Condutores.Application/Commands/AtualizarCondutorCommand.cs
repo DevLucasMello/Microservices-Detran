@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using System;
+using TP.Condutores.Application.Messages;
 using TP.Core.DomainObjects;
 using TP.Core.Messages;
 using TP.Core.Utils;
@@ -40,47 +41,47 @@ namespace TP.Condutores.Application.Commands
             {
                 RuleFor(c => c.Id)
                     .NotEqual(Guid.Empty)
-                    .WithMessage("Id do condutor inválido");
+                    .WithMessage(CondutorCommandErrorMessages.IdNuloErroMsg);
 
                 RuleFor(n => n.Nome.PrimeiroNome)
                     .NotEmpty()
-                    .WithMessage("O primeiro nome não foi informado")
+                    .WithMessage(CondutorCommandErrorMessages.PrimeiroNomeNuloErroMsg)
                     .Length(3, 150)
-                    .WithMessage("O campo nome deve ter entre 3 e 150 caracteres");
+                    .WithMessage(CondutorCommandErrorMessages.PrimeiroNomeQtdErroMsg);
 
                 RuleFor(n => n.Nome.UltimoNome)
                     .NotEmpty()
-                    .WithMessage("O último nome não foi informado")
+                    .WithMessage(CondutorCommandErrorMessages.UltimoNomeNuloErroMsg)
                     .Length(3, 150)
-                    .WithMessage("O campo nome deve ter entre 3 e 150 caracteres");
+                    .WithMessage(CondutorCommandErrorMessages.UltimoNomeQtdErroMsg);
 
                 RuleFor(c => c.CPF)
                     .NotEmpty()
-                    .WithMessage("O CPF deve ser informado")
+                    .WithMessage(CondutorCommandErrorMessages.CPFNuloErroMsg)
                     .Must(MethodsUtils.IsCpfValid)
-                    .WithMessage("O CPF informado é inválido");
+                    .WithMessage(CondutorCommandErrorMessages.CPFInvalidoErroMsg);
 
                 RuleFor(c => c.Telefone)
                     .NotEmpty()
-                    .WithMessage("O Telefone deve ser preenchido")
+                    .WithMessage(CondutorCommandErrorMessages.TelefoneNuloErroMsg)
                     .MinimumLength(9)
-                    .WithMessage("Informe o telefone com no mínimo 9 digitos");
+                    .WithMessage(CondutorCommandErrorMessages.TelefoneQtdErroMsg);
 
                 RuleFor(s => s.Email)
                     .NotEmpty()
-                    .WithMessage("O Email não foi informado")
+                    .WithMessage(CondutorCommandErrorMessages.EmailNuloErroMsg)
                     .EmailAddress()
-                    .WithMessage("Endereço de E-mail inválido");
+                    .WithMessage(CondutorCommandErrorMessages.EmailInvalidoErroMsg);
 
                 RuleFor(c => c.CNH)
                     .NotEmpty()
-                    .WithMessage("A CNH deve ser informada");
+                    .WithMessage(CondutorCommandErrorMessages.CNHNuloErroMsg);
 
                 RuleFor(c => c.DataNascimento)
                     .NotEmpty()
-                    .WithMessage("A Data de Nascimento deve ser informada")
+                    .WithMessage(CondutorCommandErrorMessages.DataNascimentoNuloErroMsg)
                     .Must(MethodsUtils.CondutorMaiorDeIdade)
-                    .WithMessage("O Condutor deve ter no mínimo 18 anos");
+                    .WithMessage(CondutorCommandErrorMessages.DataNascimentoMenor18ErroMsg);
             }
         }
     }
