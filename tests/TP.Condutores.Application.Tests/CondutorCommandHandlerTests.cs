@@ -196,6 +196,46 @@ namespace TP.Condutores.Application.Tests
         #endregion
 
         #region ExcluirCondutorCommand
+
+        [Fact(DisplayName = "Excluir Condutor Command Inválido")]
+        [Trait("Categoria", "CondutoresAPI - Condutor Command Handler")]
+        public async Task ExcluirCondutor_CommandInvalido_DeveRetornarFalso()
+        {
+            // Arrange
+            var condutorCommand = new ExcluirCondutorCommand(Guid.Empty);
+
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
+
+            // Act
+            var result = await _condutorHandler.Handle(condutorCommand, CancellationToken.None);
+
+            // Assert
+            Assert.False(result.IsValid);
+        }
+
+        [Fact(DisplayName = "Excluir Condutor Command com Sucesso")]
+        [Trait("Categoria", "CondutoresAPI - Condutor Command Handler")]
+        public async Task ExcluirCondutor_CommandInvalido_DeveExecutarComSucesso()
+        {
+            // Arrange
+            var condutor = _condutorTestsAutoMockerFixture.CondutorValido();
+
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Setup(r => r.ObterPorId(condutor.Id)).
+                Returns(Task.FromResult(condutor));
+
+            var condutorCommand = new ExcluirCondutorCommand(condutor.Id);
+
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
+
+            // Act
+            var result = await _condutorHandler.Handle(condutorCommand, CancellationToken.None);
+
+            // Assert
+            Assert.True(result.IsValid);
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Verify(r => r.Excluir(It.IsAny<Condutor>()), Times.Once);
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Verify(r => r.UnitOfWork.Commit(), Times.Once);
+        }
+
         #endregion
 
         #region ExcluirVeiculoCondutorCommand

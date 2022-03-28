@@ -72,6 +72,16 @@ namespace TP.Condutores.Application.Tests.Fixtures.Tests
             return GerarVeiculoPlacaInvalida();
         }
 
+        public Condutor CondutorComVeiculo()
+        {
+            var condutor = GerarCondutores(1).FirstOrDefault();
+            var veiculo = GerarVeiculos(1).FirstOrDefault();
+
+            condutor.AdicionarVeiculo(condutor, veiculo);
+
+            return condutor;
+        }
+
         public IEnumerable<Veiculo> ObterVeiculos()
         {
             var veiculos = new List<Veiculo>();

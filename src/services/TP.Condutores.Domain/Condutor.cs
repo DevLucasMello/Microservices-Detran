@@ -29,5 +29,11 @@ namespace TP.Condutores.Domain
 
         // EF Rel.
         protected Condutor() { }
+
+        public void AdicionarVeiculo(Condutor condutor, Veiculo veiculo)
+        {
+            veiculo.Id = condutor.Id;
+            condutor._veiculo.Add(veiculo);
+        }
     }
 }
