@@ -128,6 +128,71 @@ namespace TP.Condutores.Application.Tests
         #endregion
 
         #region AtualizarVeiculoCondutorCommand
+
+        [Fact(DisplayName = "Atualizar Veiculo Condutor Command Inválido")]
+        [Trait("Categoria", "CondutoresAPI - Condutor Command Handler")]
+        public async Task AtualizarVeiculoCondutor_CommandInvalido_DeveRetornarFalso()
+        {
+            // Arrange
+            var veiculo = _condutorTestsAutoMockerFixture.VeiculoInvalido();
+            var veiculoCommand = new AtualizarVeiculoCondutorCommand(veiculo.CondutorId, Guid.Parse(veiculo.VeiculoId), veiculo.Placa);
+
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
+
+            // Act
+            var result = await _condutorHandler.Handle(veiculoCommand, CancellationToken.None);
+
+            // Assert
+            Assert.False(result.IsValid);
+        }
+
+        [Fact(DisplayName = "Atualizar Veiculo Condutor com Sucesso")]
+        [Trait("Categoria", "CondutoresAPI - Condutor Command Handler")]
+        public async Task VeiculoCondutor_AtualizarVeiculoCondutorCommand_DeveExecutarComSucesso()
+        {
+            // Arrange
+            var condutor = _condutorTestsAutoMockerFixture.CondutorValido();
+            var veiculo = _condutorTestsAutoMockerFixture.VeiculoValido();
+
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Setup(r => r.ObterPorId(condutor.Id)).
+                Returns(Task.FromResult(condutor));
+
+            var veiculoCommand = new AtualizarVeiculoCondutorCommand(condutor.Id, Guid.Parse(veiculo.VeiculoId), veiculo.Placa);
+
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
+
+            // Act
+            var result = await _condutorHandler.Handle(veiculoCommand, CancellationToken.None);
+
+            // Assert
+            Assert.True(result.IsValid);
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Verify(r => r.AtualizarCondutorVeiculo(condutor.Id, veiculo.VeiculoId, veiculo.Placa), Times.Once);
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Verify(r => r.UnitOfWork.Commit(), Times.Once);
+        }
+
+        [Fact(DisplayName = "Obter Veiculo Condutor com Por Id Inválido")]
+        [Trait("Categoria", "CondutoresAPI - Condutor Command Handler")]
+        public async Task CondutorIdInvalido_AtualizarVeiculoCondutorCommand_NaoDevePassarNaValidacao()
+        {
+            // Arrange
+            var condutor = _condutorTestsAutoMockerFixture.CondutorValido();
+
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Setup(r => r.ObterPorId(Guid.NewGuid())).
+                Returns(Task.FromResult(condutor));
+
+            var condutorCommand = new AtualizarCondutorCommand(condutor.Id, condutor.Nome, condutor.CPF, condutor.Telefone, "teste@teste.com.br", condutor.CNH, condutor.DataNascimento);
+
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
+
+            // Act
+            var result = await _condutorHandler.Handle(condutorCommand, CancellationToken.None);
+
+            // Assert
+            Assert.False(result.IsValid);
+            _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Verify(r => r.ObterPorId(condutor.Id), Times.Once);
+            Assert.Contains("Condutor não encontrado.", result.Errors.Select(c => c.ErrorMessage));
+        }
+
         #endregion
 
         #region ExcluirCondutorCommand
