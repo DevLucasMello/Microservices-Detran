@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using Bogus;
 using Bogus.DataSets;
 using Bogus.Extensions.Brazil;
 using Moq.AutoMock;
+using TP.Condutores.Application.AutoMapper;
 using TP.Condutores.Application.Commands;
+using TP.Condutores.Application.Queries;
 using TP.Condutores.Domain;
 using TP.Core.DomainObjects;
 using Xunit;
@@ -20,7 +23,9 @@ namespace TP.Condutores.Application.Tests.Fixtures.Tests
     public class CondutorTestsAutoMockerFixture : IDisposable
     {       
         private CondutorCommandHandler _condutorHandler;
+        private CondutorQueries _condutorQueries;
         public AutoMocker _mocker;
+        private Mapper _mapper;
         private readonly string[] _cnh = new string[] 
         { 
             "05328871696", "37726058737", "86744899812", "07065714464", "23766815593",
@@ -54,7 +59,7 @@ namespace TP.Condutores.Application.Tests.Fixtures.Tests
 
             condutores.AddRange(GerarCondutores(20).ToList());
 
-            return condutores;
+            return condutores.AsEnumerable();
         }
 
         public Veiculo VeiculoValido()
@@ -206,6 +211,23 @@ namespace TP.Condutores.Application.Tests.Fixtures.Tests
             _condutorHandler = _mocker.CreateInstance<CondutorCommandHandler>();
 
             return _condutorHandler;
+        }
+
+        public CondutorQueries ObterCondutorQueries()
+        {
+            _mocker = new AutoMocker();
+            _condutorQueries = _mocker.CreateInstance<CondutorQueries>();
+
+            return _condutorQueries;
+        }
+
+        public Mapper ObterCondutorMapper()
+        {
+            var myProfile = new ExibirCondutorQuerieToViewModel();
+            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(myProfile));
+            _mapper = new Mapper(configuration);
+
+            return _mapper;
         }
 
         public void Dispose()

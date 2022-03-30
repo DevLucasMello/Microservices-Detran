@@ -5,7 +5,7 @@ using TP.Condutores.Application.Messages;
 using TP.Condutores.Application.Tests.Fixtures.Tests;
 using Xunit;
 
-namespace TP.Condutores.Application.Tests
+namespace TP.Condutores.Application.Tests.Command
 {
     [Collection(nameof(CondutorAutoMockerCollection))]
     public class ExcluirVeiculoCondutorCommandTests

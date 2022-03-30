@@ -1,29 +1,27 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using TP.Condutores.Application.Commands;
 using TP.Condutores.Application.Messages;
 using TP.Condutores.Application.Tests.Fixtures.Tests;
 using Xunit;
-
-namespace TP.Condutores.Application.Tests
+namespace TP.Condutores.Application.Tests.Command
 {
     [Collection(nameof(CondutorAutoMockerCollection))]
-    public class AtualizarCondutorCommandTests
+    public class AdicionarCondutorCommandTests
     {
         private readonly CondutorTestsAutoMockerFixture _condutorTestsAutoMockerFixture;
 
-        public AtualizarCondutorCommandTests(CondutorTestsAutoMockerFixture condutorTestsFixture)
+        public AdicionarCondutorCommandTests(CondutorTestsAutoMockerFixture condutorTestsFixture)
         {
             _condutorTestsAutoMockerFixture = condutorTestsFixture;
         }
 
-        [Fact(DisplayName = "Atualizar Condutor Comando Válido")]
+        [Fact(DisplayName = "Adicionar Condutor Comando Válido")]
         [Trait("Categoria", "CondutoresAPI - Condutor Commands")]
-        public void AtualizarCondutorCommand_ComandoEstaValido_DevePassarNaValidacao()
+        public void AdicionarCondutorCommand_ComandoEstaValido_DevePassarNaValidacao()
         {
             // Arrange
             var condutor = _condutorTestsAutoMockerFixture.CondutorValido();
-            var condutorCommand = new AtualizarCondutorCommand(Guid.NewGuid(), condutor.Nome, condutor.CPF, condutor.Telefone, condutor.Email, condutor.CNH, condutor.DataNascimento);
+            var condutorCommand = new AdicionarCondutorCommand(condutor.Nome, condutor.CPF, condutor.Telefone, condutor.Email, condutor.CNH, condutor.DataNascimento);
 
             // Act
             var result = condutorCommand.EhValido();
@@ -32,20 +30,19 @@ namespace TP.Condutores.Application.Tests
             Assert.True(result);
         }
 
-        [Fact(DisplayName = "Atualizar Condutor Comando Inválido")]
+        [Fact(DisplayName = "Adicionar Condutor Comando Inválido")]
         [Trait("Categoria", "CondutoresAPI - Condutor Commands")]
-        public void AtualizarCondutorCommand_ComandoEstaInvalido_NaoDevePassarNaValidacao()
+        public void AdicionarCondutorCommand_ComandoEstaInvalido_NaoDevePassarNaValidacao()
         {
             // Arrange
             var condutor = _condutorTestsAutoMockerFixture.CondutorInvalido();
-            var condutorCommand = new AtualizarCondutorCommand(Guid.Empty, condutor.Nome, condutor.CPF, condutor.Telefone, condutor.Email, condutor.CNH, condutor.DataNascimento);
+            var condutorCommand = new AdicionarCondutorCommand(condutor.Nome, condutor.CPF, condutor.Telefone, condutor.Email, condutor.CNH, condutor.DataNascimento);
 
             // Act
             var result = condutorCommand.EhValido();
 
             // Assert
             Assert.False(result);
-            Assert.Contains(CondutorCommandErrorMessages.IdNuloErroMsg, condutorCommand.ValidationResult.Errors.Select(c => c.ErrorMessage));
             Assert.Contains(CondutorCommandErrorMessages.PrimeiroNomeNuloErroMsg, condutorCommand.ValidationResult.Errors.Select(c => c.ErrorMessage));
             Assert.Contains(CondutorCommandErrorMessages.UltimoNomeNuloErroMsg, condutorCommand.ValidationResult.Errors.Select(c => c.ErrorMessage));
             Assert.Contains(CondutorCommandErrorMessages.CPFNuloErroMsg, condutorCommand.ValidationResult.Errors.Select(c => c.ErrorMessage));

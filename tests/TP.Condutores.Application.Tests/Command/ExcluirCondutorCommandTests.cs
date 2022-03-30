@@ -4,7 +4,7 @@ using TP.Condutores.Application.Commands;
 using TP.Condutores.Application.Messages;
 using Xunit;
 
-namespace TP.Condutores.Application.Tests
+namespace TP.Condutores.Application.Tests.Command
 {
     public class ExcluirCondutorCommandTests
     {

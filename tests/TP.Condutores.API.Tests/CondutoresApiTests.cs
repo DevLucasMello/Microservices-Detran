@@ -6,7 +6,7 @@ using Xunit;
 
 namespace TP.Condutores.API.Tests
 {
-    [TestCaseOrderer("Features.Tests.PriorityOrderer", "Features.Tests")]
+    [TestCaseOrderer("TP.Condutores.API.Tests.PriorityOrderer", "TP.Condutores.API.Tests")]
     [Collection(nameof(IntegrationApiTestsFixtureCollection))]
     public class CondutoresApiTests
     {
@@ -41,6 +41,89 @@ namespace TP.Condutores.API.Tests
 
             // Assert
             postResponse.EnsureSuccessStatusCode();
+        }
+
+        [Fact(DisplayName = "Obter Todos Condutores"), TestPriority(2)]
+        [Trait("Categoria", "Integração API - Condutores")]
+        public async Task CondutoresApi_ObterTodosCondutores_DeveRetornarComSucesso()
+        {
+            // Arrange            
+            await _testsFixture.RealizarLoginApi();
+            _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
+
+            // Act
+            var getResponse = await _testsFixture.Client.GetAsync("condutor");
+
+            // Assert
+            getResponse.EnsureSuccessStatusCode();
+        }
+
+        [Fact(DisplayName = "Obter Condutores por Placa", Skip = "Deve Adicionar um Veículo antes deste método"), TestPriority(3)]
+        [Trait("Categoria", "Integração API - Condutores")]
+        public async Task CondutoresApi_ObterCondutoresPorPlaca_DeveRetornarComSucesso()
+        {
+            // Arrange
+            string placa = "";
+            await _testsFixture.RealizarLoginApi();
+            _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
+
+            // Act
+            var getResponse = await _testsFixture.Client.GetAsync($"condutor/placa/{placa}");
+
+            // Assert
+            getResponse.EnsureSuccessStatusCode();
+        }
+
+        [Fact(DisplayName = "Atualizar Condutor"), TestPriority(4)]
+        [Trait("Categoria", "Integração API - Condutores")]
+        public async Task CondutoresApi_AtualizarCondutor_DeveRetornarComSucesso()
+        {
+            // Arrange
+            string cpf = "53843823090";
+
+            await _testsFixture.RealizarLoginApi();
+            _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
+
+            var getResponse = await _testsFixture.Client.GetAsync($"condutor/documento/{cpf}");
+            var condutor = await _testsFixture._desserializar.DeserializarObjetoResponse<ExibirCondutorViewModel>(getResponse);
+
+            var condutorAtualizadar = new AtualizarCondutorViewModel
+            {
+                Id = condutor.Id,
+                PrimeiroNome = "Lucas",
+                UltimoNome = "Santos",
+                CPF = condutor.CPF,
+                Telefone = condutor.Telefone,
+                Email = condutor.Email,
+                CNH = condutor.CNH,
+                DataNascimento = condutor.DataNascimento
+            };
+
+            // Act
+            var postResponse = await _testsFixture.Client.PutAsJsonAsync($"condutor/{condutorAtualizadar.Id}", condutor);
+
+            // Assert
+            postResponse.EnsureSuccessStatusCode();
+        }
+
+        [Fact(DisplayName = "Excluir Condutor"), TestPriority(5)]
+        [Trait("Categoria", "Integração API - Condutores")]
+        public async Task CondutoresApi_ExcluirCondutor_DeveRetornarComSucesso()
+        {
+            // Arrange
+            string cpf = "53843823090";
+
+            await _testsFixture.RealizarLoginApi();
+            _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
+
+            var getResponse = await _testsFixture.Client.GetAsync($"condutor/documento/{cpf}");
+            var condutor = await _testsFixture._desserializar.DeserializarObjetoResponse<ExibirCondutorViewModel>(getResponse);
+
+            // Act
+            var deleteResponse = await _testsFixture.Client.DeleteAsync($"condutor/{condutor.Id}");
+
+            // Assert
+            deleteResponse.EnsureSuccessStatusCode();
         }
     }
 }

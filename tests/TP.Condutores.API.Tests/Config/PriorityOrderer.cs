@@ -4,7 +4,7 @@ using System.Linq;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace TP.Condutores.API.Tests.Config
+namespace TP.Condutores.API.Tests
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class TestPriorityAttribute : Attribute
