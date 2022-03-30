@@ -1,4 +1,3 @@
-C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\CoverletSourceRootsMapping
 C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\testhost.dll
 C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Condutores.API.deps.json
 C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Condutores.API.runtimeconfig.json
@@ -451,3 +450,20 @@ C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\obj\Debug\net5.0\TP.Condutores
 C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\obj\Debug\net5.0\ref\TP.Condutores.API.Tests.dll
 C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\obj\Debug\net5.0\TP.Condutores.API.Tests.pdb
 C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\obj\Debug\net5.0\TP.Condutores.API.Tests.genruntimeconfig.cache
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.API.deps.json
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.API.runtimeconfig.json
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.API.runtimeconfig.dev.json
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.API.exe
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Core.Tests.dll
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.API.dll
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.Application.dll
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.Domain.dll
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.Infra.dll
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Core.Tests.pdb
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.API.pdb
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.Application.pdb
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.Domain.pdb
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.Infra.pdb
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Core.Tests.deps.json
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Core.Tests.runtimeconfig.json
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Core.Tests.runtimeconfig.dev.json

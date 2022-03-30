@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Lp+Yd4FzMR2YD4STTq16kz4CT5/Kopl2WkouM8B4vqT8l/rZ87K46uN2IMJyz6XQcI2GIZxTxFKr6qFi9VwtRg==",
+  "dgSpecHash": "jkwlo1+2vu4YbyrvckGwXoIV3Dr+1c29NpvKItosb2Z803NpJteSg0QCi8G1G6NBMdHxUJC4HYbMOlro75TAyQ==",
   "success": true,
   "projectFilePath": "C:\\dev\\Teste-Padrao\\tests\\TP.Condutores.API.Tests\\TP.Condutores.API.Tests.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,6 @@
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
-    "C:\\Users\\Lucas\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\easynetq\\5.1.1\\easynetq.5.1.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
@@ -188,8 +187,7 @@
     "C:\\Users\\Lucas\\.nuget\\packages\\xunit.assert\\2.4.1\\xunit.assert.2.4.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\xunit.core\\2.4.1\\xunit.core.2.4.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512",
-    "C:\\Users\\Lucas\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
-    "C:\\Users\\Lucas\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
+    "C:\\Users\\Lucas\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512"
   ],
   "logs": []
 }

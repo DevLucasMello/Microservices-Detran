@@ -49,12 +49,6 @@
           "lib/netstandard2.0/Bogus.dll": {}
         }
       },
-      "coverlet.collector/3.0.2": {
-        "type": "package",
-        "build": {
-          "build/netstandard1.0/coverlet.collector.targets": {}
-        }
-      },
       "EasyNetQ/5.1.1": {
         "type": "package",
         "dependencies": {
@@ -3011,12 +3005,6 @@
           "lib/netstandard1.1/xunit.execution.dotnet.dll": {}
         }
       },
-      "xunit.runner.visualstudio/2.4.3": {
-        "type": "package",
-        "build": {
-          "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
-        }
-      },
       "TP.Condutores.API/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -3106,6 +3094,25 @@
           "bin/placeholder/TP.Core.dll": {}
         }
       },
+      "TP.Core.Tests/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "AngleSharp": "0.16.1",
+          "Bogus": "34.0.2",
+          "Microsoft.AspNetCore.Mvc.Testing": "5.0.12",
+          "Microsoft.NET.Test.Sdk": "16.9.4",
+          "TP.Condutores.API": "1.0.0",
+          "TP.Veiculos.API": "1.0.0",
+          "xunit": "2.4.1"
+        },
+        "compile": {
+          "bin/placeholder/TP.Core.Tests.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TP.Core.Tests.dll": {}
+        }
+      },
       "TP.MessageBus/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -3121,6 +3128,79 @@
         },
         "runtime": {
           "bin/placeholder/TP.MessageBus.dll": {}
+        }
+      },
+      "TP.Veiculos.API/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "MediatR.Extensions.Microsoft.DependencyInjection": "9.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.11.1",
+          "Swashbuckle.AspNetCore": "5.6.3",
+          "TP.Core": "1.0.0",
+          "TP.MessageBus": "1.0.0",
+          "TP.Veiculos.Application": "1.0.0",
+          "TP.WebAPI.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TP.Veiculos.API.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TP.Veiculos.API.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "TP.Veiculos.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "9.0.0",
+          "Microsoft.Extensions.Hosting": "5.0.0",
+          "TP.Core": "1.0.0",
+          "TP.MessageBus": "1.0.0",
+          "TP.Veiculos.Domain": "1.0.0",
+          "TP.Veiculos.Infra": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TP.Veiculos.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TP.Veiculos.Application.dll": {}
+        }
+      },
+      "TP.Veiculos.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "TP.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TP.Veiculos.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TP.Veiculos.Domain.dll": {}
+        }
+      },
+      "TP.Veiculos.Infra/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.12",
+          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.12",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.12",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
+          "TP.Core": "1.0.0",
+          "TP.Veiculos.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TP.Veiculos.Infra.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TP.Veiculos.Infra.dll": {}
         }
       },
       "TP.WebAPI.Core/1.0.0": {
@@ -3208,57 +3288,6 @@
         "lib/netstandard1.3/Bogus.xml",
         "lib/netstandard2.0/Bogus.dll",
         "lib/netstandard2.0/Bogus.xml"
-      ]
-    },
-    "coverlet.collector/3.0.2": {
-      "sha512": "iBvPAIDaI7j/iMx/DzCGCJ3rdiOmel9VINEfaTiBv/NKIGHOP4X3hqc6Q1wgMtArEshlhXexQknP17SK4vXb1w==",
-      "type": "package",
-      "path": "coverlet.collector/3.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/netstandard1.0/Microsoft.CSharp.dll",
-        "build/netstandard1.0/Microsoft.DotNet.PlatformAbstractions.dll",
-        "build/netstandard1.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "build/netstandard1.0/Microsoft.Extensions.DependencyInjection.dll",
-        "build/netstandard1.0/Microsoft.Extensions.DependencyModel.dll",
-        "build/netstandard1.0/Microsoft.Extensions.FileSystemGlobbing.dll",
-        "build/netstandard1.0/Microsoft.TestPlatform.CoreUtilities.dll",
-        "build/netstandard1.0/Microsoft.TestPlatform.PlatformAbstractions.dll",
-        "build/netstandard1.0/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll",
-        "build/netstandard1.0/Mono.Cecil.Mdb.dll",
-        "build/netstandard1.0/Mono.Cecil.Pdb.dll",
-        "build/netstandard1.0/Mono.Cecil.Rocks.dll",
-        "build/netstandard1.0/Mono.Cecil.dll",
-        "build/netstandard1.0/Newtonsoft.Json.dll",
-        "build/netstandard1.0/NuGet.Frameworks.dll",
-        "build/netstandard1.0/System.AppContext.dll",
-        "build/netstandard1.0/System.Collections.Immutable.dll",
-        "build/netstandard1.0/System.Dynamic.Runtime.dll",
-        "build/netstandard1.0/System.IO.FileSystem.Primitives.dll",
-        "build/netstandard1.0/System.Linq.Expressions.dll",
-        "build/netstandard1.0/System.Linq.dll",
-        "build/netstandard1.0/System.ObjectModel.dll",
-        "build/netstandard1.0/System.Reflection.Emit.ILGeneration.dll",
-        "build/netstandard1.0/System.Reflection.Emit.Lightweight.dll",
-        "build/netstandard1.0/System.Reflection.Emit.dll",
-        "build/netstandard1.0/System.Reflection.Metadata.dll",
-        "build/netstandard1.0/System.Reflection.TypeExtensions.dll",
-        "build/netstandard1.0/System.Runtime.Serialization.Primitives.dll",
-        "build/netstandard1.0/System.Text.RegularExpressions.dll",
-        "build/netstandard1.0/System.Threading.Tasks.Extensions.dll",
-        "build/netstandard1.0/System.Threading.dll",
-        "build/netstandard1.0/System.Xml.ReaderWriter.dll",
-        "build/netstandard1.0/System.Xml.XDocument.dll",
-        "build/netstandard1.0/coverlet.collector.deps.json",
-        "build/netstandard1.0/coverlet.collector.dll",
-        "build/netstandard1.0/coverlet.collector.pdb",
-        "build/netstandard1.0/coverlet.collector.targets",
-        "build/netstandard1.0/coverlet.core.dll",
-        "build/netstandard1.0/coverlet.core.pdb",
-        "coverlet-icon.png",
-        "coverlet.collector.3.0.2.nupkg.sha512",
-        "coverlet.collector.nuspec"
       ]
     },
     "EasyNetQ/5.1.1": {
@@ -9859,37 +9888,6 @@
         "xunit.extensibility.execution.nuspec"
       ]
     },
-    "xunit.runner.visualstudio/2.4.3": {
-      "sha512": "kZZSmOmKA8OBlAJaquPXnJJLM9RwQ27H7BMVqfMLUcTi9xHinWGJiWksa3D4NEtz0wZ/nxd2mogObvBgJKCRhQ==",
-      "type": "package",
-      "path": "xunit.runner.visualstudio/2.4.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "License.txt",
-        "build/net452/xunit.abstractions.dll",
-        "build/net452/xunit.runner.reporters.net452.dll",
-        "build/net452/xunit.runner.utility.net452.dll",
-        "build/net452/xunit.runner.visualstudio.props",
-        "build/net452/xunit.runner.visualstudio.testadapter.dll",
-        "build/netcoreapp2.1/xunit.abstractions.dll",
-        "build/netcoreapp2.1/xunit.runner.reporters.netcoreapp10.dll",
-        "build/netcoreapp2.1/xunit.runner.utility.netcoreapp10.dll",
-        "build/netcoreapp2.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll",
-        "build/netcoreapp2.1/xunit.runner.visualstudio.props",
-        "build/uap10.0.16299/xunit.runner.reporters.netstandard15.dll",
-        "build/uap10.0.16299/xunit.runner.utility.netstandard15.dll",
-        "build/uap10.0.16299/xunit.runner.utility.uwp10.dll",
-        "build/uap10.0.16299/xunit.runner.utility.uwp10.pri",
-        "build/uap10.0.16299/xunit.runner.visualstudio.props",
-        "build/uap10.0.16299/xunit.runner.visualstudio.targets",
-        "build/uap10.0.16299/xunit.runner.visualstudio.uwp.testadapter.dll",
-        "build/uap10.0.16299/xunit.runner.visualstudio.uwp.testadapter.pri",
-        "logo-512-transparent.png",
-        "xunit.runner.visualstudio.2.4.3.nupkg.sha512",
-        "xunit.runner.visualstudio.nuspec"
-      ]
-    },
     "TP.Condutores.API/1.0.0": {
       "type": "project",
       "path": "../../src/services/TP.Condutores.API/TP.Condutores.API.csproj",
@@ -9915,10 +9913,35 @@
       "path": "../../src/building blocks/TP.Core/TP.Core.csproj",
       "msbuildProject": "../../src/building blocks/TP.Core/TP.Core.csproj"
     },
+    "TP.Core.Tests/1.0.0": {
+      "type": "project",
+      "path": "../TP.Core.Tests/TP.Core.Tests.csproj",
+      "msbuildProject": "../TP.Core.Tests/TP.Core.Tests.csproj"
+    },
     "TP.MessageBus/1.0.0": {
       "type": "project",
       "path": "../../src/building blocks/TP.MessageBus/TP.MessageBus.csproj",
       "msbuildProject": "../../src/building blocks/TP.MessageBus/TP.MessageBus.csproj"
+    },
+    "TP.Veiculos.API/1.0.0": {
+      "type": "project",
+      "path": "../../src/services/TP.Veiculos.API/TP.Veiculos.API.csproj",
+      "msbuildProject": "../../src/services/TP.Veiculos.API/TP.Veiculos.API.csproj"
+    },
+    "TP.Veiculos.Application/1.0.0": {
+      "type": "project",
+      "path": "../../src/services/TP.Veiculos.Application/TP.Veiculos.Application.csproj",
+      "msbuildProject": "../../src/services/TP.Veiculos.Application/TP.Veiculos.Application.csproj"
+    },
+    "TP.Veiculos.Domain/1.0.0": {
+      "type": "project",
+      "path": "../../src/services/TP.Veiculos.Domain/TP.Veiculos.Domain.csproj",
+      "msbuildProject": "../../src/services/TP.Veiculos.Domain/TP.Veiculos.Domain.csproj"
+    },
+    "TP.Veiculos.Infra/1.0.0": {
+      "type": "project",
+      "path": "../../src/services/TP.Veiculos.Infra/TP.Veiculos.Infra.csproj",
+      "msbuildProject": "../../src/services/TP.Veiculos.Infra/TP.Veiculos.Infra.csproj"
     },
     "TP.WebAPI.Core/1.0.0": {
       "type": "project",
@@ -9928,14 +9951,11 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "AngleSharp >= 0.16.1",
-      "Bogus >= 34.0.2",
       "Microsoft.AspNetCore.Mvc.Testing >= 5.0.12",
       "Microsoft.NET.Test.Sdk >= 16.9.4",
       "TP.Condutores.API >= 1.0.0",
-      "coverlet.collector >= 3.0.2",
-      "xunit >= 2.4.1",
-      "xunit.runner.visualstudio >= 2.4.3"
+      "TP.Core.Tests >= 1.0.0",
+      "xunit >= 2.4.1"
     ]
   },
   "packageFolders": {
@@ -9972,6 +9992,9 @@
           "projectReferences": {
             "C:\\dev\\Teste-Padrao\\src\\services\\TP.Condutores.API\\TP.Condutores.API.csproj": {
               "projectPath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Condutores.API\\TP.Condutores.API.csproj"
+            },
+            "C:\\dev\\Teste-Padrao\\tests\\TP.Core.Tests\\TP.Core.Tests.csproj": {
+              "projectPath": "C:\\dev\\Teste-Padrao\\tests\\TP.Core.Tests\\TP.Core.Tests.csproj"
             }
           }
         }
@@ -9986,14 +10009,6 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "AngleSharp": {
-            "target": "Package",
-            "version": "[0.16.1, )"
-          },
-          "Bogus": {
-            "target": "Package",
-            "version": "[34.0.2, )"
-          },
           "Microsoft.AspNetCore.Mvc.Testing": {
             "target": "Package",
             "version": "[5.0.12, )"
@@ -10002,21 +10017,9 @@
             "target": "Package",
             "version": "[16.9.4, )"
           },
-          "coverlet.collector": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[3.0.2, )"
-          },
           "xunit": {
             "target": "Package",
             "version": "[2.4.1, )"
-          },
-          "xunit.runner.visualstudio": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[2.4.3, )"
           }
         },
         "imports": [

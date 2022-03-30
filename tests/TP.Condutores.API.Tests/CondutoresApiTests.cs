@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using TP.Condutores.API.Tests.Config;
 using TP.Condutores.Application.ViewModels;
+using TP.Core.Tests.Config;
 using Xunit;
 
 namespace TP.Condutores.API.Tests
@@ -10,9 +11,9 @@ namespace TP.Condutores.API.Tests
     [Collection(nameof(IntegrationApiTestsFixtureCollection))]
     public class CondutoresApiTests
     {
-        private readonly IntegrationTestsFixture _testsFixture;
+        private readonly IntegrationTestsFixture<Startup> _testsFixture;
 
-        public CondutoresApiTests(IntegrationTestsFixture testsFixture)
+        public CondutoresApiTests(IntegrationTestsFixture<Startup> testsFixture)
         {
             _testsFixture = testsFixture;
         }

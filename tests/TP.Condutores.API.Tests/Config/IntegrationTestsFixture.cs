@@ -2,28 +2,29 @@
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using TP.Condutores.API.Tests.Models;
+using TP.Core.Tests.Config;
+using TP.Core.Tests.Models;
 using Xunit;
 
 namespace TP.Condutores.API.Tests.Config
 {
     [CollectionDefinition(nameof(IntegrationApiTestsFixtureCollection))]
-    public class IntegrationApiTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture> { }
+    public class IntegrationApiTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<Startup>> { }
 
-    public class IntegrationTestsFixture : IDisposable
+    public class IntegrationTestsFixture<TStartup> : IDisposable where TStartup : class
     {
 
         public string UsuarioToken;
         public UsuarioRespostaLogin UsuarioResponse;
 
-        public readonly ApiConfigurationTests _apiConfiguration;
+        public readonly ApiConfigurationFactory<TStartup> _apiConfiguration;
         public HttpClient Client;
 
         public DesserializarObjeto _desserializar;
 
         public IntegrationTestsFixture()
         {
-            _apiConfiguration = new ApiConfigurationTests();
+            _apiConfiguration = new ApiConfigurationFactory<TStartup>();
             Client = new HttpClient
             {
                 BaseAddress = new Uri("http://localhost:5001/detran/")
@@ -40,7 +41,7 @@ namespace TP.Condutores.API.Tests.Config
                 Senha = "Teste@123"
             };
 
-            var response = await Client.PostAsJsonAsync("autenticar", userData);            
+            var response = await Client.PostAsJsonAsync("autenticar", userData);
             response.EnsureSuccessStatusCode();
             UsuarioResponse = await _desserializar.DeserializarObjetoResponse<UsuarioRespostaLogin>(response);
             UsuarioToken = UsuarioResponse.AccessToken;
