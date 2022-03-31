@@ -5,6 +5,7 @@ using AutoMapper;
 using Bogus;
 using Bogus.DataSets;
 using Bogus.Extensions.Brazil;
+using Moq;
 using Moq.AutoMock;
 using TP.Condutores.Application.AutoMapper;
 using TP.Condutores.Application.Commands;
@@ -26,6 +27,7 @@ namespace TP.Condutores.Application.Tests.Fixtures.Tests
         private CondutorQueries _condutorQueries;
         public AutoMocker _mocker;
         private Mapper _mapper;
+        public Mock<ICondutorRepository> _condutorRepository;
         private readonly string[] _cnh = new string[] 
         { 
             "05328871696", "37726058737", "86744899812", "07065714464", "23766815593",
@@ -215,8 +217,8 @@ namespace TP.Condutores.Application.Tests.Fixtures.Tests
 
         public CondutorQueries ObterCondutorQueries()
         {
-            _mocker = new AutoMocker();
-            _condutorQueries = _mocker.CreateInstance<CondutorQueries>();
+            _condutorRepository = new Mock<ICondutorRepository>();
+            _condutorQueries = new CondutorQueries(_condutorRepository.Object, ObterCondutorMapper());            
 
             return _condutorQueries;
         }
