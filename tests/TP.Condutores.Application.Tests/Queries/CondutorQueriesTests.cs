@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Moq;
 using TP.Condutores.Application.Queries;
 using TP.Condutores.Application.Tests.Fixtures.Tests;
-using TP.Condutores.Application.ViewModels;
 using Xunit;
 
 namespace TP.Condutores.Application.Tests.Queries
@@ -14,13 +12,11 @@ namespace TP.Condutores.Application.Tests.Queries
     {
         private readonly CondutorTestsAutoMockerFixture _condutorTestsAutoMockerFixture;
         private CondutorQueries _condutorQueries;
-        private IEnumerable<ExibirCondutorViewModel> _listaCondutores;
 
         public CondutorQueriesTests(CondutorTestsAutoMockerFixture condutorTestsFixture)
         {
             _condutorTestsAutoMockerFixture = condutorTestsFixture;
             _condutorQueries = _condutorTestsAutoMockerFixture.ObterCondutorQueries();
-            _listaCondutores = new List<ExibirCondutorViewModel>();
         }
 
         [Fact(DisplayName = "Obter Todos Condutores")]

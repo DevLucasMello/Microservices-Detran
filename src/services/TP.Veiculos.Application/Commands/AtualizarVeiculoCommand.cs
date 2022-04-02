@@ -2,6 +2,7 @@
 using System;
 using TP.Core.Messages;
 using TP.Core.Utils;
+using TP.Veiculos.Application.Messages;
 
 namespace TP.Veiculos.Application.Commands
 {
@@ -37,29 +38,29 @@ namespace TP.Veiculos.Application.Commands
             {
                 RuleFor(c => c.Id)
                     .NotEqual(Guid.Empty)
-                    .WithMessage("Id do condutor inválido");
+                    .WithMessage(VeiculoCommandErrorMessages.IdNuloErroMsg);
 
                 RuleFor(v => v.Placa)
                     .NotEmpty()
-                    .WithMessage("A Placa deve ser informada")
+                    .WithMessage(VeiculoCommandErrorMessages.PlacaNuloErroMsg)
                     .Must(MethodsUtils.IsPlaqueValid)
-                    .WithMessage("A Placa informada é inválida");
+                    .WithMessage(VeiculoCommandErrorMessages.PlacaInvalidaErroMsg);
 
                 RuleFor(v => v.Modelo)
                     .NotEmpty()
-                    .WithMessage("O Modelo deve ser informado");
+                    .WithMessage(VeiculoCommandErrorMessages.ModeloNuloErroMsg);
 
                 RuleFor(s => s.Marca)
                     .NotEmpty()
-                    .WithMessage("O Email não foi informado");
+                    .WithMessage(VeiculoCommandErrorMessages.MarcaNuloErroMsg);
 
                 RuleFor(c => c.Cor)
                     .NotEmpty()
-                    .WithMessage("A CNH deve ser informada");
+                    .WithMessage(VeiculoCommandErrorMessages.CorNuloErroMsg);
 
                 RuleFor(c => c.AnoFabricacao)
                     .NotEmpty()
-                    .WithMessage("O Ano de Fabricação deve ser informado");
+                    .WithMessage(VeiculoCommandErrorMessages.AnoFabricacaoNuloErroMsg);
             }
         }
     }

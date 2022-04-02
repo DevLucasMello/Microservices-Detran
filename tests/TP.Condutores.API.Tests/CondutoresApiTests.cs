@@ -19,7 +19,7 @@ namespace TP.Condutores.API.Tests
         }
 
         [Fact(DisplayName = "Adicionar Novo Condutor"), TestPriority(1)]
-        [Trait("Categoria", "Integração API - Condutores")]
+        [Trait("Categoria", "CondutoresAPI - Integração")]
         public async Task CondutoresApi_AdicionarCondutor_DeveRetornarComSucesso()
         {
             // Arrange
@@ -45,7 +45,7 @@ namespace TP.Condutores.API.Tests
         }
 
         [Fact(DisplayName = "Obter Todos Condutores"), TestPriority(2)]
-        [Trait("Categoria", "Integração API - Condutores")]
+        [Trait("Categoria", "CondutoresAPI - Integração")]
         public async Task CondutoresApi_ObterTodosCondutores_DeveRetornarComSucesso()
         {
             // Arrange            
@@ -60,11 +60,11 @@ namespace TP.Condutores.API.Tests
         }
 
         [Fact(DisplayName = "Obter Condutores por Placa", Skip = "Deve Adicionar um Veículo antes deste método"), TestPriority(3)]
-        [Trait("Categoria", "Integração API - Condutores")]
+        [Trait("Categoria", "CondutoresAPI - Integração")]
         public async Task CondutoresApi_ObterCondutoresPorPlaca_DeveRetornarComSucesso()
         {
             // Arrange
-            string placa = "";
+            string placa = "HZP8125";
             await _testsFixture.RealizarLoginApi();
             _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
 
@@ -76,7 +76,7 @@ namespace TP.Condutores.API.Tests
         }
 
         [Fact(DisplayName = "Atualizar Condutor"), TestPriority(4)]
-        [Trait("Categoria", "Integração API - Condutores")]
+        [Trait("Categoria", "CondutoresAPI - Integração")]
         public async Task CondutoresApi_AtualizarCondutor_DeveRetornarComSucesso()
         {
             // Arrange
@@ -108,7 +108,7 @@ namespace TP.Condutores.API.Tests
         }
 
         [Fact(DisplayName = "Excluir Condutor"), TestPriority(5)]
-        [Trait("Categoria", "Integração API - Condutores")]
+        [Trait("Categoria", "CondutoresAPI - Integração")]
         public async Task CondutoresApi_ExcluirCondutor_DeveRetornarComSucesso()
         {
             // Arrange

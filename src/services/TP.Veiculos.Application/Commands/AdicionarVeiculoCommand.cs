@@ -2,11 +2,12 @@
 using System;
 using TP.Core.Messages;
 using TP.Core.Utils;
+using TP.Veiculos.Application.Messages;
 
 namespace TP.Veiculos.Application.Commands
 {
     public class AdicionarVeiculoCommand : Command
-    {        
+    {
         public Guid CondutorId { get; set; }
         public string Placa { get; private set; }
         public string Modelo { get; private set; }
@@ -16,7 +17,7 @@ namespace TP.Veiculos.Application.Commands
         public string CPF { get; set; }
 
         public AdicionarVeiculoCommand(Guid condutorId, string placa, string modelo, string marca, string cor, int anoFabricacao, string cpf)
-        {           
+        {
             CondutorId = condutorId;
             Placa = placa;
             Modelo = modelo;
@@ -38,35 +39,35 @@ namespace TP.Veiculos.Application.Commands
             {
                 RuleFor(c => c.CondutorId)
                     .NotEqual(Guid.Empty)
-                    .WithMessage("Id do condutor inválido");
+                    .WithMessage(VeiculoCommandErrorMessages.CondutorIdNuloErroMsg);
 
                 RuleFor(v => v.Placa)
                     .NotEmpty()
-                    .WithMessage("A Placa deve ser informada")
+                    .WithMessage(VeiculoCommandErrorMessages.PlacaNuloErroMsg)
                     .Must(MethodsUtils.IsPlaqueValid)
-                    .WithMessage("A Placa informada é inválida");
+                    .WithMessage(VeiculoCommandErrorMessages.PlacaInvalidaErroMsg);
 
                 RuleFor(v => v.Modelo)
                     .NotEmpty()
-                    .WithMessage("O Modelo deve ser informado");
+                    .WithMessage(VeiculoCommandErrorMessages.ModeloNuloErroMsg);
 
                 RuleFor(s => s.Marca)
                     .NotEmpty()
-                    .WithMessage("O Email não foi informado");
+                    .WithMessage(VeiculoCommandErrorMessages.MarcaNuloErroMsg);
 
                 RuleFor(c => c.Cor)
                     .NotEmpty()
-                    .WithMessage("A CNH deve ser informada");
+                    .WithMessage(VeiculoCommandErrorMessages.CorNuloErroMsg);
 
                 RuleFor(c => c.AnoFabricacao)
                     .NotEmpty()
-                    .WithMessage("O Ano de Fabricação deve ser informado");
+                    .WithMessage(VeiculoCommandErrorMessages.AnoFabricacaoNuloErroMsg);
 
                 RuleFor(c => c.CPF)
                     .NotEmpty()
-                    .WithMessage("O CPF deve ser informado")
+                    .WithMessage(VeiculoCommandErrorMessages.CPFNuloErroMsg)
                     .Must(MethodsUtils.IsCpfValid)
-                    .WithMessage("O CPF informado é inválido");
+                    .WithMessage(VeiculoCommandErrorMessages.CPFInvalidoErroMsg);
             }
         }
     }

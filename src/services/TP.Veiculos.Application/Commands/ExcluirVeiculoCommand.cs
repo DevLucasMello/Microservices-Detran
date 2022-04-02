@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using System;
 using TP.Core.Messages;
+using TP.Veiculos.Application.Messages;
 
 namespace TP.Veiculos.Application.Commands
 {
@@ -25,7 +26,7 @@ namespace TP.Veiculos.Application.Commands
             {
                 RuleFor(c => c.Id)
                     .NotEqual(Guid.Empty)
-                    .WithMessage("Id do veículo inválido");
+                    .WithMessage(VeiculoCommandErrorMessages.IdNuloErroMsg);
             }
         }
     }

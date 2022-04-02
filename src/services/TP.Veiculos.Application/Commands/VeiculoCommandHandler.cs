@@ -27,7 +27,7 @@ namespace TP.Veiculos.Application.Commands
 
         public async Task<ValidationResult> Handle(AdicionarVeiculoCommand message, CancellationToken cancellationToken)
         {
-            if (!message.EhValido()) return message.ValidationResult;            
+            if (!message.EhValido()) return message.ValidationResult;
 
             var veiculos = await _veiculoRepository.ObterVeiculosPorCPF(message.CPF);
 
@@ -39,7 +39,7 @@ namespace TP.Veiculos.Application.Commands
                     if (v.Placa == message.Placa)
                     {
                         check = true;
-                        AdicionarErro("Esta placa já foi cadastrada para este condutor.");                        
+                        AdicionarErro("Esta placa já foi cadastrada para este condutor.");
                     }
                 });
 
@@ -52,7 +52,7 @@ namespace TP.Veiculos.Application.Commands
 
             veiculo.AdicionarEvento(new VeiculoCadastradoEvent(veiculo.Id, message.CondutorId, message.Placa));
 
-            var result =  await PersistirDados(_veiculoRepository.UnitOfWork);
+            var result = await PersistirDados(_veiculoRepository.UnitOfWork);
 
             if (!(result.Errors.Count > 0))
             {
@@ -75,7 +75,7 @@ namespace TP.Veiculos.Application.Commands
                 return ValidationResult;
             }
 
-            var veiculo = new Veiculo(message.Placa, message.Modelo, message.Marca, message.Cor, message.AnoFabricacao)
+            var veiculo = new Veiculo(veiculoExistente.Placa, message.Modelo, message.Marca, message.Cor, message.AnoFabricacao)
             {
                 Id = message.Id
             };

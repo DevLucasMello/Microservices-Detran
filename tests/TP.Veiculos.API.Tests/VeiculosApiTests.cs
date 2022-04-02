@@ -1,5 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
+using TP.Core.Tests.Config;
 using TP.Veiculos.API.Tests.Config;
+using TP.Veiculos.Application.ViewModels;
 using Xunit;
 
 namespace TP.Veiculos.API.Tests
@@ -16,31 +20,79 @@ namespace TP.Veiculos.API.Tests
         }
 
         [Fact(DisplayName = "Adicionar Novo Veiculo"), TestPriority(1)]
-        [Trait("Categoria", "Integração API - Veiculos")]
+        [Trait("Categoria", "VeiculosAPI - Integração")]
         public async Task VeiculosApi_AdicionarVeiculo_DeveRetornarComSucesso()
         {
             // Arrange
-            //var condutor = new AdicionarCondutorViewModel
-            //{
-            //    PrimeiroNome = "Teste",
-            //    UltimoNome = "Teste Sobrenome",
-            //    CPF = "53843823090",
-            //    Telefone = "1111-2222",
-            //    Email = "teste@teste.com.br",
-            //    CNH = "11412046851",
-            //    DataNascimento = "02/02/1990"
-            //};
+            var veiculo = new AdicionarVeiculoViewModel
+            {
+                CondutorId = "63F07C82-33D4-4309-9B69-2518A5E4226B",
+                Placa = "HZP8125",
+                Modelo = "Fiesta",
+                Marca = "Ford",
+                Cor = "Cinza",
+                AnoFabricacao = 1998,
+                CPF = "53843823090"
+            };
 
-            //await _testsFixture.RealizarLoginApi();
-            //_testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
+            await _testsFixture.RealizarLoginApi();
+            _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
 
             // Act
-            //var postResponse = await _testsFixture.Client.PostAsJsonAsync("condutor", condutor);
+            var postResponse = await _testsFixture.Client.PostAsJsonAsync("veiculo", veiculo);
 
             // Assert
-            //postResponse.EnsureSuccessStatusCode();
+            postResponse.EnsureSuccessStatusCode();
+        }
 
-            await Task.CompletedTask;
+        [Fact(DisplayName = "Atualizar Novo Veiculo"), TestPriority(2)]
+        [Trait("Categoria", "VeiculosAPI - Integração")]
+        public async Task VeiculosApi_AtualizarVeiculo_DeveRetornarComSucesso()
+        {
+            // Arrange
+            string id = "ADC43BC7-FA09-476B-9806-E0AEB7858CD2";
+
+            await _testsFixture.RealizarLoginApi();
+            _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
+            
+            var getResponse = await _testsFixture.Client.GetAsync($"veiculo/{id}");
+            var veiculo = await _testsFixture._desserializar.DeserializarObjetoResponse<ExibirVeiculoViewModel>(getResponse);
+
+            var veiculoAtualizar = new AtualizarVeiculoViewModel
+            {
+                Id = veiculo.Id,
+                Placa = veiculo.Placa,
+                Modelo = veiculo.Modelo,
+                Marca = veiculo.Marca,
+                Cor = veiculo.Cor,
+                AnoFabricacao = 2002
+            };
+
+            // Act
+            var postResponse = await _testsFixture.Client.PutAsJsonAsync($"veiculo/{veiculoAtualizar.Id}", veiculo);
+
+            // Assert
+            postResponse.EnsureSuccessStatusCode();
+        }
+
+        [Fact(DisplayName = "Excluir Novo Veiculo"), TestPriority(1)]
+        [Trait("Categoria", "VeiculosAPI - Integração")]
+        public async Task VeiculosApi_ExcluirVeiculo_DeveRetornarComSucesso()
+        {
+            // Arrange
+            string id = "ADC43BC7-FA09-476B-9806-E0AEB7858CD2";
+
+            await _testsFixture.RealizarLoginApi();
+            _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
+
+            var getResponse = await _testsFixture.Client.GetAsync($"veiculo/{id}");
+            var veiculo = await _testsFixture._desserializar.DeserializarObjetoResponse<ExibirVeiculoViewModel>(getResponse);
+
+            // Act
+            var deleteResponse = await _testsFixture.Client.DeleteAsync($"veiculo/{veiculo.Id}");
+
+            // Assert
+            deleteResponse.EnsureSuccessStatusCode();
         }
     }
 }

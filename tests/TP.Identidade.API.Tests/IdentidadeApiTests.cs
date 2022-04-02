@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http.Json;
+using System.Threading.Tasks;
+using TP.Identidade.API.Models;
 using TP.Identidade.API.Tests.Config;
 using Xunit;
 
@@ -16,53 +18,40 @@ namespace TP.Identidade.API.Tests
         }
 
         [Fact(DisplayName = "Cadastrar Novo Usuário"), TestPriority(1)]
-        [Trait("Categoria", "Integração API - Identidade")]
+        [Trait("Categoria", "IdentidadeAPI - Integração")]
         public async Task IdentidadeApi_CadastrarUsuario_DeveRetornarComSucesso()
         {
             // Arrange
-            //var condutor = new AdicionarCondutorViewModel
-            //{
-            //    PrimeiroNome = "Teste",
-            //    UltimoNome = "Teste Sobrenome",
-            //    CPF = "53843823090",
-            //    Telefone = "1111-2222",
-            //    Email = "teste@teste.com.br",
-            //    CNH = "11412046851",
-            //    DataNascimento = "02/02/1990"
-            //};
+            var usuario = new UsuarioRegistro
+            {
+                Email = "teste2@teste.com.br",
+                Senha = "Teste@123",
+                SenhaConfirmacao = "Teste@123"
+            };
 
-            // Act
-            //var postResponse = await _testsFixture.Client.PostAsJsonAsync("condutor", condutor);
+            //Act
+            var postResponse = await _testsFixture.Client.PostAsJsonAsync("nova-conta", usuario);
 
             // Assert
-            //postResponse.EnsureSuccessStatusCode();
-
-            await Task.CompletedTask;
+            postResponse.EnsureSuccessStatusCode();
         }
 
         [Fact(DisplayName = "Autenticar Usuário"), TestPriority(2)]
-        [Trait("Categoria", "Integração API - Identidade")]
+        [Trait("Categoria", "IdentidadeAPI - Integração")]
         public async Task IdentidadeApi_AutenticarUsuario_DeveRetornarComSucesso()
         {
             // Arrange
-            //var condutor = new AdicionarCondutorViewModel
-            //{
-            //    PrimeiroNome = "Teste",
-            //    UltimoNome = "Teste Sobrenome",
-            //    CPF = "53843823090",
-            //    Telefone = "1111-2222",
-            //    Email = "teste@teste.com.br",
-            //    CNH = "11412046851",
-            //    DataNascimento = "02/02/1990"
-            //};
+            var usuario = new UsuarioLogin
+            {
+                Email = "teste2@teste.com.br",
+                Senha = "Teste@123"
+            };
 
-            // Act
-            //var postResponse = await _testsFixture.Client.PostAsJsonAsync("condutor", condutor);
+            //Act
+            var postResponse = await _testsFixture.Client.PostAsJsonAsync("autenticar", usuario);
 
             // Assert
-            //postResponse.EnsureSuccessStatusCode();
-
-            await Task.CompletedTask;
+            postResponse.EnsureSuccessStatusCode();
         }
     }
 }

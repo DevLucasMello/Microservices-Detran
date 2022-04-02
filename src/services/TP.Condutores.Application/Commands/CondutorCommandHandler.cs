@@ -55,7 +55,7 @@ namespace TP.Condutores.Application.Commands
                 return ValidationResult;
             }
 
-            var condutor = new Condutor(message.Nome, condutorExistente.CPF, message.Telefone, message.Email, message.CNH, message.DataNascimento)
+            var condutor = new Condutor(message.Nome, condutorExistente.CPF, message.Telefone, message.Email, condutorExistente.CNH, message.DataNascimento)
             {
                 Id = message.Id
             };
@@ -64,7 +64,7 @@ namespace TP.Condutores.Application.Commands
 
             return await PersistirDados(_condutorRepository.UnitOfWork);
         }
-        
+
         public async Task<ValidationResult> Handle(AtualizarVeiculoCondutorCommand message, CancellationToken cancellationToken)
         {
             if (!message.EhValido()) return message.ValidationResult;
@@ -104,7 +104,7 @@ namespace TP.Condutores.Application.Commands
 
             return await PersistirDados(_condutorRepository.UnitOfWork);
         }
-       
+
         public async Task<ValidationResult> Handle(ExcluirVeiculoCondutorCommand message, CancellationToken cancellationToken)
         {
             if (!message.EhValido()) return message.ValidationResult;
