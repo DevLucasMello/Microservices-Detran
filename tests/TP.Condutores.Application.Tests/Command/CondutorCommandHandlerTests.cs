@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Moq;
 using TP.Condutores.Application.Commands;
+using TP.Condutores.Application.Messages;
 using TP.Condutores.Application.Tests.Fixtures.Tests;
 using TP.Condutores.Domain;
 using Xunit;
@@ -121,7 +122,7 @@ namespace TP.Condutores.Application.Tests.Command
             // Assert
             Assert.False(result.IsValid);
             _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Verify(r => r.ObterPorId(condutor.Id), Times.Once);
-            Assert.Contains("Condutor não encontrado.", result.Errors.Select(c => c.ErrorMessage));
+            Assert.Contains(CondutorCommandErrorMessages.CondutorNaoEncontradoErroMsg, result.Errors.Select(c => c.ErrorMessage));
         }
 
         #endregion
@@ -189,7 +190,7 @@ namespace TP.Condutores.Application.Tests.Command
             // Assert
             Assert.False(result.IsValid);
             _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Verify(r => r.ObterPorId(condutor.Id), Times.Once);
-            Assert.Contains("Condutor não encontrado.", result.Errors.Select(c => c.ErrorMessage));
+            Assert.Contains(CondutorCommandErrorMessages.CondutorNaoEncontradoErroMsg, result.Errors.Select(c => c.ErrorMessage));
         }
 
         #endregion
@@ -255,7 +256,7 @@ namespace TP.Condutores.Application.Tests.Command
             // Assert
             Assert.False(result.IsValid);
             _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Verify(r => r.ObterPorId(condutor.Id), Times.Once);
-            Assert.Contains("Necessário excluir os veículos cadastrados do condutor antes de excluí-lo.", result.Errors.Select(c => c.ErrorMessage));
+            Assert.Contains(CondutorCommandErrorMessages.CondutorComVeiculosCadastradosErroMsg, result.Errors.Select(c => c.ErrorMessage));
         }
 
         [Fact(DisplayName = "Excluir Condutor Obter Condutor com Id Inválido")]
@@ -278,7 +279,7 @@ namespace TP.Condutores.Application.Tests.Command
             // Assert
             Assert.False(result.IsValid);
             _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Verify(r => r.ObterPorId(condutor.Id), Times.Once);
-            Assert.Contains("Condutor não encontrado.", result.Errors.Select(c => c.ErrorMessage));
+            Assert.Contains(CondutorCommandErrorMessages.CondutorNaoEncontradoErroMsg, result.Errors.Select(c => c.ErrorMessage));
         }
 
         #endregion
@@ -345,7 +346,7 @@ namespace TP.Condutores.Application.Tests.Command
             // Assert
             Assert.False(result.IsValid);
             _condutorTestsAutoMockerFixture._mocker.GetMock<ICondutorRepository>().Verify(r => r.ObterPorId(condutor.Id), Times.Once);
-            Assert.Contains("Condutor não encontrado.", result.Errors.Select(c => c.ErrorMessage));
+            Assert.Contains(CondutorCommandErrorMessages.CondutorNaoEncontradoErroMsg, result.Errors.Select(c => c.ErrorMessage));
         }
 
         #endregion

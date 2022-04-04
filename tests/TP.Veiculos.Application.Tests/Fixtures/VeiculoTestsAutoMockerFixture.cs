@@ -121,6 +121,8 @@ namespace TP.Veiculos.Application.Tests.Fixtures
                     .RuleFor(p => p.Cor, f => f.Commerce.Color())
                     .RuleFor(p => p.AnoFabricacao, f => f.Random.Number(1985, 2015));
 
+            posPlaca = 0;
+
             return veiculos.Generate(quantidade);
         }
 

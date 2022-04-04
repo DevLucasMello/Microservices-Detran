@@ -11,6 +11,8 @@
         public static string ModeloNuloErroMsg => "O modelo deve ser informado";
         public static string MarcaNuloErroMsg => "A marca deve ser informada";
         public static string CorNuloErroMsg => "A cor deve ser informada";
-        public static string AnoFabricacaoNuloErroMsg => "O ano de fabricação deve ser informado";        
+        public static string AnoFabricacaoNuloErroMsg => "O ano de fabricação deve ser informado";
+        public static string PlacaCadastradaErroMsg => "Esta placa já foi cadastrada para este condutor.";
+        public static string VeiculoNaoEncontradoErroMsg => "Veículo não encontrado.";
     }
 }

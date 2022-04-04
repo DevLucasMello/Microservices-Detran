@@ -20,5 +20,7 @@
         public static string TelefoneQtdErroMsg => "Informe o telefone com no mínimo 9 digitos";
         public static string EmailInvalidoErroMsg => "Endereço de E-mail inválido";
         public static string DataNascimentoMenor18ErroMsg => "O Condutor deve ter no mínimo 18 anos";
+        public static string CondutorNaoEncontradoErroMsg => "Condutor não encontrado.";
+        public static string CondutorComVeiculosCadastradosErroMsg => "Necessário excluir os veículos cadastrados do condutor antes de excluí-lo.";
     }
 }

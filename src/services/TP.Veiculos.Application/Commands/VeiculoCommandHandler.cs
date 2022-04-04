@@ -7,6 +7,7 @@ using TP.Core.Messages;
 using TP.Core.Messages.Integration;
 using TP.MessageBus;
 using TP.Veiculos.Application.Events;
+using TP.Veiculos.Application.Messages;
 using TP.Veiculos.Domain;
 
 namespace TP.Veiculos.Application.Commands
@@ -39,7 +40,7 @@ namespace TP.Veiculos.Application.Commands
                     if (v.Placa == message.Placa)
                     {
                         check = true;
-                        AdicionarErro("Esta placa já foi cadastrada para este condutor.");
+                        AdicionarErro(VeiculoCommandErrorMessages.PlacaCadastradaErroMsg);
                     }
                 });
 
@@ -71,7 +72,7 @@ namespace TP.Veiculos.Application.Commands
 
             if (veiculoExistente == null)
             {
-                AdicionarErro("Veículo não encontrado.");
+                AdicionarErro(VeiculoCommandErrorMessages.VeiculoNaoEncontradoErroMsg);
                 return ValidationResult;
             }
 
@@ -93,7 +94,7 @@ namespace TP.Veiculos.Application.Commands
 
             if (veiculo == null)
             {
-                AdicionarErro("Veículo não encontrado.");
+                AdicionarErro(VeiculoCommandErrorMessages.VeiculoNaoEncontradoErroMsg);
                 return ValidationResult;
             }
 
