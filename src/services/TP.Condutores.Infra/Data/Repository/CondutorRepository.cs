@@ -1,9 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Dapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TP.Condutores.Domain;
 using TP.Core.Data;
+using TP.Core.DomainObjects;
 
 namespace TP.Condutores.Infra.Data.Repository
 {
@@ -18,12 +21,35 @@ namespace TP.Condutores.Infra.Data.Repository
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public async Task<IEnumerable<Condutor>> ObterTodos()
+        public async Task<PagedResult<Condutor>> ObterTodos(int pageSize, int pageIndex, string query = null)
         {
-            return await _context.Condutores
-                .Include(c => c.Veiculo)
-                .AsNoTracking()                
-                .ToListAsync();
+            var sql = @$"SELECT c.Id,c.CPF, c.Telefone, c.Email, c.CNH, c.DataNascimento, c.PrimeiroNome, c.UltimoNome
+                      FROM Condutor c
+                      WHERE (@Nome IS NULL OR PrimeiroNome LIKE '%' + @Nome + '%') 
+                      ORDER BY [PrimeiroNome] 
+                      OFFSET {pageSize * (pageIndex - 1)} ROWS 
+                      FETCH NEXT {pageSize} ROWS ONLY 
+                      SELECT COUNT(Id) FROM Condutor 
+                      WHERE (@Nome IS NULL OR PrimeiroNome LIKE '%' + @Nome + '%')";
+
+            var multi = await _context.Database.GetDbConnection()
+                .QueryMultipleAsync(sql, new { Nome = query });
+            
+            var condutores = multi.Read<Condutor, Nome, Condutor>((c, n) => {
+                c.MapearNome(n.PrimeiroNome, n.UltimoNome);
+                return c;
+            }, "PrimeiroNome");
+
+            var total = multi.Read<int>().FirstOrDefault();            
+
+            return new PagedResult<Condutor>()
+            {
+                List = condutores,
+                TotalResults = total,
+                PageIndex = pageIndex,
+                PageSize = pageSize,
+                Query = query
+            };
         }
 
         public async Task<IEnumerable<Condutor>> ObterCondutoresPorPlaca(string placa)

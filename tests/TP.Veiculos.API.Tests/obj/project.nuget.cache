@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YdNtmk9RPVX27KkEc6uuC0SSQvK+JmWTW5FjIGPsdsp3dflqQHUxs0N/FxnQs3Znf+P2aM/2KkfR/aIh6bXU5w==",
+  "dgSpecHash": "KTdC1pMT/U3o5ZvIWWeBM0bOrfW3zPry2NMWVTZiI2cJZ3SObPHZwJ/2hwkh3E/5IFCKQYmh5SFvlYshKm9YoA==",
   "success": true,
   "projectFilePath": "C:\\dev\\Teste-Padrao\\tests\\TP.Veiculos.API.Tests\\TP.Veiculos.API.Tests.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\easynetq\\5.1.1\\easynetq.5.1.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",

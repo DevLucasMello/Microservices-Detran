@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1W0ZuEGbc2STqzTfFSdiqOpuPA4W9dwsS9WAQbngvm6HCKJkL9l+oHe2pRbGj5RtB13jbl1/EFsABOetKwtRRA==",
+  "dgSpecHash": "4MZi72ZiCzXC+IFHyts9GxApy3ggwcLaCMCx+njqkrQY7LhS9aEvF/NkgYcGRIIAQwxV3UkDm5svFl5YpFwUxA==",
   "success": true,
   "projectFilePath": "C:\\dev\\Teste-Padrao\\tests\\TP.Condutores.Application.Tests\\TP.Condutores.Application.Tests.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Lucas\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\easynetq\\5.1.1\\easynetq.5.1.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",

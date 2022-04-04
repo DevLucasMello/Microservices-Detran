@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "C2fJjSmIys1Aw+Noa+uABnAmwXLPpN8qGYMuzonhGL2ImN7ZmsiAywXR5touttXvAdx0uIcOpKYOHGPLmRh2zw==",
+  "dgSpecHash": "BGeti1KQ8hDXgxtQon63iob6zVT34Jcx9HAN9pNjD23uRaJEIrZCWQRPHKnq69+qcOCt/sYY93NssZ8fiJ9Yog==",
   "success": true,
   "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Condutores.Infra\\TP.Condutores.Infra.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lucas\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",

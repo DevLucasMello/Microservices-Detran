@@ -35,5 +35,10 @@ namespace TP.Condutores.Domain
             veiculo.Id = condutor.Id;
             condutor._veiculo.Add(veiculo);
         }
+
+        public void MapearNome(string primeiroNome, string segundoNome)
+        {
+            Nome = new Nome(primeiroNome, segundoNome);
+        }
     }
 }

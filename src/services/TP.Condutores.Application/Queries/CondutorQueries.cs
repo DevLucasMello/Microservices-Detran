@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TP.Condutores.Application.ViewModels;
 using TP.Condutores.Domain;
+using TP.Core.DomainObjects;
 
 namespace TP.Condutores.Application.Queries
 {
     public interface ICondutorQueries
     {
-        Task<IEnumerable<ExibirCondutorViewModel>> ObterTodosCondutores();
+        Task<PagedResult<ExibirCondutorViewModel>> ObterTodosCondutores(int pageSize, int pageIndex, string query = null);
         Task<IEnumerable<ExibirCondutorViewModel>> ObterCondutoresPorPlaca(string placa);
         Task<ExibirCondutorViewModel> ObterCondutorPorId(Guid id);
         Task<ExibirCondutorViewModel> ObterCondutorPorCpf(string cpf);
@@ -26,14 +27,23 @@ namespace TP.Condutores.Application.Queries
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<ExibirCondutorViewModel>> ObterTodosCondutores()
+        public async Task<PagedResult<ExibirCondutorViewModel>> ObterTodosCondutores(int pageSize, int pageIndex, string query = null)
         {
-            var condutores = await _condutorRepository.ObterTodos();
+            var condutores = await _condutorRepository.ObterTodos(pageSize, pageIndex, query);
 
             if (condutores == null)
                 return null;
 
-            return _mapper.Map<IEnumerable<ExibirCondutorViewModel>>(condutores);
+            var result = new PagedResult<ExibirCondutorViewModel>()
+            {
+                List = _mapper.Map<IEnumerable<ExibirCondutorViewModel>>(condutores.List),
+                TotalResults = condutores.TotalResults,
+                PageIndex = condutores.PageIndex,
+                PageSize = condutores.PageSize,
+                Query = condutores.Query
+            };
+
+            return result;
         }
 
         public async Task<IEnumerable<ExibirCondutorViewModel>> ObterCondutoresPorPlaca(string placa)

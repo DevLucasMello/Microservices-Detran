@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TP.Core.Data;
+using TP.Core.DomainObjects;
 
 namespace TP.Condutores.Domain
 {
     public interface ICondutorRepository : IRepository<Condutor>
     {
-        Task<IEnumerable<Condutor>> ObterTodos();
+        Task<PagedResult<Condutor>> ObterTodos(int pageSize, int pageIndex, string query = null);
         Task<IEnumerable<Condutor>> ObterCondutoresPorPlaca(string placa);
         Task<Condutor> ObterPorId(Guid id);
         Task<Condutor> ObterPorCPF(string cpf);

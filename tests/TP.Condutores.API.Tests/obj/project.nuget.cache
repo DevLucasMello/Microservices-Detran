@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jkwlo1+2vu4YbyrvckGwXoIV3Dr+1c29NpvKItosb2Z803NpJteSg0QCi8G1G6NBMdHxUJC4HYbMOlro75TAyQ==",
+  "dgSpecHash": "80Oc+U6UjAVtZcKSzBwavo1mRoijxNphWvfLz3cAoM7qLu5dyry5q8PnNO0BxbwQ5HnbMMVZ9B1tO9ZuVg2f2g==",
   "success": true,
   "projectFilePath": "C:\\dev\\Teste-Padrao\\tests\\TP.Condutores.API.Tests\\TP.Condutores.API.Tests.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\easynetq\\5.1.1\\easynetq.5.1.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",

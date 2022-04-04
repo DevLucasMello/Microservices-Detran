@@ -27,11 +27,11 @@ namespace TP.Condutores.API.Controllers
         }
 
         [HttpGet("condutor")]
-        public async Task<IActionResult> ObterTodosCondutores()
+        public async Task<IActionResult> ObterTodosCondutores([FromQuery] int ps = 8, [FromQuery] int page = 1, [FromQuery] string q = null)
         {
-            var condutores = await _condutorQueries.ObterTodosCondutores();
+            var condutores = await _condutorQueries.ObterTodosCondutores(ps, page, q);
 
-            return condutores.ToList().Count <= 0 ? NotFound() : CustomResponse(condutores);
+            return condutores.List.Count() <= 0 ? NotFound() : CustomResponse(condutores);
         }
         
         [HttpGet("condutor/placa/{placa}")]

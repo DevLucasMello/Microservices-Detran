@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ESoCqRzhb3NzfGETmsrg34SsRv4kH2iZT+fiaFgkRwx7oGHm8pGynYfz+bm5p5oDcIUMEP3vT26ptQT/YPnqxQ==",
+  "dgSpecHash": "7zlT4d/Phb9oNNRwmIzecuEZ5WnMnXXXHKChHLQMcggVRqfyNsb3RKOLTxVqmDpskO068ZFJGeSldshoLmG+Zw==",
   "success": true,
   "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Condutores.API\\TP.Condutores.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\easynetq\\5.1.1\\easynetq.5.1.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

@@ -176,3 +176,4 @@ C:\dev\Teste-Padrao\src\services\TP.Condutores.API\bin\Debug\net5.0\Microsoft.Ex
 C:\dev\Teste-Padrao\src\services\TP.Condutores.API\bin\Debug\net5.0\Polly.Extensions.Http.dll
 C:\dev\Teste-Padrao\src\services\TP.Condutores.API\bin\Debug\net5.0\appsettings.Production.json
 C:\dev\Teste-Padrao\src\services\TP.Condutores.API\bin\Debug\net5.0\appsettings.Testing.json
+C:\dev\Teste-Padrao\src\services\TP.Condutores.API\bin\Debug\net5.0\Dapper.dll
