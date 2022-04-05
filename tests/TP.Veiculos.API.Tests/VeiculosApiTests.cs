@@ -25,7 +25,7 @@ namespace TP.Veiculos.API.Tests
             // Arrange
             var veiculo = new AdicionarVeiculoViewModel
             {
-                CondutorId = "63F07C82-33D4-4309-9B69-2518A5E4226B",
+                CondutorId = "CC0EF744-4ABE-41D0-A9D0-91CF5ED96A99",
                 Placa = "HZP8125",
                 Modelo = "Fiesta",
                 Marca = "Ford",
@@ -49,7 +49,7 @@ namespace TP.Veiculos.API.Tests
         public async Task VeiculosApi_AtualizarVeiculo_DeveRetornarComSucesso()
         {
             // Arrange
-            string id = "ADC43BC7-FA09-476B-9806-E0AEB7858CD2";
+            string id = "2F04990E-896D-4553-92A2-4F38AA97024A";
 
             await _testsFixture.RealizarLoginApi();
             _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
@@ -79,7 +79,7 @@ namespace TP.Veiculos.API.Tests
         public async Task VeiculosApi_ExcluirVeiculo_DeveRetornarComSucesso()
         {
             // Arrange
-            string id = "ADC43BC7-FA09-476B-9806-E0AEB7858CD2";
+            string id = "2F04990E-896D-4553-92A2-4F38AA97024A";
 
             await _testsFixture.RealizarLoginApi();
             _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);

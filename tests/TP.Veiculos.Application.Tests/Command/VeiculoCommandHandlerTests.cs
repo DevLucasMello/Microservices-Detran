@@ -41,7 +41,12 @@ namespace TP.Veiculos.Application.Tests.Command
             // Arrange
             var veiculo = _veiculos.FirstOrDefault();
             var condutor = _condutores.FirstOrDefault();
-            var veiculoCommand = new AdicionarVeiculoCommand(Guid.Parse(condutor.CondutorId), veiculo.Placa, veiculo.Modelo, veiculo.Marca, veiculo.Cor, veiculo.AnoFabricacao, condutor.CPF);
+            var veiculosPaginados = _veiculoTestsAutoMockerFixture.ObterVeiculosPaginados(_veiculos);
+            var veiculoCommand = new AdicionarVeiculoCommand(Guid.Parse(condutor.CondutorId), "NDW7177", veiculo.Modelo, veiculo.Marca, veiculo.Cor, veiculo.AnoFabricacao, condutor.CPF);
+
+            _veiculoTestsAutoMockerFixture._mocker.GetMock<IVeiculoRepository>().Setup(r => r.ObterVeiculosPorCPF(50, 1, condutor.CPF)).
+                Returns(Task.FromResult(veiculosPaginados));
+
             _veiculoTestsAutoMockerFixture._mocker.GetMock<IVeiculoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
 
             // Act
