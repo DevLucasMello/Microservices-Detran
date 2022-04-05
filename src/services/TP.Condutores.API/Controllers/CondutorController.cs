@@ -31,15 +31,15 @@ namespace TP.Condutores.API.Controllers
         {
             var condutores = await _condutorQueries.ObterTodosCondutores(ps, page, q);
 
-            return condutores.List.Count() <= 0 ? NotFound() : CustomResponse(condutores);
+            return !condutores.List.Any() ? NotFound() : CustomResponse(condutores);
         }
         
-        [HttpGet("condutor/placa/{placa}")]
-        public async Task<IActionResult> ObterCondutoresPorPlaca(string placa)
+        [HttpGet("condutor/placa")]
+        public async Task<IActionResult> ObterCondutoresPorPlaca([FromQuery] int ps = 8, [FromQuery] int page = 1, [FromQuery] string placa = null)
         {
-            var condutores = await _condutorQueries.ObterCondutoresPorPlaca(placa);
+            var condutores = await _condutorQueries.ObterCondutoresPorPlaca(ps, page, placa);
 
-            return condutores.ToList().Count <= 0 ? NotFound() : CustomResponse(condutores);
+            return !condutores.List.Any() ? NotFound() : CustomResponse(condutores);
         }
 
         [HttpGet("condutor/{id}")]

@@ -12,10 +12,16 @@ namespace TP.Condutores.API.Tests
     public class CondutoresApiTests
     {
         private readonly IntegrationTestsFixture<Startup> _testsFixture;
+        private readonly int pageSize;
+        private readonly int pageIndex;
+        private readonly string query;
 
         public CondutoresApiTests(IntegrationTestsFixture<Startup> testsFixture)
         {
             _testsFixture = testsFixture;
+            pageSize = 8;
+            pageIndex = 1;
+            query = null;
         }
 
         [Fact(DisplayName = "Adicionar Novo Condutor"), TestPriority(1)]
@@ -53,7 +59,7 @@ namespace TP.Condutores.API.Tests
             _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
 
             // Act
-            var getResponse = await _testsFixture.Client.GetAsync("condutor");
+            var getResponse = await _testsFixture.Client.GetAsync($"condutor?ps={pageSize}&page={pageIndex}&q={query}");
 
             // Assert
             getResponse.EnsureSuccessStatusCode();
@@ -69,7 +75,7 @@ namespace TP.Condutores.API.Tests
             _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
 
             // Act
-            var getResponse = await _testsFixture.Client.GetAsync($"condutor/placa/{placa}");
+            var getResponse = await _testsFixture.Client.GetAsync($"condutor/placa?ps={pageSize}&page={pageIndex}&placa={placa}");
 
             // Assert
             getResponse.EnsureSuccessStatusCode();

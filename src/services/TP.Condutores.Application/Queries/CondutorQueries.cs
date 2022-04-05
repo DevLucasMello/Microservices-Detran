@@ -10,8 +10,8 @@ namespace TP.Condutores.Application.Queries
 {
     public interface ICondutorQueries
     {
-        Task<PagedResult<ExibirCondutorViewModel>> ObterTodosCondutores(int pageSize, int pageIndex, string query = null);
-        Task<IEnumerable<ExibirCondutorViewModel>> ObterCondutoresPorPlaca(string placa);
+        Task<PagedResult<ExibirCondutorViewModel>> ObterTodosCondutores(int pageSize, int pageIndex, string query);
+        Task<PagedResult<ExibirCondutorViewModel>> ObterCondutoresPorPlaca(int pageSize, int pageIndex, string placa);
         Task<ExibirCondutorViewModel> ObterCondutorPorId(Guid id);
         Task<ExibirCondutorViewModel> ObterCondutorPorCpf(string cpf);
     }
@@ -27,7 +27,7 @@ namespace TP.Condutores.Application.Queries
             _mapper = mapper;
         }
 
-        public async Task<PagedResult<ExibirCondutorViewModel>> ObterTodosCondutores(int pageSize, int pageIndex, string query = null)
+        public async Task<PagedResult<ExibirCondutorViewModel>> ObterTodosCondutores(int pageSize, int pageIndex, string query)
         {
             var condutores = await _condutorRepository.ObterTodos(pageSize, pageIndex, query);
 
@@ -46,14 +46,23 @@ namespace TP.Condutores.Application.Queries
             return result;
         }
 
-        public async Task<IEnumerable<ExibirCondutorViewModel>> ObterCondutoresPorPlaca(string placa)
+        public async Task<PagedResult<ExibirCondutorViewModel>> ObterCondutoresPorPlaca(int pageSize, int pageIndex, string placa)
         {
-            var condutores = await _condutorRepository.ObterCondutoresPorPlaca(placa);
+            var condutores = await _condutorRepository.ObterCondutoresPorPlaca(pageSize, pageIndex, placa);
 
             if (condutores == null)
                 return null;
 
-            return _mapper.Map<IEnumerable<ExibirCondutorViewModel>>(condutores);
+            var result = new PagedResult<ExibirCondutorViewModel>()
+            {
+                List = _mapper.Map<IEnumerable<ExibirCondutorViewModel>>(condutores.List),
+                TotalResults = condutores.TotalResults,
+                PageIndex = condutores.PageIndex,
+                PageSize = condutores.PageSize,
+                Query = condutores.Query
+            };
+
+            return result;
         }
 
         public async Task<ExibirCondutorViewModel> ObterCondutorPorId(Guid id)

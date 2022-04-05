@@ -20,16 +20,16 @@ namespace TP.Bff.Detran.Controllers
 
         [HttpGet]
         [Route("detran/condutor")]
-        public async Task<IActionResult> ObterTodosCondutores()
+        public async Task<IActionResult> ObterTodosCondutores([FromQuery] int ps = 8, [FromQuery] int page = 1, [FromQuery] string q = null)
         {
-            return CustomResponse(await _condutorService.ObterTodosCondutores());
+            return CustomResponse(await _condutorService.ObterTodosCondutores(ps, page, q));
         }
 
         [HttpGet]
-        [Route("detran/condutor/placa/{placa}")]
-        public async Task<IActionResult> ObterCondutoresPorPlaca(string placa)
+        [Route("detran/condutor/placa")]
+        public async Task<IActionResult> ObterCondutoresPorPlaca([FromQuery] int ps = 8, [FromQuery] int page = 1, [FromQuery] string placa = null)
         {
-            return CustomResponse(await _condutorService.ObterCondutoresPorPlaca(placa));
+            return CustomResponse(await _condutorService.ObterCondutoresPorPlaca(ps, page, placa));
         }
 
         [HttpGet]

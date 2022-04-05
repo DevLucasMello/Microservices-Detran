@@ -53,7 +53,17 @@ namespace TP.Condutores.Application.Tests.Fixtures.Tests
         public Condutor CondutorInvalido()
         {
             return GerarCondutorInvalido();
-        }        
+        }
+
+        public PagedResult<Condutor> ObterCondutoresPaginados()
+        {
+            var condutores = new PagedResult<Condutor>
+            {
+                List = GerarCondutores(20).ToList()
+            };
+
+            return condutores;
+        }
 
         public IEnumerable<Condutor> ObterCondutores()
         {

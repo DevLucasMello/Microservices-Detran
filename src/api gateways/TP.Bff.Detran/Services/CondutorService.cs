@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using TP.Bff.Detran.Extensions;
 using TP.Bff.Detran.Models.Condutor;
 using TP.Core.Communication;
+using TP.Core.DomainObjects;
 using TP.WebAPI.Core.Http;
 
 namespace TP.Bff.Detran.Services
 {
     public interface ICondutorService
     {
-        Task<IEnumerable<CondutorDTO>> ObterTodosCondutores();
-        Task<IEnumerable<CondutorDTO>> ObterCondutoresPorPlaca(string placa);
+        Task<PagedResult<CondutorDTO>> ObterTodosCondutores(int pageSize, int pageIndex, string query);
+        Task<PagedResult<CondutorDTO>> ObterCondutoresPorPlaca(int pageSize, int pageIndex, string placa);
         Task<CondutorDTO> ObterCondutorPorId(Guid id);
         Task<CondutorDTO> ObterCondutorPorCpf(string cpf);
         Task<ResponseResult> AdicionarCondutor(AdicionarCondutorDTO condutor);
@@ -32,22 +32,22 @@ namespace TP.Bff.Detran.Services
             _httpClient.BaseAddress = new Uri(settings.Value.CondutorUrl);
         }
 
-        public async Task<IEnumerable<CondutorDTO>> ObterTodosCondutores()
+        public async Task<PagedResult<CondutorDTO>> ObterTodosCondutores(int pageSize, int pageIndex, string query)
         {
-            var response = await _httpClient.GetAsync("/condutor/");
+            var response = await _httpClient.GetAsync($"/condutor?ps={pageSize}&page={pageIndex}&q={query}");
 
             if (!TratarErrosResponse(response)) return null;
 
-            return await DeserializarObjetoResponse<IEnumerable<CondutorDTO>>(response);
+            return await DeserializarObjetoResponse<PagedResult<CondutorDTO>>(response);
         }
 
-        public async Task<IEnumerable<CondutorDTO>> ObterCondutoresPorPlaca(string placa)
+        public async Task<PagedResult<CondutorDTO>> ObterCondutoresPorPlaca(int pageSize, int pageIndex, string placa)
         {
-            var response = await _httpClient.GetAsync($"/condutor/placa/{placa}");
+            var response = await _httpClient.GetAsync($"/condutor/placa?ps={pageSize}&page={pageIndex}&placa={placa}");
 
             if (!TratarErrosResponse(response)) return null;
 
-            return await DeserializarObjetoResponse<IEnumerable<CondutorDTO>>(response);
+            return await DeserializarObjetoResponse<PagedResult<CondutorDTO>>(response);
         }
 
         public async Task<CondutorDTO> ObterCondutorPorId(Guid id)

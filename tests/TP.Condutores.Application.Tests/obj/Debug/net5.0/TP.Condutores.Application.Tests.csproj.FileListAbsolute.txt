@@ -187,3 +187,4 @@ C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\bin\Debug\net5.0\Castl
 C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\bin\Debug\net5.0\Moq.dll
 C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\bin\Debug\net5.0\Moq.AutoMock.dll
 C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\bin\Debug\net5.0\Bogus.dll
+C:\dev\Teste-Padrao\tests\TP.Condutores.Application.Tests\bin\Debug\net5.0\Dapper.dll

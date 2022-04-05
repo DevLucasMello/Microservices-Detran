@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TP.Condutores.Domain;
@@ -21,7 +20,7 @@ namespace TP.Condutores.Infra.Data.Repository
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public async Task<PagedResult<Condutor>> ObterTodos(int pageSize, int pageIndex, string query = null)
+        public async Task<PagedResult<Condutor>> ObterTodos(int pageSize, int pageIndex, string query)
         {
             var sql = @$"SELECT c.Id,c.CPF, c.Telefone, c.Email, c.CNH, c.DataNascimento, c.PrimeiroNome, c.UltimoNome
                       FROM Condutor c
@@ -52,14 +51,35 @@ namespace TP.Condutores.Infra.Data.Repository
             };
         }
 
-        public async Task<IEnumerable<Condutor>> ObterCondutoresPorPlaca(string placa)
+        public async Task<PagedResult<Condutor>> ObterCondutoresPorPlaca(int pageSize, int pageIndex, string placa)
         {
-            return await _context.Condutores
-                                .FromSqlRaw(@"SELECT c.Id, c.PrimeiroNome, c.UltimoNome, c.CPF, c.CNH, c.Telefone, c.Email, c.DataNascimento
-                                              FROM Condutor c
-                                              WHERE c.Id IN (SELECT v.CondutorId FROM Veiculo v WHERE v.Placa = {0})", placa)
-                                .AsNoTracking()
-                                .ToListAsync();
+            var sql = @$"SELECT c.Id,c.CPF, c.Telefone, c.Email, c.CNH, c.DataNascimento, c.PrimeiroNome, c.UltimoNome
+                      FROM Condutor c
+                      WHERE (@Nome IS NULL OR c.Id IN (SELECT v.CondutorId FROM Veiculo v WHERE (v.Placa LIKE '%' + @Nome + '%')))                      
+                      ORDER BY [PrimeiroNome] 
+                      OFFSET {pageSize * (pageIndex - 1)} ROWS 
+                      FETCH NEXT {pageSize} ROWS ONLY 
+                      SELECT COUNT(Id) FROM Condutor 
+                      WHERE (@Nome IS NULL OR PrimeiroNome LIKE '%' + @Nome + '%')";
+
+            var multi = await _context.Database.GetDbConnection()
+                .QueryMultipleAsync(sql, new { Nome = placa });
+
+            var condutores = multi.Read<Condutor, Nome, Condutor>((c, n) => {
+                c.MapearNome(n.PrimeiroNome, n.UltimoNome);
+                return c;
+            }, "PrimeiroNome");
+
+            var total = multi.Read<int>().FirstOrDefault();
+
+            return new PagedResult<Condutor>()
+            {
+                List = condutores,
+                TotalResults = total,
+                PageIndex = pageIndex,
+                PageSize = pageSize,
+                Query = placa
+            };            
         }
 
         public async Task<Condutor> ObterPorId(Guid id)

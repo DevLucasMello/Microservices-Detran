@@ -11,12 +11,18 @@ namespace TP.Condutores.Application.Tests.Queries
     public class CondutorQueriesTests
     {
         private readonly CondutorTestsAutoMockerFixture _condutorTestsAutoMockerFixture;
-        private CondutorQueries _condutorQueries;
+        private readonly CondutorQueries _condutorQueries;
+        private readonly int pageSize;
+        private readonly int pageIndex;
+        private readonly string query;
 
         public CondutorQueriesTests(CondutorTestsAutoMockerFixture condutorTestsFixture)
         {
             _condutorTestsAutoMockerFixture = condutorTestsFixture;
             _condutorQueries = _condutorTestsAutoMockerFixture.ObterCondutorQueries();
+            pageSize = 8;
+            pageIndex = 1;
+            query = null;
         }
 
         [Fact(DisplayName = "Obter Todos Condutores")]
@@ -24,17 +30,17 @@ namespace TP.Condutores.Application.Tests.Queries
         public async void ObterTodosCondutoresQuery_QueryValida_DeveRetornarListaCondutores()
         {
             // Arrange
-            var condutores = _condutorTestsAutoMockerFixture.ObterCondutores();
+            var condutores = _condutorTestsAutoMockerFixture.ObterCondutoresPaginados();
 
-            _condutorTestsAutoMockerFixture._condutorRepository.Setup(c => c.ObterTodos())
+            _condutorTestsAutoMockerFixture._condutorRepository.Setup(c => c.ObterTodos(pageSize, pageIndex, query))
                 .Returns(Task.FromResult(condutores));
 
             // Act
-            var condutoresQuery = await _condutorQueries.ObterTodosCondutores();
+            var condutoresQuery = await _condutorQueries.ObterTodosCondutores(pageSize, pageIndex, query);
 
             // Assert
-            _condutorTestsAutoMockerFixture._condutorRepository.Verify(r => r.ObterTodos(), Times.Once);
-            Assert.True(condutoresQuery.Any());
+            _condutorTestsAutoMockerFixture._condutorRepository.Verify(r => r.ObterTodos(pageSize, pageIndex, query), Times.Once);
+            Assert.True(condutoresQuery.List.Any());
         }
     }
 }
