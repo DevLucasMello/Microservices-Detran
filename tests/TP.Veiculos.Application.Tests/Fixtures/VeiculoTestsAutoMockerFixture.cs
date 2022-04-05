@@ -6,6 +6,7 @@ using Bogus;
 using Bogus.Extensions.Brazil;
 using Moq;
 using Moq.AutoMock;
+using TP.Core.DomainObjects;
 using TP.Veiculos.Application.AutoMapper;
 using TP.Veiculos.Application.Commands;
 using TP.Veiculos.Application.Queries;
@@ -78,6 +79,23 @@ namespace TP.Veiculos.Application.Tests.Fixtures
             condutores.AddRange(GerarCondutores(20).ToList());
 
             return condutores.AsEnumerable();
+        }
+
+        public PagedResult<Veiculo> ObterVeiculosPaginados(IEnumerable<Veiculo> veiculosCadastrados = null)
+        {
+            var veiculos = new PagedResult<Veiculo>();
+
+            if (veiculosCadastrados is null)
+            {
+                veiculos.List = GerarVeiculos(20);
+
+            }
+            else
+            {
+                veiculos.List = veiculosCadastrados;
+            }
+
+            return veiculos;
         }
 
         public IEnumerable<Veiculo> ObterVeiculos()

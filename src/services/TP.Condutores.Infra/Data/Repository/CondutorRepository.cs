@@ -59,8 +59,8 @@ namespace TP.Condutores.Infra.Data.Repository
                       ORDER BY [PrimeiroNome] 
                       OFFSET {pageSize * (pageIndex - 1)} ROWS 
                       FETCH NEXT {pageSize} ROWS ONLY 
-                      SELECT COUNT(Id) FROM Condutor 
-                      WHERE (@Nome IS NULL OR PrimeiroNome LIKE '%' + @Nome + '%')";
+                      SELECT COUNT(Id) FROM Condutor c
+                      WHERE (@Nome IS NULL OR c.Id IN (SELECT v.CondutorId FROM Veiculo v WHERE (v.Placa LIKE '%' + @Nome + '%')))";
 
             var multi = await _context.Database.GetDbConnection()
                 .QueryMultipleAsync(sql, new { Nome = placa });

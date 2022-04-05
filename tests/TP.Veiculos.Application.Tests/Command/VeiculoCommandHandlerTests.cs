@@ -19,6 +19,8 @@ namespace TP.Veiculos.Application.Tests.Command
         private VeiculoCommandHandler _veiculoHandler;
         private IEnumerable<Veiculo> _veiculos;
         private IEnumerable<Condutor> _condutores;
+        private readonly int pageSize;
+        private readonly int pageIndex;
 
         public VeiculoCommandHandlerTests(VeiculoTestsAutoMockerFixture veiculoTestsFixture)
         {
@@ -26,6 +28,8 @@ namespace TP.Veiculos.Application.Tests.Command
             _veiculoHandler = _veiculoTestsAutoMockerFixture.ObterVeiculoHandler();
             _veiculos = _veiculoTestsAutoMockerFixture.ObterVeiculos();
             _condutores = _veiculoTestsAutoMockerFixture.ObterCondutores();
+            pageSize = 8;
+            pageIndex = 1;
         }
 
         #region AdicionarVeiculoCommand
@@ -90,10 +94,11 @@ namespace TP.Veiculos.Application.Tests.Command
             // Arrange
             var veiculo = _veiculos.FirstOrDefault();
             var condutor = _veiculoTestsAutoMockerFixture.CondutorValido();
+            var veiculosPaginados = _veiculoTestsAutoMockerFixture.ObterVeiculosPaginados(_veiculos);
             var veiculoCommand = new AdicionarVeiculoCommand(Guid.Parse(condutor.CondutorId), veiculo.Placa, veiculo.Modelo, veiculo.Marca, veiculo.Cor, veiculo.AnoFabricacao, condutor.CPF);
 
-            _veiculoTestsAutoMockerFixture._mocker.GetMock<IVeiculoRepository>().Setup(r => r.ObterVeiculosPorCPF(condutor.CPF)).
-                Returns(Task.FromResult(_veiculos));
+            _veiculoTestsAutoMockerFixture._mocker.GetMock<IVeiculoRepository>().Setup(r => r.ObterVeiculosPorCPF(50,1,condutor.CPF)).
+                Returns(Task.FromResult(veiculosPaginados));
 
             _veiculoTestsAutoMockerFixture._mocker.GetMock<IVeiculoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
 

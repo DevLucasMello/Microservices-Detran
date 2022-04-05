@@ -476,3 +476,4 @@ C:\dev\Teste-Padrao\tests\TP.Identidade.API.Tests\obj\Debug\net5.0\TP.Identidade
 C:\dev\Teste-Padrao\tests\TP.Identidade.API.Tests\obj\Debug\net5.0\ref\TP.Identidade.API.Tests.dll
 C:\dev\Teste-Padrao\tests\TP.Identidade.API.Tests\obj\Debug\net5.0\TP.Identidade.API.Tests.pdb
 C:\dev\Teste-Padrao\tests\TP.Identidade.API.Tests\obj\Debug\net5.0\TP.Identidade.API.Tests.genruntimeconfig.cache
+C:\dev\Teste-Padrao\tests\TP.Identidade.API.Tests\bin\Debug\net5.0\Dapper.dll

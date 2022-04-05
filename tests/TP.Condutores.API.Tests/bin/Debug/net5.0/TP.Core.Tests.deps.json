@@ -382,6 +382,17 @@
         }
       },
       "coverlet.collector/3.0.2": {},
+      "Dapper/2.0.123": {
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.123.33578"
+          }
+        },
+        "compile": {
+          "lib/net5.0/Dapper.dll": {}
+        }
+      },
       "EasyNetQ/5.1.1": {
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
@@ -2464,6 +2475,7 @@
       },
       "TP.Condutores.Infra/1.0.0": {
         "dependencies": {
+          "Dapper": "2.0.123",
           "Microsoft.EntityFrameworkCore": "5.0.12",
           "Microsoft.EntityFrameworkCore.Abstractions": "5.0.12",
           "Microsoft.EntityFrameworkCore.Relational": "5.0.12",
@@ -2555,6 +2567,7 @@
       },
       "TP.Veiculos.Infra/1.0.0": {
         "dependencies": {
+          "Dapper": "2.0.123",
           "Microsoft.EntityFrameworkCore": "5.0.12",
           "Microsoft.EntityFrameworkCore.Abstractions": "5.0.12",
           "Microsoft.EntityFrameworkCore.Relational": "5.0.12",
@@ -4281,6 +4294,13 @@
       "sha512": "sha512-iBvPAIDaI7j/iMx/DzCGCJ3rdiOmel9VINEfaTiBv/NKIGHOP4X3hqc6Q1wgMtArEshlhXexQknP17SK4vXb1w==",
       "path": "coverlet.collector/3.0.2",
       "hashPath": "coverlet.collector.3.0.2.nupkg.sha512"
+    },
+    "Dapper/2.0.123": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RDFF4rBLLmbpi6pwkY7q/M6UXHRJEOerplDGE5jwEkP/JGJnBauAClYavNKJPW1yOTWRPIyfj4is3EaJxQXILQ==",
+      "path": "dapper/2.0.123",
+      "hashPath": "dapper.2.0.123.nupkg.sha512"
     },
     "EasyNetQ/5.1.1": {
       "type": "package",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xakTVfsmtTv8yQ+mqn11lM63rjMCSSohlpL2Zxkno0RlwCiUZdZJUTgp921mtGHbXAV9YhWweWKaZmoPbg+5tg==",
+  "dgSpecHash": "z22QaliwADyWLHTudQJFLn3T+diuf5HoLk+blaQc0ZC2XdY2HKu/wwXnYUMww+fcsjVyBD5/N0xlt0MiUaVllw==",
   "success": true,
   "projectFilePath": "C:\\dev\\Teste-Padrao\\tests\\TP.Identidade.API.Tests\\TP.Identidade.API.Tests.csproj",
   "expectedPackageFiles": [

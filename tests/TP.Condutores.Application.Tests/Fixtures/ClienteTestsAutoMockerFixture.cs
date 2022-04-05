@@ -59,7 +59,7 @@ namespace TP.Condutores.Application.Tests.Fixtures.Tests
         {
             var condutores = new PagedResult<Condutor>
             {
-                List = GerarCondutores(20).ToList()
+                List = GerarCondutores(20)
             };
 
             return condutores;

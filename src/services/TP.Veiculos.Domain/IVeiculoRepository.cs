@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using TP.Core.Data;
+using TP.Core.DomainObjects;
 
 namespace TP.Veiculos.Domain
 {
     public interface IVeiculoRepository : IRepository<Veiculo>
     {
-        Task<IEnumerable<Veiculo>> ObterTodos();
-        Task<IEnumerable<Veiculo>> ObterVeiculosPorCPF(string cpf);
+        Task<PagedResult<Veiculo>> ObterTodos(int pageSize, int pageIndex, string query);
+        Task<PagedResult<Veiculo>> ObterVeiculosPorCPF(int pageSize, int pageIndex, string cpf);
         Task<Veiculo> ObterPorId(Guid id);
         void Adicionar(Veiculo veiculo, string idCondutor, string cpf);
         void Atualizar(Veiculo veiculo);

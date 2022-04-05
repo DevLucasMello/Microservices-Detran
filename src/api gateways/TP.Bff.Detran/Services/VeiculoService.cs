@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using TP.Bff.Detran.Extensions;
 using TP.Bff.Detran.Models.Veiculo;
 using TP.Core.Communication;
+using TP.Core.DomainObjects;
 using TP.WebAPI.Core.Http;
 
 namespace TP.Bff.Detran.Services
 {
     public interface IVeiculoService
     {
-        Task<IEnumerable<VeiculoDTO>> ObterTodosVeiculos();
-        Task<IEnumerable<VeiculoDTO>> ObterVeiculosPorCPF(string cpf);
+        Task<PagedResult<VeiculoDTO>> ObterTodosVeiculos(int pageSize, int pageIndex, string query);
+        Task<PagedResult<VeiculoDTO>> ObterVeiculosPorCPF(int pageSize, int pageIndex, string cpf);
         Task<VeiculoDTO> ObterVeiculoPorId(Guid id);
         Task<ResponseResult> AdicionarVeiculo(AdicionarVeiculoDTO veiculo);
         Task<ResponseResult> AtualizarVeiculo(Guid id, AtualizarVeiculoDTO veiculo);
@@ -30,22 +30,22 @@ namespace TP.Bff.Detran.Services
             _httpClient.BaseAddress = new Uri(settings.Value.VeiculoUrl);
         }
 
-        public async Task<IEnumerable<VeiculoDTO>> ObterTodosVeiculos()
+        public async Task<PagedResult<VeiculoDTO>> ObterTodosVeiculos(int pageSize, int pageIndex, string query)
         {
-            var response = await _httpClient.GetAsync("/veiculo/");
+            var response = await _httpClient.GetAsync($"/veiculo?ps={pageSize}&page={pageIndex}&q={query}");
 
             if (!TratarErrosResponse(response)) return null;
 
-            return await DeserializarObjetoResponse<IEnumerable<VeiculoDTO>>(response);
+            return await DeserializarObjetoResponse<PagedResult<VeiculoDTO>>(response);
         }
 
-        public async Task<IEnumerable<VeiculoDTO>> ObterVeiculosPorCPF(string cpf)
+        public async Task<PagedResult<VeiculoDTO>> ObterVeiculosPorCPF(int pageSize, int pageIndex, string cpf)
         {
-            var response = await _httpClient.GetAsync($"/veiculo/documento/{cpf}");
+            var response = await _httpClient.GetAsync($"/veiculo/documento?ps={pageSize}&page={pageIndex}&cpf={cpf}");
 
             if (!TratarErrosResponse(response)) return null;
 
-            return await DeserializarObjetoResponse<IEnumerable<VeiculoDTO>>(response);
+            return await DeserializarObjetoResponse<PagedResult<VeiculoDTO>>(response);
         }
 
         public async Task<VeiculoDTO> ObterVeiculoPorId(Guid id)

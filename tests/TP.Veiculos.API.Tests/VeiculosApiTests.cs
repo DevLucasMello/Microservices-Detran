@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 using System.Threading.Tasks;
 using TP.Core.Tests.Config;
 using TP.Veiculos.API.Tests.Config;

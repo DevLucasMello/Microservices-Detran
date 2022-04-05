@@ -30,12 +30,12 @@ namespace TP.Veiculos.Application.Commands
         {
             if (!message.EhValido()) return message.ValidationResult;
 
-            var veiculos = await _veiculoRepository.ObterVeiculosPorCPF(message.CPF);
+            var veiculos = await _veiculoRepository.ObterVeiculosPorCPF(50,1,message.CPF);
 
-            if (veiculos.Any())
+            if (veiculos.List.Any())
             {
                 var check = false;
-                veiculos.ToList().ForEach(v =>
+                veiculos.List.ToList().ForEach(v =>
                 {
                     if (v.Placa == message.Placa)
                     {

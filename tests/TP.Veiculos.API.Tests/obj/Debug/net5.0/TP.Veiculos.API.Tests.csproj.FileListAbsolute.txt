@@ -468,3 +468,4 @@ C:\dev\Teste-Padrao\tests\TP.Veiculos.API.Tests\obj\Debug\net5.0\TP.Veiculos.API
 C:\dev\Teste-Padrao\tests\TP.Veiculos.API.Tests\obj\Debug\net5.0\ref\TP.Veiculos.API.Tests.dll
 C:\dev\Teste-Padrao\tests\TP.Veiculos.API.Tests\obj\Debug\net5.0\TP.Veiculos.API.Tests.pdb
 C:\dev\Teste-Padrao\tests\TP.Veiculos.API.Tests\obj\Debug\net5.0\TP.Veiculos.API.Tests.genruntimeconfig.cache
+C:\dev\Teste-Padrao\tests\TP.Veiculos.API.Tests\bin\Debug\net5.0\Dapper.dll

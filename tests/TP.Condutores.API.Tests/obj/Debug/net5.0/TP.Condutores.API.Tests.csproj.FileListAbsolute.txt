@@ -467,3 +467,4 @@ C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Veiculos.I
 C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Core.Tests.deps.json
 C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Core.Tests.runtimeconfig.json
 C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\TP.Core.Tests.runtimeconfig.dev.json
+C:\dev\Teste-Padrao\tests\TP.Condutores.API.Tests\bin\Debug\net5.0\Dapper.dll

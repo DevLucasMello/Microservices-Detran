@@ -22,16 +22,16 @@ namespace TP.Bff.Detran.Controllers
 
         [HttpGet]
         [Route("detran/veiculo")]
-        public async Task<IActionResult> ObterTodosVeiculos()
+        public async Task<IActionResult> ObterTodosVeiculos([FromQuery] int ps = 8, [FromQuery] int page = 1, [FromQuery] string q = null)
         {
-            return CustomResponse(await _veiculoService.ObterTodosVeiculos());
+            return CustomResponse(await _veiculoService.ObterTodosVeiculos(ps, page, q));
         }
 
         [HttpGet]
-        [Route("detran/veiculo/documento/{cpf}")]
-        public async Task<IActionResult> ObterVeiculosPorCPF(string cpf)
+        [Route("detran/veiculo/documento")]
+        public async Task<IActionResult> ObterVeiculosPorCPF([FromQuery] int ps = 8, [FromQuery] int page = 1, [FromQuery] string cpf = null)
         {
-            return CustomResponse(await _veiculoService.ObterVeiculosPorCPF(cpf));
+            return CustomResponse(await _veiculoService.ObterVeiculosPorCPF(ps, page, cpf));
         }
 
         [HttpGet]
