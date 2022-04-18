@@ -1,6 +1,6 @@
 <!---![Logo of the project](http://logo_link)-->
  
-## Teste Padrão
+## Aplicação Distribuída em APIs
  
  <!---
 ## Technology 
