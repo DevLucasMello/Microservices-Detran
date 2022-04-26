@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Tn7tZH7Y6UYdNcA+tjEoB7CEq2lTcy8Q9pEK4CM3aKbeHGcho0E5UneY2yFYVAYcH0NoqB0ivG1zQpx/cfKjgA==",
+  "dgSpecHash": "t10EIa7PPuf1DEBOjPHVLRUULgU9n1niDnGQNT4D+aCsQW7K1sR2NPoaTD5WtGOu3awH+WfoGNvuPAkCG2hssA==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Veiculos.Infra\\TP.Veiculos.Infra.csproj",
+  "projectFilePath": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Veiculos.Infra\\TP.Veiculos.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",

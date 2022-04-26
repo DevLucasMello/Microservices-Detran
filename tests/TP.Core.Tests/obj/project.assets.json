@@ -10068,11 +10068,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\dev\\Teste-Padrao\\tests\\TP.Core.Tests\\TP.Core.Tests.csproj",
+      "projectUniqueName": "C:\\dev\\Microservices-Detran\\tests\\TP.Core.Tests\\TP.Core.Tests.csproj",
       "projectName": "TP.Core.Tests",
-      "projectPath": "C:\\dev\\Teste-Padrao\\tests\\TP.Core.Tests\\TP.Core.Tests.csproj",
+      "projectPath": "C:\\dev\\Microservices-Detran\\tests\\TP.Core.Tests\\TP.Core.Tests.csproj",
       "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
-      "outputPath": "C:\\dev\\Teste-Padrao\\tests\\TP.Core.Tests\\obj\\",
+      "outputPath": "C:\\dev\\Microservices-Detran\\tests\\TP.Core.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -10093,11 +10093,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\dev\\Teste-Padrao\\src\\services\\TP.Condutores.API\\TP.Condutores.API.csproj": {
-              "projectPath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Condutores.API\\TP.Condutores.API.csproj"
+            "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.API\\TP.Condutores.API.csproj": {
+              "projectPath": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.API\\TP.Condutores.API.csproj"
             },
-            "C:\\dev\\Teste-Padrao\\src\\services\\TP.Veiculos.API\\TP.Veiculos.API.csproj": {
-              "projectPath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Veiculos.API\\TP.Veiculos.API.csproj"
+            "C:\\dev\\Microservices-Detran\\src\\services\\TP.Veiculos.API\\TP.Veiculos.API.csproj": {
+              "projectPath": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Veiculos.API\\TP.Veiculos.API.csproj"
             }
           }
         }

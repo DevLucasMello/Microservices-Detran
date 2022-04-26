@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z22QaliwADyWLHTudQJFLn3T+diuf5HoLk+blaQc0ZC2XdY2HKu/wwXnYUMww+fcsjVyBD5/N0xlt0MiUaVllw==",
+  "dgSpecHash": "9wwWHsgOkU04sGwXQiSY0aXQL5flIwKBCXKJceijX3s1jPqWgyt6IV0K0lP+lxmHWFkwGu7gcpv+UAfhn8bU3g==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\tests\\TP.Identidade.API.Tests\\TP.Identidade.API.Tests.csproj",
+  "projectFilePath": "C:\\dev\\Microservices-Detran\\tests\\TP.Identidade.API.Tests\\TP.Identidade.API.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\anglesharp\\0.16.1\\anglesharp.0.16.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",

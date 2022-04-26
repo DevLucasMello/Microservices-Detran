@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lalQyD9PfiYHV09YeHt3EgpxiQkMAwbdi1yopDHVDD5pYakcdRGHi4QsbiZcn5m8kkVIsdAJzFkttHaxH0gggg==",
+  "dgSpecHash": "y+8Rlb0K0CAF+KX9ogfXusAWrYwZxe5pMcJY04sSFT1bWGO3RIEZg3t/M9hxviuLKn+191DyZ0reNIEhDkYsBg==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\tests\\TP.Condutores.API.Tests\\TP.Condutores.API.Tests.csproj",
+  "projectFilePath": "C:\\dev\\Microservices-Detran\\tests\\TP.Condutores.API.Tests\\TP.Condutores.API.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\anglesharp\\0.16.1\\anglesharp.0.16.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",

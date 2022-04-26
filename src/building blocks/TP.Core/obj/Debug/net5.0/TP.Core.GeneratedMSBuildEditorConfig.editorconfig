@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = TP.Core
-build_property.ProjectDir = C:\dev\Teste-Padrao\src\building blocks\TP.Core\
+build_property.ProjectDir = C:\dev\Microservices-Detran\src\building blocks\TP.Core\

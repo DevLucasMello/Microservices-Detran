@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GmDzhlHPrxMl5OkVcsSeHwQVPYe7dkbC3V2UqMc9wRxVaAsrtVzUeqqgPAs3eyPqSrrA48fGAVXDlI+lCxLlDw==",
+  "dgSpecHash": "QHG3AvHgg14+SmwFb0a3Xw4WPuv80TTBP7JXwaNAwoblnxA+3J6cvmzVXP1iRzinrpTZb7zH0oPuIE3pVoutIQ==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\api gateways\\TP.Bff.Detran\\TP.Bff.Detran.csproj",
+  "projectFilePath": "C:\\dev\\Microservices-Detran\\src\\api gateways\\TP.Bff.Detran\\TP.Bff.Detran.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\easynetq\\5.1.1\\easynetq.5.1.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",

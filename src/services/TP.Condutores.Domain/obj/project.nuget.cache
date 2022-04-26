@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k4DEJrnTyr4Kw+degg48H2JX0qJgIBPdNZyaRBfWkDh1oDwINivJLpPO6Z8QBtsjkM+YdMH9aw2wZp3BzEOzOA==",
+  "dgSpecHash": "VTwiX1/j9jK+ZbkfyGQ1+9gvRONbcjtoPYT7qU2kBA0Pkc+orGBng8XrpQYYNkK5u0wmqC6Y9AtlSnlCE+neRA==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Condutores.Domain\\TP.Condutores.Domain.csproj",
+  "projectFilePath": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.Domain\\TP.Condutores.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",

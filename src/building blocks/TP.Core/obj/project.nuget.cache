@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UXmhUp0MGROwDmeO7qw3/x9ystB45+RVDbQySL5vPoxuj6MShSxoiouk3Bs2JKMPPDr7N2CqASZ0HC46VxVUWg==",
+  "dgSpecHash": "bMWJLRa/Pl7gw1N5EiCSq/Ulbh0lnfkkR+ervjfz7HzQoNwU8z2iXiBmc3WG2LZAvuOpgkltc/GUR9kEz1SUsw==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\building blocks\\TP.Core\\TP.Core.csproj",
+  "projectFilePath": "C:\\dev\\Microservices-Detran\\src\\building blocks\\TP.Core\\TP.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",

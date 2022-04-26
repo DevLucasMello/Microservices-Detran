@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XOm064KFl2gy/JLRS7c09wTa0QDTVt62s9EDJ7e4dp8S8MilIGTTOR3AUu9jAsi9DSoVHvzMo1vdQ5qilKspxQ==",
+  "dgSpecHash": "HyCww7iZ8i7QtyavTMYOJc5DogHCyJC/dM+WLD6WNHn3g9nJP50CR0Nz1NTMTJGCZZe2n7lID/YX2oxcy//vow==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\tests\\TP.Core.Tests\\TP.Core.Tests.csproj",
+  "projectFilePath": "C:\\dev\\Microservices-Detran\\tests\\TP.Core.Tests\\TP.Core.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\anglesharp\\0.16.1\\anglesharp.0.16.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xM+KHK/CTe9XWay27gMZKNjqZoB+LBnDPzthQ06LNJxREpXYp1LtPR0ZphVi70Yesf0t+DCl+DHymPAnfAK0sQ==",
+  "dgSpecHash": "tay647nHpun8l/HDMAorgo9VopB3tx0R0A0AxiJkZ0oxwfFG/aH5UkNBY1l33eaP8mSYgC6DxhBYfuJe9UKEWg==",
   "success": true,
-  "projectFilePath": "C:\\dev\\Teste-Padrao\\src\\services\\TP.Veiculos.Domain\\TP.Veiculos.Domain.csproj",
+  "projectFilePath": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Veiculos.Domain\\TP.Veiculos.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
