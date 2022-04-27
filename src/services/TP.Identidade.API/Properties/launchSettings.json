@@ -34,13 +34,13 @@
       }
     },
     "Selfhosting - Development": {
+      "applicationUrl": "https://localhost:5101;http://localhost:5102",
       "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:5101;http://localhost:5102"
+      "launchBrowser": true,
+      "launchUrl": "swagger"
     }
   }
 }
