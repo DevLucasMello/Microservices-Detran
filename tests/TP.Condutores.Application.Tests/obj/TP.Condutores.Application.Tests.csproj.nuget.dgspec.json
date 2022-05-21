@@ -10,11 +10,15 @@
         "projectUniqueName": "C:\\dev\\Microservices-Detran\\src\\building blocks\\TP.Core\\TP.Core.csproj",
         "projectName": "TP.Core",
         "projectPath": "C:\\dev\\Microservices-Detran\\src\\building blocks\\TP.Core\\TP.Core.csproj",
-        "packagesPath": "C:\\Users\\Jéssica\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
         "outputPath": "C:\\dev\\Microservices-Detran\\src\\building blocks\\TP.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Jéssica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,26 +71,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -96,11 +86,15 @@
         "projectUniqueName": "C:\\dev\\Microservices-Detran\\src\\building blocks\\TP.MessageBus\\TP.MessageBus.csproj",
         "projectName": "TP.MessageBus",
         "projectPath": "C:\\dev\\Microservices-Detran\\src\\building blocks\\TP.MessageBus\\TP.MessageBus.csproj",
-        "packagesPath": "C:\\Users\\Jéssica\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
         "outputPath": "C:\\dev\\Microservices-Detran\\src\\building blocks\\TP.MessageBus\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Jéssica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -157,26 +151,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -186,11 +166,15 @@
         "projectUniqueName": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.Application\\TP.Condutores.Application.csproj",
         "projectName": "TP.Condutores.Application",
         "projectPath": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.Application\\TP.Condutores.Application.csproj",
-        "packagesPath": "C:\\Users\\Jéssica\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
         "outputPath": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Jéssica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -262,26 +246,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -291,11 +261,15 @@
         "projectUniqueName": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.Domain\\TP.Condutores.Domain.csproj",
         "projectName": "TP.Condutores.Domain",
         "projectPath": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.Domain\\TP.Condutores.Domain.csproj",
-        "packagesPath": "C:\\Users\\Jéssica\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
         "outputPath": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Jéssica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -334,26 +308,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -363,11 +323,15 @@
         "projectUniqueName": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.Infra\\TP.Condutores.Infra.csproj",
         "projectName": "TP.Condutores.Infra",
         "projectPath": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.Infra\\TP.Condutores.Infra.csproj",
-        "packagesPath": "C:\\Users\\Jéssica\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
         "outputPath": "C:\\dev\\Microservices-Detran\\src\\services\\TP.Condutores.Infra\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Jéssica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -443,26 +407,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -472,11 +422,15 @@
         "projectUniqueName": "C:\\dev\\Microservices-Detran\\tests\\TP.Condutores.Application.Tests\\TP.Condutores.Application.Tests.csproj",
         "projectName": "TP.Condutores.Application.Tests",
         "projectPath": "C:\\dev\\Microservices-Detran\\tests\\TP.Condutores.Application.Tests\\TP.Condutores.Application.Tests.csproj",
-        "packagesPath": "C:\\Users\\Jéssica\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
         "outputPath": "C:\\dev\\Microservices-Detran\\tests\\TP.Condutores.Application.Tests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Jéssica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -549,26 +503,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

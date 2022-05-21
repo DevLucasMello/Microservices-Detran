@@ -21,3 +21,15 @@ C:\dev\TestePadrao\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.dll
 C:\dev\TestePadrao\src\building blocks\TP.Core\obj\Debug\net5.0\ref\TP.Core.dll
 C:\dev\TestePadrao\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.pdb
 C:\dev\Teste-Padrao\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.csproj.AssemblyReference.cache
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\bin\Debug\net5.0\TP.Core.deps.json
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\bin\Debug\net5.0\TP.Core.dll
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\bin\Debug\net5.0\ref\TP.Core.dll
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\bin\Debug\net5.0\TP.Core.pdb
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.csproj.AssemblyReference.cache
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.AssemblyInfoInputs.cache
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.AssemblyInfo.cs
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.csproj.CoreCompileInputs.cache
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.dll
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\obj\Debug\net5.0\ref\TP.Core.dll
+C:\dev\Microservices-Detran\src\building blocks\TP.Core\obj\Debug\net5.0\TP.Core.pdb
