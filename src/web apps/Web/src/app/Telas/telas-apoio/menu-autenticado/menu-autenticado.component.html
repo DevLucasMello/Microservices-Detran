@@ -1,3 +1,22 @@
-<p>
-  menu-autenticado works!
-</p>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand titulo" [routerLink]="['/home']">Sistema Detran</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive" [collapse]=isCollapsed >
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item" *ngFor="let item of nav">
+          <a class="nav-link" [routerLinkActiveOptions]="{ exact: item.exact }" routerLinkActive="active" [routerLink]="item.link">{{ item.name }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="javascript:void(0)" (click)="logout()">
+              Sair <span class="fas fa-sign-out-alt botao-sair"></span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- FIM Navigation -->

@@ -15,9 +15,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { HomeComponent } from './home/home.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from 'src/app/Validacoes/error.handler.service';
-import { HomeGuard } from './services/vitrine.guard';
-import { MenuAutenticadoModule } from '../../telas-apoio/menu-autenticado/menu-autenticado-module';
-import { RodapeAutenticadoModule } from '../../telas-apoio/rodape-autenticado/menu-autenticado-module';
+import { HomeGuard } from './services/home.guard';
+import { AutenticadoModule } from '../../telas-apoio/autenticado-module';
 
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
@@ -37,13 +36,10 @@ export const httpInterceptorProviders = [
     HomeRoutingModule,
     ReactiveFormsModule,
     NgBrazil,
-    TextMaskModule,
     CustomFormsModule,
-    CurrencyMaskModule,
     AngularDraggableModule,
     ModalModule.forRoot(),
-    MenuAutenticadoModule,
-    RodapeAutenticadoModule
+    AutenticadoModule
   ],  
   providers: [
     httpInterceptorProviders,

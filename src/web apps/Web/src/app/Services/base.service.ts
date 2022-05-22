@@ -30,18 +30,18 @@ export abstract class BaseService {
     //     return response.data || {};
     // }
 
-    // protected serviceError(response: Response | any) {
-    //     let customError: string[] = [];
+    protected serviceError(response: Response | any) {
+        let customError: string[] = [];
 
-    //     if (response instanceof HttpErrorResponse) {
+        if (response instanceof HttpErrorResponse) {
 
-    //         if (response.statusText === "Unknown Error") {
-    //             customError.push("Ocorreu um erro desconhecido");
-    //             response.error.errors = customError;
-    //         }
-    //     }
+            if (response.statusText === "Unknown Error") {
+                customError.push("Ocorreu um erro desconhecido");
+                response.error.errors = customError;
+            }
+        }
 
-    //     console.error(response);
-    //     return throwError(response);
-    // }
+        console.error(response);
+        return throwError(response);
+    }
 }

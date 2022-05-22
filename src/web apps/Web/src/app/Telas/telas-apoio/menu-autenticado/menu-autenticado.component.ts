@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocalStorageUtils } from 'src/app/Validacoes/localStorage';
+import { Nav } from './nav';
 
 @Component({
   selector: 'app-menu-autenticado',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuAutenticadoComponent implements OnInit {
 
-  constructor() { }
+  public localStorage: LocalStorageUtils = new LocalStorageUtils();
+
+  isCollapsed = true;
+
+  nav: Nav[] = [
+    {
+      link: '/condutor',
+      name: 'Condutores',
+      exact: true,
+      home: false
+    },
+    {
+      link: '/veiculo',
+      name: 'Veículos',
+      exact: true,
+      home: false
+    }
+  ];
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.localStorage.limparDadosLocais();
+    this.router.navigate(['']);
   }
 
 }

@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HomeRootComponent } from './home-root.component';
 import { HomeComponent } from './home/home.component';
-import { HomeGuard } from './services/vitrine.guard';
+import { HomeGuard } from './services/home.guard';
 import { AcessoNegadoComponent } from '../../telas-apoio/acesso-negado/acesso-negado.component';
 import { NotFoundComponent } from '../../telas-apoio/not-found/not-found.component';
 

@@ -15,6 +15,10 @@ const routes: Routes = [
 
   { path: 'home', loadChildren: () => import('./Telas/telas-principais/home/home-module').then(m => m.HomeModule) },
 
+  { path: 'condutor', loadChildren: () => import('./Telas/telas-principais/condutor/condutor.module').then(m => m.CondutorModule) },
+
+  { path: 'veiculo', loadChildren: () => import('./Telas/telas-principais/veiculo/veiculo.module').then(m => m.VeiculoModule) },
+
   { path: 'acesso-negado', component: AcessoNegadoComponent },
   
   { path: 'nao-encontrado', component: NotFoundComponent },

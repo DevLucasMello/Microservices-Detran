@@ -77,11 +77,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   registrar(){
-    this.router.navigate(['registro']);
+    this.router.navigate(['/registro']);
   }
 
   irDashboard(){
-    this.router.navigate(['home']);
+    this.router.navigate(['/home']);
   }
 
   salvarLocalStorage(){
