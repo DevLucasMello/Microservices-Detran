@@ -11,9 +11,9 @@ export class CondutorService extends BaseService {
 
     constructor(private http: HttpClient) { super() }
     
-    obterTodosCondutores(): Observable<ListaDados<Condutor[]>> {
+    obterTodosCondutores(): Observable<ListaDados<Condutor>> {
         return this.http
-            .get<ListaDados<Condutor[]>>(this.UrlServiceDetran + "condutor", super.ObterAuthHeaderJson())
+            .get<ListaDados<Condutor>>(this.UrlServiceDetran + "condutor", super.ObterAuthHeaderJson())
             .pipe(catchError(super.serviceError));
     }
 }

@@ -3,12 +3,14 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { CollapseModule } from "ngx-bootstrap/collapse";
 import { MenuAutenticadoComponent } from "./menu-autenticado/menu-autenticado.component";
+import { PaginacaoComponent } from "./paginacao/paginacao.component";
 import { RodapeAutenticadoComponent } from "./rodape-autenticado/rodape-autenticado.component";
 
 @NgModule({
   declarations: [
     MenuAutenticadoComponent, 
-    RodapeAutenticadoComponent
+    RodapeAutenticadoComponent,
+    PaginacaoComponent
   ],
   imports: [
     CommonModule, 
@@ -17,7 +19,8 @@ import { RodapeAutenticadoComponent } from "./rodape-autenticado/rodape-autentic
   ],
   exports: [
     MenuAutenticadoComponent, 
-    RodapeAutenticadoComponent
+    RodapeAutenticadoComponent,
+    PaginacaoComponent
   ]
 })
 export class AutenticadoModule { }
