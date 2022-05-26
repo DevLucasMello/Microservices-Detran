@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { BaseService } from 'src/app/services/base.service';
 import { catchError } from "rxjs/operators";
@@ -11,9 +11,15 @@ export class CondutorService extends BaseService {
 
     constructor(private http: HttpClient) { super() }
     
-    obterTodosCondutores(): Observable<ListaDados<Condutor>> {
+    obterTodosCondutores(page: number, take: number): Observable<ListaDados<Condutor[]>> {        
         return this.http
-            .get<ListaDados<Condutor>>(this.UrlServiceDetran + "condutor", super.ObterAuthHeaderJson())
+            .get<ListaDados<Condutor[]>>(`${this.UrlServiceDetran}condutor?ps=${take}&page=${page}`, super.ObterAuthHeaderJson())
+            .pipe(catchError(super.serviceError));
+    }
+
+    obterCondutoresPorPlaca(page: number, take: number, placa: string): Observable<ListaDados<Condutor[]>> {        
+        return this.http
+            .get<ListaDados<Condutor[]>>(`${this.UrlServiceDetran}condutor/placa?ps=${take}&page=${page}&placa=${placa}`, super.ObterAuthHeaderJson())
             .pipe(catchError(super.serviceError));
     }
 }

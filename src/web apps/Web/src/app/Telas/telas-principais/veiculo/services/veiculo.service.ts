@@ -9,11 +9,17 @@ import { Veiculo } from "../models/veiculo";
 @Injectable()
 export class VeiculoService extends BaseService {
 
-    constructor(private http: HttpClient) { super() }
+    constructor(private http: HttpClient) { super() }    
     
-    obterTodosVeiculos(): Observable<ListaDados<Veiculo[]>> {
+    obterTodosVeiculos(page: number, take: number): Observable<ListaDados<Veiculo[]>> {        
         return this.http
-            .get<ListaDados<Veiculo[]>>(this.UrlServiceDetran + "veiculo", super.ObterAuthHeaderJson())
+            .get<ListaDados<Veiculo[]>>(`${this.UrlServiceDetran}veiculo?ps=${take}&page=${page}`, super.ObterAuthHeaderJson())
+            .pipe(catchError(super.serviceError));
+    }
+
+    obterVeiculosPorCpf(page: number, take: number, cpf: string): Observable<ListaDados<Veiculo[]>> {        
+        return this.http
+            .get<ListaDados<Veiculo[]>>(`${this.UrlServiceDetran}veiculo/documento?ps=${take}&page=${page}&cpf=${cpf}`, super.ObterAuthHeaderJson())
             .pipe(catchError(super.serviceError));
     }
 }

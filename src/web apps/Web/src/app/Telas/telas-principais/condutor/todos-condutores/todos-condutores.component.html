@@ -4,6 +4,11 @@
       <div class="painel-topo">
         <h1>Condutores</h1>
       </div>
+      <div class="filtro">
+        <input class="col-3 form-control" id="vaga-filtro" type="text" placeholder="Digite uma placa" 
+        [(ngModel)]="filtroPlaca">
+        <button class="btn btn-primary" style="margin-left: 10px;" (click)="carregarRegistros()">Pesquisar</button>
+      </div>
       <div class="row painel-corpo">
         <div class="row titulos">
           <div class="col-4 titulo-coluna"><span>Nome</span></div>
@@ -24,36 +29,44 @@
         </div>
 
       </div>
-    </div>
-    <div class="paginacao">
-      <nav aria-label="Navegação de página">
-        <ul class="pagination">
-          <li class="page-item" disabled="!paginaAnterior" 
-          [ngClass]="{'cursorBloqueado': !paginaAnterior, 'cursorSemBloqueio' : paginaAnterior }">
-            <a class="page-link" aria-label="Anterior">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Anterior</span>
-            </a>
-          </li>
-          <li class="page-item" *ngIf="pagina1 > 0" [ngClass]="{'active': paginaAtiva === pagina1}">
-            <a class="page-link">{{pagina1}}</a>
-          </li>
-          <li class="page-item" *ngIf="pagina2 > 0" [ngClass]="{'active': paginaAtiva === pagina2}">
-            <a class="page-link">{{pagina2}}</a>
-          </li>
-          <li class="page-item" *ngIf="pagina3 > 0" [ngClass]="{'active': paginaAtiva === pagina3}">
-            <a class="page-link">{{pagina3}}</a>
-          </li>
-          <li class="page-item" disabled="!proximaPagina"
-          [ngClass]="{'cursorBloqueado': !proximaPagina, 'cursorSemBloqueio' : proximaPagina }">
-            <a class="page-link" aria-label="Próximo">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Próximo</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>        
+      <div class="paginacao">
+        <nav aria-label="Navegação de página">
+          <ul class="pagination">
+            <li class="page-item" disabled="!paginaAnterior" 
+            [ngClass]="{'cursorBloqueado': !paginaAnterior, 'cursorSemBloqueio' : paginaAnterior }"
+            (click)="carregarRegistros(paginaAtiva - 1)">
+              <a class="page-link" aria-label="Anterior">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Anterior</span>
+              </a>
+            </li>
+            <li class="page-item" *ngIf="pagina1 > 0" 
+              [ngClass]="{'active': paginaAtiva === pagina1, 'cursorSemBloqueio' : numeroPaginas > 1, 'cursorBloqueado' : numeroPaginas <= 1}"
+              (click)="carregarRegistros(pagina1)">
+              <a class="page-link">{{pagina1}}</a>
+            </li>
+            <li class="page-item" *ngIf="pagina2 > 0" 
+              [ngClass]="{'active': paginaAtiva === pagina2, 'cursorSemBloqueio' : numeroPaginas > 1, 'cursorBloqueado' : numeroPaginas <= 1}"
+              (click)="carregarRegistros(pagina2)">
+              <a class="page-link">{{pagina2}}</a>
+            </li>
+            <li class="page-item" *ngIf="pagina3 > 0" 
+              [ngClass]="{'active': paginaAtiva === pagina3, 'cursorSemBloqueio' : numeroPaginas > 1, 'cursorBloqueado' : numeroPaginas <= 1}"
+              (click)="carregarRegistros(pagina3)">
+              <a class="page-link">{{pagina3}}</a>
+            </li>
+            <li class="page-item" disabled="!proximaPagina"
+            [ngClass]="{'cursorBloqueado': !proximaPagina, 'cursorSemBloqueio' : proximaPagina }"
+            (click)="carregarRegistros(paginaAtiva + 1)">
+              <a class="page-link" aria-label="Próximo">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Próximo</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div> 
+    </div>           
   </div>  
 </div>
 

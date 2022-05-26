@@ -1,0 +1,141 @@
+.cursorBloqueado{
+    cursor: not-allowed;
+}
+
+.cursorSemBloqueio{
+    cursor: pointer;
+}
+
+.painel{
+    margin-top: -50px;
+    width: 1070px;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.painel-topo{
+    margin-top: 50px;
+    margin-bottom: -10px;
+    width: 900px;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.painel-corpo{
+    width: 900px;
+    height: 540px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+h1{
+    font-size: 30px;
+}
+
+.titulos{
+    width: 900px;
+    height: 40px;
+    background-color: rgba(92, 70, 70, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;        
+}
+
+.conteudo{
+    width: 900px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    overflow-y: scroll;  
+}
+
+.titulo-coluna{    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo-coluna{    
+    height: 50px;
+    margin-top: 8px;
+    background-color: rgba(92, 70, 70, 0.2);
+    border-radius: 10px;
+    /* topo | direita | inferior | esquerda */    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.sem-conteudo{    
+    height: 50px;
+    margin-top: 8px;
+    background-color: rgba(92, 70, 70, 0.2);
+    border-radius: 10px;    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+::-webkit-scrollbar-track-piece{
+    background-color: transparent;
+    -webkit-border-radius: 6px;
+}
+
+.conteudo-interno{
+    width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;    
+}
+
+.paginacao{
+    width: 100%;
+    height: 8vh;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.filtro{
+    width: 84%;
+    height: 9vh;
+    margin-bottom: -10px;    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
