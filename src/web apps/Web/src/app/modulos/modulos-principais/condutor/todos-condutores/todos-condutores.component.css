@@ -1,0 +1,251 @@
+.cursorBloqueado{
+    cursor: not-allowed;
+}
+
+.cursorSemBloqueio{
+    cursor: pointer;
+}
+
+.painel{
+    margin-top: -50px;
+    width: 1250px;
+    max-height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.painel-topo{
+    margin-top: 50px;
+    margin-bottom: -10px;
+    width: 1100px;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.painel-corpo{
+    width: 1100px;
+    max-height: 540px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+h1{
+    font-size: 30px;
+}
+
+.titulos{
+    width: 1100px;
+    height: 40px;
+    background-color: rgba(92, 70, 70, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;        
+}
+
+.conteudo{
+    width: 1100px;
+    max-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    overflow-y: scroll;  
+}
+
+.titulo-coluna{    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo-coluna{    
+    height: 50px;
+    margin-top: 8px;
+    background-color: rgba(92, 70, 70, 0.2);
+    border-radius: 10px;
+    /* topo | direita | inferior | esquerda */    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo-coluna-botao{    
+    height: 50px;
+    margin-top: 8px;
+    border-radius: 10px;
+    /* topo | direita | inferior | esquerda */    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.sem-conteudo{    
+    height: 50px;
+    margin-top: 8px;
+    background-color: rgba(92, 70, 70, 0.2);
+    border-radius: 10px;    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+::-webkit-scrollbar-track-piece{
+    background-color: transparent;
+    -webkit-border-radius: 6px;
+}
+
+.conteudo-interno{
+    width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;    
+}
+
+.paginacao{
+    margin-top: 3vh;
+    width: 100%;
+    height: 17vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.filtro{
+    width: 88%;
+    height: 9vh;
+    margin-bottom: 40px;    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.botao-cadastrar{
+    width: 180px;
+    margin-bottom: 10px;
+    margin-left: -1%;    
+}
+
+.botao-voltar{
+    width: 75px;
+}
+
+.botao-editar{
+    width: 75px;
+}
+
+.botao-veiculos{
+    width: 85px;
+}
+
+.botoes{
+    width: 115%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.painel-modal{
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.detalhes-condutor-modal{
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;        
+}
+
+.nome-condutor-modal{
+    width: 500px;
+    height: 40px;
+    background-color: rgba(92, 70, 70, 0.5);
+    border-radius: 10px;    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.descricao-modal{    
+    height: 230px;
+    width: 450px;
+    margin-top: 20px;
+    background-color: rgba(92, 70, 70, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.alinhamento{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
+}
+
+.div-veiculos{
+    width: 1100px;
+    max-height: 800px;
+}
+
+.modal-veiculos{
+    width: 1250px;
+    max-height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

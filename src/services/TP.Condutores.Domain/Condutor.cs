@@ -28,7 +28,10 @@ namespace TP.Condutores.Domain
         }
 
         // EF Rel.
-        protected Condutor() { }
+        protected Condutor() 
+        { 
+            _veiculo ??= new List<Veiculo>(); 
+        }
 
         public void AdicionarVeiculo(Condutor condutor, Veiculo veiculo)
         {
@@ -39,6 +42,11 @@ namespace TP.Condutores.Domain
         public void MapearNome(string primeiroNome, string segundoNome)
         {
             Nome = new Nome(primeiroNome, segundoNome);
+        }
+
+        public void MapearVeiculo(Veiculo veiculo)
+        {
+            _veiculo.Add(veiculo);
         }
     }
 }

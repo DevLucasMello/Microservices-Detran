@@ -1,0 +1,53 @@
+.botao-voltar{
+    margin-left: 25px;
+    width: 100px;
+}
+
+.paragrafo{
+    margin-left: 15px;
+}
+
+h4{
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: -40px;
+}
+
+.botao-login{
+    width: 250px;
+    margin-left: 30px;
+}
+
+.botao-registrar{
+    margin-left: 25px;
+    width: 200px;
+}
+
+.botoes{
+    margin-top: 50px;
+}
+
+.meio-tela-sem-erro{
+    margin-top: 25%;
+}
+
+.meio-tela-com-erro{
+    margin-top: 15%;
+}
+
+@media (max-width: 450px) and (min-width: 330px){
+    .botao-login{
+        width: 100px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 1500px) and (min-width: 330px){
+    .meio-tela-sem-erro{
+        margin-top: 12%;
+    }
+    
+    .meio-tela-com-erro{
+        margin-top: 5%;
+    }    
+}

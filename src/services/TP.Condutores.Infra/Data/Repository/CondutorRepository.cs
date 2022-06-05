@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TP.Condutores.Domain;
@@ -20,6 +21,52 @@ namespace TP.Condutores.Infra.Data.Repository
 
         public IUnitOfWork UnitOfWork => _context;
 
+        //public async Task<PagedResult<Condutor>> ObterTodos(int pageSize, int pageIndex, string query)
+        //{
+        //    var sql = @$"SELECT c.Id,c.CPF, c.Telefone, c.Email, c.CNH, c.DataNascimento, 
+        //                c.PrimeiroNome, c.UltimoNome, v.Id, v.CondutorId, v.VeiculoId, v.Placa
+        //                FROM Condutor c
+        //                FULL JOIN Veiculo v on c.Id = v.CondutorId
+        //                WHERE (@Nome IS NULL OR PrimeiroNome LIKE '%' + @Nome + '%') 
+        //                ORDER BY [PrimeiroNome] 
+        //                OFFSET {pageSize * (pageIndex - 1)} ROWS 
+        //                FETCH NEXT {pageSize} ROWS ONLY 
+        //                SELECT COUNT(Id) FROM Condutor 
+        //                WHERE (@Nome IS NULL OR PrimeiroNome LIKE '%' + @Nome + '%')";
+
+        //    var multi = await _context.Database.GetDbConnection()
+        //        .QueryMultipleAsync(sql, new { Nome = query });
+
+        //    var condutores = new List<Condutor>();
+            
+        //    var cond = multi.Read<Condutor, Nome, Veiculo, Condutor>((c, n, v) => {
+        //        c.MapearNome(n.PrimeiroNome, n.UltimoNome);
+        //        c.MapearVeiculo(v);
+
+        //        var cd = condutores.FirstOrDefault(x => x.Id == c.Id);
+
+        //        if (cd == null)
+        //        {
+        //            condutores.Add(c);
+        //        }
+        //        else
+        //            cd.MapearVeiculo(v);
+
+        //        return c;
+        //    }, "PrimeiroNome,Id");
+
+        //    var total = multi.Read<int>().FirstOrDefault();            
+
+        //    return new PagedResult<Condutor>()
+        //    {
+        //        List = condutores,
+        //        TotalResults = total,
+        //        PageIndex = pageIndex,
+        //        PageSize = pageSize,
+        //        Query = query
+        //    };
+        //}
+
         public async Task<PagedResult<Condutor>> ObterTodos(int pageSize, int pageIndex, string query)
         {
             var sql = @$"SELECT c.Id,c.CPF, c.Telefone, c.Email, c.CNH, c.DataNascimento, c.PrimeiroNome, c.UltimoNome
@@ -33,13 +80,13 @@ namespace TP.Condutores.Infra.Data.Repository
 
             var multi = await _context.Database.GetDbConnection()
                 .QueryMultipleAsync(sql, new { Nome = query });
-            
+
             var condutores = multi.Read<Condutor, Nome, Condutor>((c, n) => {
                 c.MapearNome(n.PrimeiroNome, n.UltimoNome);
                 return c;
             }, "PrimeiroNome");
 
-            var total = multi.Read<int>().FirstOrDefault();            
+            var total = multi.Read<int>().FirstOrDefault();
 
             return new PagedResult<Condutor>()
             {
