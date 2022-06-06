@@ -1,73 +1,163 @@
-<div *ngIf="dados" class="container main-container">
-  <div class="container">
-    <div class="painel">
-      <div class="painel-topo">
-        <h1>Veículos</h1>
-      </div>
-      <div class="filtro">
-        <input class="col-3 form-control" id="vaga-filtro" type="text" placeholder="Digite um CPF" 
-        [(ngModel)]="filtroCpf">
-        <button class="btn btn-primary" style="margin-left: 10px;" (click)="carregarRegistros()">Pesquisar</button>
-      </div>
-      <div class="row painel-corpo">
-        <div class="row titulos">
-          <div class="col-4 titulo-coluna"><span>Placa</span></div>
-          <div class="col-3 titulo-coluna"><span>Modelo</span></div>
-          <div class="col-3 titulo-coluna"><span>Marca</span></div>
-        </div>
+<div class="container painel">
+  <div class="painel-topo">
+    <h1>Veículos</h1>
+  </div>
+  <div class="filtro">
+    <div class="col-12 linha-botao-cadastrar">        
+      <button class="btn btn-success botao-cadastrar" (click)="cadastrarVeiculo()">Cadastrar Veículo</button>
+    </div>
+    <input class="col-3 form-control" id="vaga-filtro" type="text" placeholder="Digite um modelo" 
+    [(ngModel)]="filtroModelo" (keyup)="filtroCpf = ''">
+    <input class="col-3 form-control" id="vaga-filtro" type="text" placeholder="Digite um CPF" 
+    style="margin-left: 10px;" [(ngModel)]="filtroCpf" (keyup)="filtroModelo = ''">
+    <button class="btn btn-primary" style="margin-left: 10px;" (click)="carregarRegistros()">Pesquisar</button>
+  </div>
+  <div class="row painel-corpo">
+    <div class="row titulos">
+      <div class="col-2 titulo-coluna"><span>Placa</span></div>
+      <div class="col-3 titulo-coluna"><span>Modelo</span></div>
+      <div class="col-3 titulo-coluna"><span>Marca</span></div>
+      <div class="col-3 titulo-coluna"><span>Ação</span></div>
+    </div>
 
-        <div *ngIf="dados.list.length > 0" class="conteudo">
-          <div class="row conteudo-interno" *ngFor="let dado of dados.list">
-            <div class="col-4 conteudo-coluna"><span>{{dado.placa}}</span></div>
-            <div class="col-3 conteudo-coluna"><span>{{dado.modelo}}</span></div>
-            <div class="col-3 conteudo-coluna"><span>{{dado.marca}}</span></div>
-          </div>
+    <div *ngIf="paginacao.pageIndex > 0" class="conteudo">
+      <div class="row conteudo-interno" *ngFor="let dado of dados.list">
+        <div class="col-2 conteudo-coluna"><span>{{dado.placa}}</span></div>
+        <div class="col-3 conteudo-coluna"><span>{{dado.modelo}}</span></div>
+        <div class="col-3 conteudo-coluna"><span>{{dado.marca}}</span></div>
+        <div class="col-3 conteudo-coluna-botao">
+          <span class="botoes">
+            <button class="btn btn-warning botao-editar" (click)="editarVeiculo(dado.id)">Editar</button>
+            <button class="btn btn-danger botao-excluir" (click)="abrirExclusao(dado.id)">Excluir</button>
+            <button class="btn btn-primary botao-condutores" (click)="abrirCondutores(dado.placa)">Condutores</button>
+          </span>
         </div>
-
-        <div *ngIf="dados.list.length < 0" class="row conteudo">
-          <div class="col-6 sem-conteudo"><span>Não possui Condutores Cadastrados</span></div>          
-        </div>
-
       </div>
-      <div class="paginacao">
-        <nav aria-label="Navegação de página">
-          <ul class="pagination">
-            <li class="page-item" disabled="!paginaAnterior" 
-            [ngClass]="{'cursorBloqueado': !paginaAnterior, 'cursorSemBloqueio' : paginaAnterior }"
-            (click)="carregarRegistros(paginaAtiva - 1)">
-              <a class="page-link" aria-label="Anterior">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Anterior</span>
-              </a>
-            </li>
-            <li class="page-item" *ngIf="pagina1 > 0" 
-              [ngClass]="{'active': paginaAtiva === pagina1, 'cursorSemBloqueio' : numeroPaginas > 1, 'cursorBloqueado' : numeroPaginas <= 1}"
-              (click)="carregarRegistros(pagina1)">
-              <a class="page-link">{{pagina1}}</a>
-            </li>
-            <li class="page-item" *ngIf="pagina2 > 0" 
-              [ngClass]="{'active': paginaAtiva === pagina2, 'cursorSemBloqueio' : numeroPaginas > 1, 'cursorBloqueado' : numeroPaginas <= 1}"
-              (click)="carregarRegistros(pagina2)">
-              <a class="page-link">{{pagina2}}</a>
-            </li>
-            <li class="page-item" *ngIf="pagina3 > 0" 
-              [ngClass]="{'active': paginaAtiva === pagina3, 'cursorSemBloqueio' : numeroPaginas > 1, 'cursorBloqueado' : numeroPaginas <= 1}"
-              (click)="carregarRegistros(pagina3)">
-              <a class="page-link">{{pagina3}}</a>
-            </li>
-            <li class="page-item" disabled="!proximaPagina"
-            [ngClass]="{'cursorBloqueado': !proximaPagina, 'cursorSemBloqueio' : proximaPagina }"
-            (click)="carregarRegistros(paginaAtiva + 1)">
-              <a class="page-link" aria-label="Próximo">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Próximo</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div> 
-    </div>           
-  </div>  
+    </div>
+
+    <div *ngIf="paginacao.pageIndex <= 0" class="row conteudo">
+      <div class="col-6 sem-conteudo"><span>Não possui Veículos Cadastrados</span></div>          
+    </div>
+
+  </div>
+  <div *ngIf="paginacao.pageIndex > 0" class="paginacao">        
+    <app-paginacao [paginacao]="paginacao" (paginacaoEmitter)="carregarRegistros($event)"></app-paginacao>
+  </div> 
 </div>
 
 <!-- <pre>{{dados | json}}</pre> -->
+
+<!-- MODAL EXCLUIR -->
+<div bsModal ngDraggable [handle]="handler" [config]="{ignoreBackdropClick: true}" id="mdExcluir"
+    #mdExcluir="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mdExcluir"
+    aria-hidden="true">
+    <div class="modal-dialog div-detalhes modal-lg modal-dialog-centered ">
+        <div class="modal-content div-detalhes">
+            <div #handler class="modal-header">
+                <button type="button" class="close" (click)="mdExcluir.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="wrapper-flexbox">
+                    <h4 class="mr-30"></h4>
+                    <h4></h4>
+                </div>
+            </div>
+            <form>
+                <div class="modal-body alinhamento" id="area-modalDetalhes">
+
+                    <!--Inicio Parte Superior Modal-->
+                    <!--Fim Parte Superior Modal-->                    
+
+                    <!--Inicio Movimentos-->
+                    <div class="painel-modal">      
+      
+                      <div *ngIf="veiculoSelecionado" class="detalhes-veiculo-modal">
+                        <div class="nome-veiculo-modal"><span>{{veiculoSelecionado.modelo}}</span></div>
+                        <div class="descricao-modal">
+                          <p>Placa: {{veiculoSelecionado.placa}}</p>
+                          <p>Marca: {{veiculoSelecionado.marca}}</p>
+                          <p>Cor: {{veiculoSelecionado.cor}}</p>
+                          <p>Ano de Fabricação: {{veiculoSelecionado.anoFabricacao}}</p>
+                        </div>          
+                      </div>
+                    
+                    </div>
+                    <!--Fim Movimentos-->                    
+
+                    <!--Inicio Parte Inferior Modal-->                    
+                    <!--Fim Parte Inferior Modal-->
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-danger botao-excluir" (click)="excluirVeiculo()">Excluir</button>
+                    <button type="button" class="btn btn-default" (click)="mdExcluir.hide();">
+                        FECHAR
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL CONDUTORES -->
+<div bsModal ngDraggable [handle]="handler" [config]="{ignoreBackdropClick: true}" id="mdCondutores"
+    #mdCondutores="bs-modal" class="modal faden" tabindex="-1" role="dialog" aria-labelledby="mdCondutores"
+    aria-hidden="true">
+    <div class="modal-dialog-centered modal-condutores container">
+        <div class="modal-content div-condutores">
+            <div #handler class="modal-header">
+                <button type="button" class="close" (click)="mdCondutores.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="wrapper-flexbox">
+                    <h4 class="mr-30"></h4>
+                    <h4></h4>
+                </div>
+            </div>
+            <form>
+                <div class="modal-body alinhamento" id="area-modalDetalhes">
+
+                    <!--Inicio Parte Superior Modal-->
+                    <!--Fim Parte Superior Modal-->                    
+
+                    <!--Inicio Movimentos-->
+                    <div class="row painel-corpo">
+                      <div class="row titulos">
+                        <div class="col-3 titulo-coluna"><span>Nome</span></div>
+                        <div class="col-2 titulo-coluna"><span>CPF</span></div>
+                        <div class="col-2 titulo-coluna"><span>Telefone</span></div>
+                        <div class="col-2 titulo-coluna"><span>Email</span></div>
+                        <div class="col-2 titulo-coluna"><span>CNH</span></div>
+                      </div>
+              
+                      <div *ngIf="paginacaoCondutor.pageIndex > 0" class="conteudo">
+                        <div class="row conteudo-interno" *ngFor="let dado of condutores.list">
+                          <div class="col-3 conteudo-coluna"><span>{{dado.primeiroNome}} {{dado.ultimoNome}}</span></div>
+                          <div class="col-2 conteudo-coluna"><span>{{dado.cpf | cpf}}</span></div>
+                          <div class="col-2 conteudo-coluna"><span>{{dado.telefone | telefone}}</span></div>
+                          <div class="col-2 conteudo-coluna"><span>{{dado.email}}</span></div>
+                          <div class="col-2 conteudo-coluna"><span>{{dado.cnh}}</span></div>
+                        </div>
+                      </div>
+              
+                    </div>
+                    <!--Fim Movimentos-->                    
+
+                    <!--Inicio Parte Inferior Modal-->
+                    <div *ngIf="paginacaoCondutor.pageIndex > 0" class="paginacao">        
+                      <app-paginacao [paginacao]="paginacaoCondutor" (paginacaoEmitter)="carregarCondutores($event)"></app-paginacao>
+                    </div>                     
+                    <!--Fim Parte Inferior Modal-->
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click)="mdCondutores.hide();">
+                        FECHAR
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

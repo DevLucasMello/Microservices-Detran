@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -52,6 +51,9 @@ export class TodosCondutoresComponent implements OnInit {
           this.dados = response;
           this.variaveisPaginacao(this.dados);                   
         }
+        else{
+          this.semCondutores();
+        }
       });    
   }
 
@@ -61,6 +63,9 @@ export class TodosCondutoresComponent implements OnInit {
         if (response){
           this.dados = response;
           this.variaveisPaginacao(this.dados);          
+        }
+        else{
+          this.semCondutores();
         }
       });
   }
@@ -76,6 +81,11 @@ export class TodosCondutoresComponent implements OnInit {
     else{
       this.obterTodosCondutores(page);
     }        
+  }
+
+  private semCondutores(){
+    this.paginacao.pageIndex = 0;
+    this.dados.list = [];
   }
   
   private verificaNullUndefined(dado: string): boolean{

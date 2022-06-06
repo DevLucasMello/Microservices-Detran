@@ -5,6 +5,7 @@ import { NotFoundComponent } from '../../modulos-apoio/not-found/not-found.compo
 import { VeiculoComponent } from './veiculo.component';
 import { TodosVeiculosComponent } from './todos-veiculos/todos-veiculos.component';
 import { VeiculoGuard } from './services/veiculo.guard';
+import { DetalheVeiculoComponent } from './detalhe-veiculo/detalhe-veiculo.component';
 
 const condutorRouterConfig: Routes = [
   {
@@ -14,6 +15,10 @@ const condutorRouterConfig: Routes = [
       { path: '', component: TodosVeiculosComponent, canActivate: [VeiculoGuard] },
 
       { path: 'veiculo', component: TodosVeiculosComponent, canActivate: [VeiculoGuard] },
+
+      { path: 'cadastrar', component: DetalheVeiculoComponent, canActivate: [VeiculoGuard] },
+
+      { path: 'editar/:id', component: DetalheVeiculoComponent, canActivate: [VeiculoGuard] },
 
       { path: 'acesso-negado', component: AcessoNegadoComponent },
       

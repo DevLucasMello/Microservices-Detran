@@ -8,8 +8,8 @@
 
 .painel{
     margin-top: -50px;
-    width: 1070px;
-    height: 800px;
+    width: 1250px;
+    max-height: 800px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -20,7 +20,7 @@
 .painel-topo{
     margin-top: 50px;
     margin-bottom: -10px;
-    width: 900px;
+    width: 1100px;
     height: 50px;
     display: flex;
     flex-wrap: wrap;
@@ -30,8 +30,8 @@
 }
 
 .painel-corpo{
-    width: 900px;
-    height: 540px;
+    width: 1100px;
+    max-height: 540px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -44,7 +44,7 @@ h1{
 }
 
 .titulos{
-    width: 900px;
+    width: 1100px;
     height: 40px;
     background-color: rgba(92, 70, 70, 0.5);
     border-radius: 10px;
@@ -58,8 +58,8 @@ h1{
 }
 
 .conteudo{
-    width: 900px;
-    height: 500px;
+    width: 1100px;
+    max-height: 500px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -80,6 +80,18 @@ h1{
     height: 50px;
     margin-top: 8px;
     background-color: rgba(92, 70, 70, 0.2);
+    border-radius: 10px;
+    /* topo | direita | inferior | esquerda */    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo-coluna-botao{    
+    height: 50px;
+    margin-top: 8px;
     border-radius: 10px;
     /* topo | direita | inferior | esquerda */    
     display: flex;
@@ -111,7 +123,7 @@ h1{
 }
 
 .conteudo-interno{
-    width: 900px;
+    width: 1100px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -120,9 +132,9 @@ h1{
 }
 
 .paginacao{
+    margin-top: 3vh;
     width: 100%;
-    height: 8vh;
-    margin-bottom: 40px;
+    height: 17vh;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -130,12 +142,110 @@ h1{
 }
 
 .filtro{
-    width: 84%;
+    width: 99%;
     height: 9vh;
-    margin-bottom: -10px;    
+    margin-bottom: 40px;    
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: start;
+    align-items: center;
+}
+
+.botao-cadastrar{
+    width: 180px;
+    margin-bottom: 10px;
+    margin-left: -1%;    
+}
+
+.botao-excluir{
+    width: 68px;
+}
+
+.botao-editar{
+    width: 60px;
+}
+
+.botao-condutores{
+    width: 103px;
+}
+
+.botoes{
+    width: 115%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.painel-modal{
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.detalhes-veiculo-modal{
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;        
+}
+
+.nome-veiculo-modal{
+    width: 500px;
+    height: 40px;
+    background-color: rgba(92, 70, 70, 0.5);
+    border-radius: 10px;    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.descricao-modal{    
+    height: 230px;
+    width: 450px;
+    margin-top: 20px;
+    background-color: rgba(92, 70, 70, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.alinhamento{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
+}
+
+.div-condutores{
+    width: 1100px;
+    max-height: 800px;
+}
+
+.modal-condutores{
+    width: 1250px;
+    max-height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
 }
