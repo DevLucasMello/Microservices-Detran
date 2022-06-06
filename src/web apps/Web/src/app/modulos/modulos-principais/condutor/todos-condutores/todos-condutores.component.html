@@ -1,4 +1,4 @@
-<div class="painel">
+<div class="container painel">
   <div class="painel-topo">
     <h1>Condutores</h1>
   </div>
@@ -113,7 +113,7 @@
 <div bsModal ngDraggable [handle]="handler" [config]="{ignoreBackdropClick: true}" id="mdVeiculos"
     #mdVeiculos="bs-modal" class="modal faden" tabindex="-1" role="dialog" aria-labelledby="mdVeiculos"
     aria-hidden="true">
-    <div class="modal-dialog-centered modal-veiculos">
+    <div class="modal-dialog-centered modal-veiculos container">
         <div class="modal-content div-veiculos">
             <div #handler class="modal-header">
                 <button type="button" class="close" (click)="mdVeiculos.hide()" aria-label="Close">

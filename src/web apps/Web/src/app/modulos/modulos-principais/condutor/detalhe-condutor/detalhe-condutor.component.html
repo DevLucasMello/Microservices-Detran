@@ -1,0 +1,94 @@
+<div class="container painel">
+  <div class="painel-topo">
+    <h2>Cadastro de Condutor</h2>
+  </div>  
+  <form novalidate (ngSubmit)="salvarCondutor()" [formGroup]="cadastroCondutorForm" class="teste">
+    <div class="form-horizontal painel-corpo">
+
+      <div class="form-group">
+        <label class="col-md-3 col-sm-5 control-label" for="primeiroNome">Nome</label>
+        <div class="col-md-10">
+          <input class="form-control" id="primeiroNome" type="text" placeholder="Nome (requerido)" formControlName="primeiroNome" 
+          [ngClass]="{'is-invalid': displayMessage.primeiroNome}"/>
+          <span class="text-danger" *ngIf="displayMessage.primeiroNome">
+            <p [innerHTML]="displayMessage.primeiroNome"></p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-3 col-sm-5 control-label" for="ultimoNome">Sobrenome</label>
+        <div class="col-md-10">
+          <input class="form-control" id="ultimoNome" type="text" placeholder="Sobrenome (requerido)" formControlName="ultimoNome" 
+          [ngClass]="{'is-invalid': displayMessage.ultimoNome}"/>
+          <span class="text-danger" *ngIf="displayMessage.ultimoNome">
+            <p [innerHTML]="displayMessage.ultimoNome"></p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-3 col-sm-5 control-label">CPF</label>
+        <div class="col-md-10">
+            <input class="form-control" id="cpf" type="text" placeholder="CPF (requerido)" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}" [ngClass]="{ 'is-invalid': displayMessage.cpf }" />
+            <span class="text-danger" *ngIf="displayMessage.cpf">
+            <p [innerHTML]="displayMessage.cpf"></p>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-3 col-sm-5 control-label">Telefone</label>
+        <div class="col-md-10">
+            <input class="form-control" id="telefone" type="text" placeholder="Telefone (requerido)" formControlName="telefone" telefone [textMask]="{mask: MASKS.telefone.textMask}" [ngClass]="{ 'is-invalid': displayMessage.telefone }" />
+            <span class="text-danger" *ngIf="displayMessage.telefone">
+            <p [innerHTML]="displayMessage.telefone"></p>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-3 col-sm-5 control-label" for="email">Email</label>
+        <div class="col-md-10">
+          <input class="form-control" id="email" type="text" placeholder="Email (requerido)" formControlName="email" 
+          [ngClass]="{'is-invalid': displayMessage.email}"/>
+          <span class="text-danger" *ngIf="displayMessage.email">
+            <p [innerHTML]="displayMessage.email"></p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-3 col-sm-5 control-label" for="email">CNH</label>
+        <div class="col-md-10">
+          <input class="form-control" id="cnh" type="text" placeholder="CNH (requerido)" formControlName="cnh" 
+          [ngClass]="{'is-invalid': displayMessage.cnh}"/>
+          <span class="text-danger" *ngIf="displayMessage.cnh">
+            <p [innerHTML]="displayMessage.cnh"></p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-3 col-sm-5 control-label" for="dataNascimento">Data de Nascimento</label>
+        <div class="col-md-10">
+          <input class="form-control" id="dataNascimento" type="text" placeholder="Data de Nascimento (requerido)" formControlName="dataNascimento" 
+          [ngClass]="{'is-invalid': displayMessage.dataNascimento}"/>
+          <span class="text-danger" *ngIf="displayMessage.dataNascimento">
+            <p [innerHTML]="displayMessage.dataNascimento"></p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-2">
+          <span>
+            <button class="btn btn-primary" id="Registrar" [disabled]="!cadastroCondutorForm.valid" 
+            [ngClass]="{'cursorSemBloqueio' : cadastroCondutorForm.valid, 'cursorBloqueado' : !cadastroCondutorForm.valid}"type="submit">Salvar Alterações</button>
+            <button class="btn btn-danger botao-voltar" (click)="voltarDashboard()">Voltar</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

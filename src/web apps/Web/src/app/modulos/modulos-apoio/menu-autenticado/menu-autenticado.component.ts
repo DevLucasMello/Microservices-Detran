@@ -18,13 +18,13 @@ export class MenuAutenticadoComponent implements OnInit {
     {
       link: '/condutor',
       name: 'Condutores',
-      exact: true,
+      exact: false,
       home: false
     },
     {
       link: '/veiculo',
       name: 'Veículos',
-      exact: true,
+      exact: false,
       home: false
     }
   ];

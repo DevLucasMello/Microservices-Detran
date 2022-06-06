@@ -23,6 +23,20 @@ export class CondutorService extends BaseService {
             .pipe(catchError(super.serviceError));
     }
 
+    obterPorId(id: string): Observable<Condutor> {
+        return this.http
+            .get<Condutor>(`${this.UrlServiceDetran}condutor/${id}`, super.ObterAuthHeaderJson())
+            .pipe(catchError(super.serviceError));
+    }
+
+    cadastrarCondutor(condutor: Condutor): Observable<any> {
+        return this.http.post<any>(`${this.UrlServiceDetran}condutor`,condutor, super.ObterAuthHeaderJson());
+    }
+
+    atualizarCondutor(condutor: Condutor, id: string): Observable<any> {        
+        return this.http.put<any>(`${this.UrlServiceDetran}condutor/${id}`,condutor, super.ObterAuthHeaderJson());
+    }
+
     excluirCondutor(id: string): Observable<any> {        
         return this.http.delete<any>(`${this.UrlServiceDetran}condutor/${id}`, super.ObterAuthHeaderJson());
     }

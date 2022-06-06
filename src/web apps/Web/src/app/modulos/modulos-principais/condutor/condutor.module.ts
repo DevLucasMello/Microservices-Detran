@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AngularDraggableModule } from "angular2-draggable";
+import { TextMaskModule } from "angular2-text-mask";
 import { NgBrazil } from "ng-brazil";
 import { CustomFormsModule } from "ng2-validation";
 import { CollapseModule } from "ngx-bootstrap/collapse";
@@ -14,6 +15,7 @@ import { AutenticadoModule } from "../../modulos-apoio/autenticado-module";
 import { VeiculoService } from "../veiculo/services/veiculo.service";
 import { CondutorComponent } from "./condutor.component";
 import { CondutorRoutingModule } from "./condutor.route";
+import { DetalheCondutorComponent } from "./detalhe-condutor/detalhe-condutor.component";
 import { CondutorGuard } from "./services/condutor.guard";
 import { CondutorService } from "./services/condutor.service";
 import { TodosCondutoresComponent } from "./todos-condutores/todos-condutores.component";
@@ -25,7 +27,8 @@ export const httpInterceptorProviders = [
 @NgModule({
   declarations: [
     CondutorComponent,
-    TodosCondutoresComponent    
+    TodosCondutoresComponent,
+    DetalheCondutorComponent    
   ],
   imports: [
     CommonModule, 
@@ -39,7 +42,8 @@ export const httpInterceptorProviders = [
     CustomFormsModule,
     AngularDraggableModule,
     ModalModule.forRoot(),
-    AutenticadoModule
+    AutenticadoModule,
+    TextMaskModule
   ],
   providers: [
     httpInterceptorProviders, 

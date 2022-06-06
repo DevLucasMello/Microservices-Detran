@@ -5,6 +5,7 @@ import { NotFoundComponent } from '../../modulos-apoio/not-found/not-found.compo
 import { CondutorComponent } from './condutor.component';
 import { TodosCondutoresComponent } from './todos-condutores/todos-condutores.component';
 import { CondutorGuard } from './services/condutor.guard';
+import { DetalheCondutorComponent } from './detalhe-condutor/detalhe-condutor.component';
 
 const condutorRouterConfig: Routes = [
   {
@@ -14,6 +15,10 @@ const condutorRouterConfig: Routes = [
       { path: '', component: TodosCondutoresComponent, canActivate: [CondutorGuard] },
 
       { path: 'condutor', component: TodosCondutoresComponent, canActivate: [CondutorGuard] },
+
+      { path: 'cadastrar', component: DetalheCondutorComponent, canActivate: [CondutorGuard] },
+
+      { path: 'editar/:id', component: DetalheCondutorComponent, canActivate: [CondutorGuard] },      
 
       { path: 'acesso-negado', component: AcessoNegadoComponent },
       
