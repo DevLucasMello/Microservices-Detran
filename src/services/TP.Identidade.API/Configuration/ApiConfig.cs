@@ -23,6 +23,17 @@ namespace TP.Identidade.API.Configuration
                 
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Docker",
+                    builder =>
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+
+            });
+
             return services;
         }
 
@@ -34,6 +45,9 @@ namespace TP.Identidade.API.Configuration
                 app.UseCors("Development");
                 app.UseDeveloperExceptionPage();
             }
+
+            // Apenas para testes com Docker
+            app.UseCors("Docker");
 
             app.UseHttpsRedirection();
 

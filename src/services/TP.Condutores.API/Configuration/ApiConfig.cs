@@ -23,6 +23,17 @@ namespace TP.Identidade.API.Configuration
                         .AllowAnyHeader());
                 
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Docker",
+                    builder =>
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+
+            });
         }
 
         public static void UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
@@ -33,6 +44,9 @@ namespace TP.Identidade.API.Configuration
                 app.UseCors("Development");
                 app.UseDeveloperExceptionPage();
             }
+
+            // Apenas para testes com Docker
+            app.UseCors("Docker");
 
             app.UseHttpsRedirection();
 

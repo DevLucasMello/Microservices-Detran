@@ -26,6 +26,17 @@ namespace TP.Bff.Detran.Configuration
                         .AllowAnyHeader());
                 
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Docker",
+                    builder =>
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+
+            });
         }
 
         public static void UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
@@ -36,6 +47,9 @@ namespace TP.Bff.Detran.Configuration
                 app.UseCors("Development");
                 app.UseDeveloperExceptionPage();
             }
+
+            // Apenas para testes com Docker
+            app.UseCors("Docker");
 
             app.UseHttpsRedirection();
 
