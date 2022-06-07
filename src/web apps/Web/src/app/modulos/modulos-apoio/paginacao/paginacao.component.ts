@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Paginacao } from 'src/app/modelos/paginacao';
+import { Store } from '../../modulos-principais/condutor/todo.store';
 
 @Component({
   selector: 'app-paginacao',
@@ -7,10 +8,11 @@ import { Paginacao } from 'src/app/modelos/paginacao';
   styleUrls: ['./paginacao.component.css']
 })
 export class PaginacaoComponent implements OnInit {
-
-  @Input() paginacao: Paginacao;
+  
   @Output() paginacaoEmitter: EventEmitter<any> = new EventEmitter();
 
+  public paginacao: Paginacao;
+  
   public pagina1 = 1;
   public pagina2 = 0;
   public pagina3 = 0;
@@ -20,10 +22,15 @@ export class PaginacaoComponent implements OnInit {
   public paginaAnterior = false;
   public proximaPagina = false;
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit() {
-    this.gerarPaginacao();
+    this.store.getPaginacao().subscribe(page => {
+      if(page){
+        this.paginacao = page;
+        this.gerarPaginacao();
+      }
+    })
   }
 
   gerarPaginacao(){
@@ -84,8 +91,6 @@ export class PaginacaoComponent implements OnInit {
   public emitirPaginacao(pagina: number) {
     if(pagina <= this.numeroPaginas && pagina > 0){
       this.paginacaoEmitter.emit(pagina);
-      this.paginacao.pageIndex = pagina;
-      this.gerarPaginacao();
     }
   }
 

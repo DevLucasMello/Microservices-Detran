@@ -18,6 +18,7 @@ import { CondutorRoutingModule } from "./condutor.route";
 import { DetalheCondutorComponent } from "./detalhe-condutor/detalhe-condutor.component";
 import { CondutorGuard } from "./services/condutor.guard";
 import { CondutorService } from "./services/condutor.service";
+import { Store } from "./todo.store";
 import { TodosCondutoresComponent } from "./todos-condutores/todos-condutores.component";
 
 export const httpInterceptorProviders = [
@@ -50,7 +51,8 @@ export const httpInterceptorProviders = [
     CondutorGuard, 
     CondutorService,
     VeiculoService, 
-    HttpClient
+    HttpClient,
+    Store
   ]
 })
 export class CondutorModule { }

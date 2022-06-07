@@ -1,6 +1,8 @@
 import { HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { throwError } from "rxjs";
 import { environment } from 'src/environments/environment';
+import { ListaDados } from "../modelos/lista-dados";
+import { Paginacao } from "../modelos/paginacao";
 import { LocalStorageUtils } from "../util/localStorage";
 
 export abstract class BaseService {
@@ -43,5 +45,16 @@ export abstract class BaseService {
 
         console.error(response);
         return throwError(response);
+    }
+
+    protected dadosPaginacao(dados: ListaDados<any>): Paginacao{
+        let paginacao = new Paginacao();
+        if(dados){
+            paginacao.pageIndex = dados.pageIndex;
+            paginacao.pageSize = dados.pageSize;
+            paginacao.totalResults = dados.totalResults;
+        }
+
+        return paginacao;
     }
 }

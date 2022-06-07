@@ -2,25 +2,26 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { BaseService } from 'src/app/servicos/base.service';
-import { catchError } from "rxjs/operators";
+import { catchError, tap } from "rxjs/operators";
 import { ListaDados } from "src/app/modelos/lista-dados";
 import { Veiculo } from "../models/veiculo";
+import { Store } from "../../condutor/todo.store";
 
 @Injectable()
 export class VeiculoService extends BaseService {
 
-    constructor(private http: HttpClient) { super() }    
+    constructor(private http: HttpClient, private store: Store) { super() }    
     
     obterTodosVeiculos(page: number, take: number, query: string): Observable<ListaDados<Veiculo>> {        
         return this.http
             .get<ListaDados<Veiculo>>(`${this.UrlServiceDetran}veiculo?ps=${take}&page=${page}&q=${query}`, super.ObterAuthHeaderJson())
-            .pipe(catchError(super.serviceError));
+            .pipe(tap(next => this.store.set('paginacao', super.dadosPaginacao(next))), catchError(super.serviceError));
     }
 
     obterVeiculosPorCpf(page: number, take: number, cpf: string): Observable<ListaDados<Veiculo>> {        
         return this.http
             .get<ListaDados<Veiculo>>(`${this.UrlServiceDetran}veiculo/documento?ps=${take}&page=${page}&cpf=${cpf}`, super.ObterAuthHeaderJson())
-            .pipe(catchError(super.serviceError));
+            .pipe(tap(next => this.store.set('paginacao', super.dadosPaginacao(next))), catchError(super.serviceError));
     }
 
     obterPorId(id: string): Observable<Veiculo> {
