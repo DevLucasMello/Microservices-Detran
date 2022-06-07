@@ -10,7 +10,7 @@ import { NgBrazil } from "ng-brazil";
 import { CustomFormsModule } from "ng2-validation";
 import { CollapseModule } from "ngx-bootstrap/collapse";
 import { ModalModule } from "ngx-bootstrap/modal";
-import { ErrorInterceptor } from "src/app/Validacoes/error.handler.service";
+import { ErrorInterceptor } from "src/app/util/error.handler.service";
 import { AutenticadoModule } from "../../modulos-apoio/autenticado-module";
 import { VeiculoService } from "../veiculo/services/veiculo.service";
 import { CondutorComponent } from "./condutor.component";

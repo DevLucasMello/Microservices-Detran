@@ -4,7 +4,7 @@ import { FormBuilder, FormControlName, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { fromEvent, merge, Observable } from 'rxjs';
-import { DisplayMessage, GenericValidator, ValidationMessages } from 'src/app/Validacoes/generic-form-validator';
+import { DisplayMessage, GenericValidator, ValidationMessages } from 'src/app/util/generic-form-validator';
 import { Condutor } from '../models/condutor';
 import { MASKS, NgBrazilValidators } from 'ng-brazil';
 import { CondutorService } from '../services/condutor.service';
@@ -146,7 +146,8 @@ export class DetalheCondutorComponent implements OnInit, AfterViewInit {
   public salvarCondutor(){
     if(this.cadastroCondutorForm.dirty && this.cadastroCondutorForm.valid){
       this.condutor = Object.assign({}, this.condutor, this.cadastroCondutorForm.value);
-      this.condutor.dataNascimento = this.formatarDataNascimento(this.condutor.dataNascimento)
+      this.condutor.dataNascimento = this.formatarDataNascimento(this.condutor.dataNascimento);
+      this.condutor.cpf = this.condutor.cpf.replace(".", "").replace(".", "").replace("-", "");
       if (this.novoCadastro){        
         this.cadastrarCondutor(this.condutor); 
       }

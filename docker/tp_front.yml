@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  web-app:
+    image: devlucasmello/tc-web-app:latest
+    container_name: tc-web-app
+    build:
+      context: ../src/web apps/Web
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:80"

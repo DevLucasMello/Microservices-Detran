@@ -3,9 +3,9 @@ import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from
 import { fromEvent, merge, Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomValidators } from 'ng2-validation';
-import { LocalStorageUtils } from 'src/app/Validacoes/localStorage';
+import { LocalStorageUtils } from 'src/app/util/localStorage';
 import { LoginService } from '../services/login-service';
-import { DisplayMessage, GenericValidator, ValidationMessages } from 'src/app/Validacoes/generic-form-validator';
+import { DisplayMessage, GenericValidator, ValidationMessages } from 'src/app/util/generic-form-validator';
 import { UsuarioRegistro } from '../models/login-envio';
 import { UsuarioRespostaLogin } from '../models/login-resposta';
 import { ToastrService } from 'ngx-toastr';

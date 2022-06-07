@@ -1,11 +1,13 @@
 export class Veiculo
 {
     public id: string;
+    public condutorId: string;
     public placa: string;
     public modelo: string;
     public marca: string;
     public cor: string;
     public anoFabricacao: number;
+    public cpf: string;
     public condutores: CondutorVeiculo[] = []
 }    
 

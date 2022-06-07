@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
-import { LocalStorageUtils } from 'src/app/Validacoes/localStorage';
+import { LocalStorageUtils } from 'src/app/util/localStorage';
 
 @Injectable()
 export class CondutorGuard implements CanActivate {

@@ -23,6 +23,17 @@ services:
     environment:
       SA_PASSWORD: "Lm@518792"
       ACCEPT_EULA: "Y"
+    depends_on:      
+      - web-app
+
+  web-app:
+    image: devlucasmello/tc-web-app:latest
+    container_name: tc-web-app
+    build:
+      context: ../src/web apps/Web
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:80"
 
   detran:
     image: devlucasmello/tp-gateway-detran:latest

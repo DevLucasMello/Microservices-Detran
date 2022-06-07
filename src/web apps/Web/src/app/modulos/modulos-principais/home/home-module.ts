@@ -14,7 +14,7 @@ import { AngularDraggableModule } from 'angular2-draggable';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HomeComponent } from './home/home.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ErrorInterceptor } from 'src/app/Validacoes/error.handler.service';
+import { ErrorInterceptor } from 'src/app/util/error.handler.service';
 import { HomeGuard } from './services/home.guard';
 import { AutenticadoModule } from '../../modulos-apoio/autenticado-module';
 

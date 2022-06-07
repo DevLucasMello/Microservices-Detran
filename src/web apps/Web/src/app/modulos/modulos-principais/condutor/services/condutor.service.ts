@@ -29,6 +29,12 @@ export class CondutorService extends BaseService {
             .pipe(catchError(super.serviceError));
     }
 
+    obterPorCpf(cpf: string): Observable<Condutor> {
+        return this.http
+            .get<Condutor>(`${this.UrlServiceDetran}condutor/documento/${cpf}`, super.ObterAuthHeaderJson())
+            .pipe(catchError(super.serviceError));
+    }
+
     cadastrarCondutor(condutor: Condutor): Observable<any> {
         return this.http.post<any>(`${this.UrlServiceDetran}condutor`,condutor, super.ObterAuthHeaderJson());
     }

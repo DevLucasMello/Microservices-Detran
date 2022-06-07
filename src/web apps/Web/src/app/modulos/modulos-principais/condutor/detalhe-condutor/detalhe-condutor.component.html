@@ -2,7 +2,7 @@
   <div class="painel-topo">
     <h2>Cadastro de Condutor</h2>
   </div>  
-  <form novalidate (ngSubmit)="salvarCondutor()" [formGroup]="cadastroCondutorForm" class="teste">
+  <form novalidate (ngSubmit)="salvarCondutor()" [formGroup]="cadastroCondutorForm" class="formulario">
     <div class="form-horizontal painel-corpo">
 
       <div class="form-group">
@@ -80,7 +80,7 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group botoes">
         <div class="col-md-4 col-md-offset-2">
           <span>
             <button class="btn btn-primary" id="Registrar" [disabled]="!cadastroCondutorForm.valid" 
@@ -89,6 +89,7 @@
           </span>
         </div>
       </div>
+      
     </div>
   </form>
 </div>
