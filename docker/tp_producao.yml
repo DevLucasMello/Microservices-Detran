@@ -27,8 +27,8 @@ services:
       - web-app
 
   web-app:
-    image: devlucasmello/tc-web-app:latest
-    container_name: tc-web-app
+    image: devlucasmello/tp-web-app:latest
+    container_name: tp-web-app
     build:
       context: ../src/web apps/Web
       dockerfile: ./Dockerfile
