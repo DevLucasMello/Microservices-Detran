@@ -2,16 +2,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 import { Paginacao } from 'src/app/modelos/paginacao';
 
-export interface State {
+export interface StatePageVeiculo {
     paginacao: Paginacao
 }
 
-const state: State = {
+const state: StatePageVeiculo = {
     paginacao: new Paginacao()
 };
 
-export class Store {
-    private subject = new BehaviorSubject<State>(state);
+export class StorePageVeiculo {
+    private subject = new BehaviorSubject<StatePageVeiculo>(state);
     private store = this.subject.asObservable();
 
     get value() {

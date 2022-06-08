@@ -153,7 +153,7 @@ export class TodosVeiculosComponent implements OnInit {
       })
   }
 
-  abrirCondutores(placa: string, page: number = 1, take: number = 8){
+  abrirCondutores(placa: string, page: number = 1, take: number = 4){
     this.condutores = new ListaDados<Condutor>();
     this.paginacaoCondutor.pageIndex = 0;
     this.placaSelecionada = placa;
@@ -161,7 +161,7 @@ export class TodosVeiculosComponent implements OnInit {
     this.mdCondutores.show();
   }
 
-  private obterCondutoresPorPlaca(placa: string, page: number, take: number = 8){
+  private obterCondutoresPorPlaca(placa: string, page: number, take: number = 4){
     this.condutorService.obterCondutoresPorPlaca(page, take, placa)
       .subscribe(response => {
         if (response){

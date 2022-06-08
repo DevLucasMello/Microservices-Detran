@@ -5,12 +5,12 @@ import { BaseService } from 'src/app/servicos/base.service';
 import { catchError, tap } from "rxjs/operators";
 import { ListaDados } from "src/app/modelos/lista-dados";
 import { Veiculo } from "../models/veiculo";
-import { Store } from "../../condutor/todo.store";
+import { StorePageVeiculo } from "./veiculo-paginacao.store";
 
 @Injectable()
 export class VeiculoService extends BaseService {
 
-    constructor(private http: HttpClient, private store: Store) { super() }    
+    constructor(private http: HttpClient, private store: StorePageVeiculo) { super() }    
     
     obterTodosVeiculos(page: number, take: number, query: string): Observable<ListaDados<Veiculo>> {        
         return this.http

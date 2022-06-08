@@ -155,7 +155,7 @@ export class TodosCondutoresComponent implements OnInit {
       })
   }
 
-  abrirVeiculos(cpf: string, page: number = 1, take: number = 8){
+  abrirVeiculos(cpf: string, page: number = 1, take: number = 4){
     this.veiculos = new ListaDados<Veiculo>();
     this.paginacaoVeiculo.pageIndex = 0;
     this.cpfSelecionado = cpf;
@@ -163,7 +163,7 @@ export class TodosCondutoresComponent implements OnInit {
     this.mdVeiculos.show();
   }
 
-  private obterVeiculosPorCpf(cpf: string, page: number, take: number = 8){
+  private obterVeiculosPorCpf(cpf: string, page: number, take: number = 4){
     this.veiculoService.obterVeiculosPorCpf(page, take, cpf)
       .subscribe(response => {
         if (response){

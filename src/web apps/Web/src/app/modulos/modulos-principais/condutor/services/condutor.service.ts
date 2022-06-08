@@ -5,12 +5,12 @@ import { BaseService } from 'src/app/servicos/base.service';
 import { catchError, tap } from "rxjs/operators";
 import { Condutor } from "../models/condutor";
 import { ListaDados } from "src/app/modelos/lista-dados";
-import { Store } from "../todo.store";
+import { StorePageCondutor } from "./condutor-paginacao.store";
 
 @Injectable()
 export class CondutorService extends BaseService {
 
-    constructor(private http: HttpClient, private store: Store) { super() }
+    constructor(private http: HttpClient, private store: StorePageCondutor) { super() }
     
     obterTodosCondutores(page: number, take: number, query: string): Observable<ListaDados<Condutor>> {        
         return this.http

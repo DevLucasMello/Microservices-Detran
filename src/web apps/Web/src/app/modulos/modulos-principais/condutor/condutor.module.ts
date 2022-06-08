@@ -18,8 +18,9 @@ import { CondutorRoutingModule } from "./condutor.route";
 import { DetalheCondutorComponent } from "./detalhe-condutor/detalhe-condutor.component";
 import { CondutorGuard } from "./services/condutor.guard";
 import { CondutorService } from "./services/condutor.service";
-import { Store } from "./todo.store";
+import { StorePageCondutor } from "./services/condutor-paginacao.store";
 import { TodosCondutoresComponent } from "./todos-condutores/todos-condutores.component";
+import { StorePageVeiculo } from "../veiculo/services/veiculo-paginacao.store";
 
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
@@ -52,7 +53,8 @@ export const httpInterceptorProviders = [
     CondutorService,
     VeiculoService, 
     HttpClient,
-    Store
+    StorePageCondutor,
+    StorePageVeiculo
   ]
 })
 export class CondutorModule { }

@@ -12,9 +12,10 @@ import { CollapseModule } from "ngx-bootstrap/collapse";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { ErrorInterceptor } from "src/app/util/error.handler.service";
 import { AutenticadoModule } from "../../modulos-apoio/autenticado-module";
+import { StorePageCondutor } from "../condutor/services/condutor-paginacao.store";
 import { CondutorService } from "../condutor/services/condutor.service";
-import { Store } from "../condutor/todo.store";
 import { DetalheVeiculoComponent } from "./detalhe-veiculo/detalhe-veiculo.component";
+import { StorePageVeiculo } from "./services/veiculo-paginacao.store";
 import { VeiculoGuard } from "./services/veiculo.guard";
 import { VeiculoService } from "./services/veiculo.service";
 import { TodosVeiculosComponent } from "./todos-veiculos/todos-veiculos.component";
@@ -52,7 +53,8 @@ export const httpInterceptorProviders = [
     VeiculoService,
     CondutorService, 
     HttpClient,
-    Store
+    StorePageVeiculo,
+    StorePageCondutor
   ]
   
 })

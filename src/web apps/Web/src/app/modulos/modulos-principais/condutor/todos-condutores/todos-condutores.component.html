@@ -41,7 +41,7 @@
 
   </div>
   <div *ngIf="paginacao.pageIndex > 0" class="paginacao">        
-    <app-paginacao (paginacaoEmitter)="carregarRegistros($event)"></app-paginacao>
+    <app-paginacao-condutor (paginacaoCondutorEmitter)="carregarRegistros($event)"></app-paginacao-condutor>
   </div> 
 </div>
 
@@ -159,7 +159,7 @@
 
                     <!--Inicio Parte Inferior Modal-->
                     <div *ngIf="paginacaoVeiculo.pageIndex > 0" class="paginacao">        
-                      <app-paginacao (paginacaoEmitter)="carregarVeiculos($event)"></app-paginacao>
+                      <app-paginacao-veiculo (paginacaoVeiculoEmitter)="carregarVeiculos($event)"></app-paginacao-veiculo>
                     </div>                     
                     <!--Fim Parte Inferior Modal-->
 
