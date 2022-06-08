@@ -1,64 +1,51 @@
-<!---![Logo of the project](http://logo_link)-->
+# Aplicação Distribuída em APIs
  
-## Aplicação Distribuída em APIs
- 
- <!---
-## Technology 
- 
-Here are the technologies used in this project.
- 
-* Ruby version  x.x.x
-* Rails version x.x.x
-* ...
- 
- 
-## Services Used
- 
-* Github
-* ...
- 
- 
-## Ruby Gems
-...
- 
-## Getting started
- 
-* To install gems:
->    $ bundle install
-* To create the bank and do as migrations:
->    $ rake db:create db:migrate db:seed
-* To run the project:
->    $ rails s
- 
-## How to use
- 
-Here will be the images and descriptions. Principal content.
- 
- 
-## Features
- 
-  - Here will be the features.
- 
- 
-## Links
- 
-  - Link of deployed application: (if has been deployed)
-  - Repository: https://link_of_repository
-    - In case of sensitive bugs like security vulnerabilities, please contact
-      YOUR EMAIL directly instead of using issue tracker. We value your effort
-      to improve the security and privacy of this project!
- 
- 
-## Versioning
- 
-1.0.0.0
- 
- 
-## Authors
- 
-* **YOUR NAME**: @YOUR_GITHUB_NICKNAME (https://github.com/YOUR_GITHUB_NICKNAME)
- 
- 
-Please follow github and join us!
-Thanks to visiting me and good coding!
--->
+## Tecnologias / Componentes implementados
+
+    - .Net 5;
+    - WebApi;
+    - SOLID;
+    - Clean Code;
+    - Design Patterns;
+    - DDD;
+    - CQRS;
+    - Arquitetura Hexagonal;
+    - SqlServer;
+    - EntityFrameworkCore 5;
+    - Dapper;
+    - Automapper;
+    - Identity;
+    - JWT;
+    - Angular 11;
+    - Docker;
+    - Testes de Unidade;
+    - Testes de Integração;
+    - Bogus;
+    - Moq;
+    - Automocker;
+    - FluentValidator;
+    - MediatR;
+    - Swagger UI with JWT support;
+    - RabbitMq;
+    - EasyNetQ;
+
+## Recursos para rodar a aplicação
+
+   - Docker instalado com conta ativa
+   - Interface gráfica SqlServer
+
+
+## Instruções de uso
+
+   - 1° - Baixar projeto do GitHub
+   - 2° - Criar uma pasta com nome "dev" no diretório C:
+   - 3° - Extrair o projeto baixado para pasta "dev"
+   - 4° - No cmd do windows digitar o seguinte comando para navegar até o diretório "cd c:/dev/Microservices-Detran/docker"
+   - 5° - Ainda no cmd, digitar o comando para criar imagem e rodar os containers docker "docker-compose -f tp_producao.yml up --build"
+   - 6° - Abrir interface gráfica do SqlServer e verificar se os bancos de dados "TesteCondutor" "TesteVeiculo" "TesteIdentidade" foram criados
+conforme credenciais: host -> localhost, 1433 user -> sa password -> Lm@518792
+
+### Passo 7º apenas se os bancos mencionados acima não foram criados
+   - 7° - Abra a interface do docker e clique em "restart" no container "tp-sql-server"
+
+   - 8° - Abrir o navegador de sua preferência e digite a url "localhost:8080" para carregar a aplicação.
