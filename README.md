@@ -43,7 +43,7 @@
    - 4° - No cmd do windows digitar o seguinte comando para navegar até o diretório "cd c:/dev/Microservices-Detran/docker"
    - 5° - Ainda no cmd, digitar o comando para criar imagem e rodar os containers docker "docker-compose -f tp_producao.yml up --build"
    - 6° - Abrir interface gráfica do SqlServer e verificar se os bancos de dados "TesteCondutor" "TesteVeiculo" "TesteIdentidade" foram criados
-conforme credenciais: host -> localhost, 1433 user -> sa password -> Lm@518792
+conforme credenciais: host -> localhost, 1433 user -> sa password -> Lm@111111
 
 ### Passo 7º apenas se os bancos mencionados acima não foram criados
    - 7° - Abra a interface do docker e clique em "restart" no container "tp-sql-server"
